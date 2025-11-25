@@ -1,0 +1,276 @@
+#!/usr/bin/env python3
+"""
+Geocode addresses in penalty_notices.json using OpenStreetMap Nominatim.
+
+This script:
+- Geocodes addresses that don't have lat/lon coordinates
+- Reuses geocoded locations for duplicate addresses
+- Implements rate limiting to avoid OSM rate limits
+- Uses fallback methods to strip unit/shop numbers for difficult addresses
+- Tracks failed geocodings for manual review
+"""
+
+import json
+import re
+import time
+from pathlib import Path
+from typing import Dict, Optional, Tuple
+
+from geopy.geocoders import Nominatim
+from geopy.exc import GeocoderTimedOut, GeocoderServiceError
+
+
+# Rate limiting: Nominatim allows 1 request per second, but we'll be more conservative
+# to avoid any issues. We'll use 1.2 seconds between requests.
+RATE_LIMIT_DELAY = 1.2
+
+# User agent email from git commit
+USER_AGENT_EMAIL = "231821315+aussiedatagal@users.noreply.github.com"
+
+
+def normalize_address(address: str) -> str:
+    """Normalize address for comparison (lowercase, strip extra spaces)."""
+    return re.sub(r'\s+', ' ', address.strip().upper())
+
+
+def generate_address_variants(full_address: str) -> list:
+    """
+    Generate address variants by stripping characters from the front.
+    When a special character (punctuation or whitespace) is encountered,
+    strip up to and including that character, then add the remaining string to variants.
+    
+    Minimum required elements: 4 tokens (after splitting on punctuation/whitespace).
+    Stop removing if we get below 4 tokens.
+    
+    Example:
+    "SHOP D1, 1 WROXHAM STREET, PRESTONS, 2170"
+    -> ["SHOP D1, 1 WROXHAM STREET, PRESTONS, 2170",
+        "D1, 1 WROXHAM STREET, PRESTONS, 2170",
+        "1 WROXHAM STREET, PRESTONS, 2170",
+        "WROXHAM STREET, PRESTONS, 2170"]
+    """
+    variants = [full_address]
+    
+    # Special characters: punctuation and whitespace
+    special_chars = set(',/-\t\n\r ')
+    
+    current = full_address
+    i = 0
+    
+    while i < len(current):
+        char = current[i]
+        
+        if char in special_chars:
+            # Found special character - strip everything up to and including it
+            remaining = current[i + 1:].strip()
+            
+            # Check if remaining has at least 4 tokens
+            tokens = re.split(r'[,\s/\-]+', remaining)
+            tokens = [t.strip() for t in tokens if t.strip()]
+            
+            if len(tokens) >= 4:
+                if remaining and remaining != full_address:
+                    variants.append(remaining)
+                # Continue with the remaining string
+                current = remaining
+                i = 0
+            else:
+                # Below minimum, stop
+                break
+        else:
+            # Not special, just move to next character
+            i += 1
+    
+    # Remove duplicates while preserving order
+    seen = set()
+    unique_variants = []
+    for variant in variants:
+        normalized = normalize_address(variant)
+        if normalized not in seen:
+            seen.add(normalized)
+            unique_variants.append(variant)
+    
+    return unique_variants
+
+
+def geocode_address(geocoder: Nominatim, address: str, max_retries: int = 3) -> Optional[Tuple[float, float]]:
+    """
+    Geocode an address with retry logic.
+    
+    Returns (lat, lon) tuple if successful, None otherwise.
+    """
+    for attempt in range(max_retries):
+        try:
+            location = geocoder.geocode(address, timeout=10, exactly_one=True)
+            if location:
+                return (location.latitude, location.longitude)
+            return None
+        except (GeocoderTimedOut, GeocoderServiceError) as e:
+            if attempt < max_retries - 1:
+                wait_time = (attempt + 1) * 2  # Exponential backoff: 2s, 4s, 6s
+                print(f"  Geocoding error (attempt {attempt + 1}/{max_retries}): {e}")
+                print(f"  Waiting {wait_time} seconds before retry...")
+                time.sleep(wait_time)
+            else:
+                print(f"  Failed to geocode after {max_retries} attempts: {e}")
+                return None
+        except Exception as e:
+            print(f"  Unexpected error geocoding '{address}': {e}")
+            return None
+    
+    return None
+
+
+def main():
+    """Main geocoding function."""
+    data_file = Path("penalty_notices.json")
+    failed_file = Path("failed_geocoding.json")
+    
+    # Load penalty notices
+    print(f"Loading {data_file}...")
+    with open(data_file, 'r', encoding='utf-8') as f:
+        penalty_notices = json.load(f)
+    
+    print(f"Loaded {len(penalty_notices)} penalty notices")
+    
+    # Initialize geocoder with user agent
+    geocoder = Nominatim(user_agent=USER_AGENT_EMAIL)
+    
+    # Build address cache: maps normalized address -> (lat, lon)
+    # This allows us to reuse geocoded locations for duplicate addresses
+    address_cache: Dict[str, Tuple[float, float]] = {}
+    
+    # Load existing geocoded addresses into cache
+    print("Building address cache from existing geocoded locations...")
+    for notice_id, notice in penalty_notices.items():
+        address = notice.get("address", {})
+        if address.get("lat") is not None and address.get("lon") is not None:
+            full_address = address.get("full", "")
+            if full_address:
+                normalized = normalize_address(full_address)
+                address_cache[normalized] = (address["lat"], address["lon"])
+    
+    print(f"Found {len(address_cache)} already geocoded addresses in cache")
+    
+    # Track statistics
+    stats = {
+        "total": 0,
+        "already_geocoded": 0,
+        "geocoded_from_cache": 0,
+        "geocoded_new": 0,
+        "failed": 0
+    }
+    
+    # Failed geocodings for manual review
+    failed_geocodings = []
+    
+    # Process each penalty notice
+    print("\nStarting geocoding process...")
+    for idx, (notice_id, notice) in enumerate(penalty_notices.items(), 1):
+        address = notice.get("address", {})
+        full_address = address.get("full", "")
+        
+        if not full_address:
+            continue
+        
+        stats["total"] += 1
+        
+        # Skip if already geocoded
+        if address.get("lat") is not None and address.get("lon") is not None:
+            stats["already_geocoded"] += 1
+            if idx % 100 == 0:
+                print(f"Progress: {idx}/{len(penalty_notices)} (skipped {stats['already_geocoded']} already geocoded)")
+            continue
+        
+        normalized = normalize_address(full_address)
+        
+        # Check cache first
+        if normalized in address_cache:
+            lat, lon = address_cache[normalized]
+            address["lat"] = lat
+            address["lon"] = lon
+            stats["geocoded_from_cache"] += 1
+            if idx % 100 == 0:
+                print(f"Progress: {idx}/{len(penalty_notices)} (cached: {stats['geocoded_from_cache']}, new: {stats['geocoded_new']}, failed: {stats['failed']})")
+            continue
+        
+        # Generate address variants
+        variants = generate_address_variants(full_address)
+        
+        # Try geocoding each variant
+        geocoded = False
+        for variant in variants:
+            print(f"[{idx}/{len(penalty_notices)}] Trying: {variant}")
+            
+            # Rate limiting
+            time.sleep(RATE_LIMIT_DELAY)
+            
+            result = geocode_address(geocoder, variant)
+            
+            if result:
+                lat, lon = result
+                address["lat"] = lat
+                address["lon"] = lon
+                
+                # Add to cache (all variants map to same location)
+                for v in variants:
+                    address_cache[normalize_address(v)] = (lat, lon)
+                
+                stats["geocoded_new"] += 1
+                geocoded = True
+                # Show which variant succeeded (if it's different from the original)
+                if variant != full_address:
+                    print(f"  ✓ Success with variant: {variant}")
+                else:
+                    print(f"  ✓ Success with original address")
+                print(f"    Coordinates: ({lat:.6f}, {lon:.6f})")
+                break  # Success - stop trying variants
+            else:
+                print(f"  ✗ No result")
+        
+        # Only log to failed_geocoding.json if ALL variants failed (geocoded is still False)
+        if not geocoded:
+            stats["failed"] += 1
+            failed_geocodings.append({
+                "penalty_notice_number": notice.get("penalty_notice_number"),
+                "name": notice.get("name"),
+                "address": full_address,
+                "variants_tried": variants
+            })
+            print(f"  ✗✗ FAILED: All variants failed")
+        
+        # Save progress every 50 entries
+        if idx % 50 == 0:
+            print(f"\nSaving progress... ({idx}/{len(penalty_notices)})")
+            with open(data_file, 'w', encoding='utf-8') as f:
+                json.dump(penalty_notices, f, indent=2, ensure_ascii=False)
+            
+            # Save failed geocodings
+            with open(failed_file, 'w', encoding='utf-8') as f:
+                json.dump(failed_geocodings, f, indent=2, ensure_ascii=False)
+    
+    # Final save
+    print("\nSaving final results...")
+    with open(data_file, 'w', encoding='utf-8') as f:
+        json.dump(penalty_notices, f, indent=2, ensure_ascii=False)
+    
+    # Save failed geocodings
+    with open(failed_file, 'w', encoding='utf-8') as f:
+        json.dump(failed_geocodings, f, indent=2, ensure_ascii=False)
+    
+    # Print summary
+    print("\n" + "="*60)
+    print("GEOCODING SUMMARY")
+    print("="*60)
+    print(f"Total addresses processed: {stats['total']}")
+    print(f"Already geocoded: {stats['already_geocoded']}")
+    print(f"Geocoded from cache: {stats['geocoded_from_cache']}")
+    print(f"Newly geocoded: {stats['geocoded_new']}")
+    print(f"Failed: {stats['failed']}")
+    print(f"\nFailed geocodings saved to: {failed_file}")
+    print("="*60)
+
+
+if __name__ == "__main__":
+    main()
+
