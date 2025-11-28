@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import './App.css'
@@ -17,6 +17,7 @@ L.Icon.Default.mergeOptions({
 function App() {
   const [groupedLocations, setGroupedLocations] = useState([])
   const [selectedLocation, setSelectedLocation] = useState(null)
+  const [selectedShopIndex, setSelectedShopIndex] = useState(0)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [defaultFilters, setDefaultFilters] = useState(null)
   const [filters, setFilters] = useState({
@@ -293,6 +294,28 @@ function App() {
     return filtered
   }, [groupedByLocation, filters])
 
+  // Group filtered locations by coordinates to handle multiple shops at same location
+  const locationsByCoordinates = useMemo(() => {
+    const coordMap = new Map()
+    
+    filteredLocations.forEach(group => {
+      const key = `${group.location.lat.toFixed(6)},${group.location.lon.toFixed(6)}`
+      
+      if (!coordMap.has(key)) {
+        coordMap.set(key, {
+          location: group.location,
+          address: group.address,
+          council: group.council,
+          shops: []
+        })
+      }
+      
+      coordMap.get(key).shops.push(group)
+    })
+    
+    return Array.from(coordMap.values())
+  }, [filteredLocations])
+
   const [infoExpanded, setInfoExpanded] = useState(true)
 
   // Check if any filters are active (not at default values)
@@ -379,7 +402,7 @@ function App() {
             <div>
               <h2>Filters</h2>
               <div className="count">
-                {filteredLocations.length} location{filteredLocations.length !== 1 ? 's' : ''} found
+                {locationsByCoordinates.length} location{locationsByCoordinates.length !== 1 ? 's' : ''} found
               </div>
             </div>
             <button 
@@ -434,50 +457,55 @@ function App() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Created by <a href="https://aussiedatagal.github.io/" target="_blank" rel="noopener noreferrer">Aussie Data Gal</a>'
             />
-            {filteredLocations.map((group, idx) => (
-              <Marker
-                key={idx}
-                position={[group.location.lat, group.location.lon]}
-                icon={L.divIcon({
-                  className: 'custom-marker',
-                  html: `<div style="
-                    background-color: ${getMarkerColor(group.penalties.length)};
-                    width: 22px;
-                    height: 22px;
-                    border-radius: 50%;
-                    border: 3px solid white;
-                    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-                    cursor: pointer;
-                    transition: transform 0.2s;
-                  "></div>`,
-                  iconSize: [22, 22],
-                  iconAnchor: [11, 11]
-                })}
-                eventHandlers={{
-                  click: () => {
-                    setSelectedLocation(group)
-                    setSidebarOpen(false)
-                  }
-                }}
-              >
-                <Popup>
-                  <div style={{ padding: '0.5rem' }}>
-                    <strong>{group.name}</strong><br />
-                    <span style={{ color: '#6c757d', fontSize: '0.875rem' }}>
-                      {group.penalties.length} penalty{group.penalties.length !== 1 ? 'ies' : 'y'}
-                    </span>
-                  </div>
-                </Popup>
-              </Marker>
-            ))}
+            {locationsByCoordinates.map((locationGroup, idx) => {
+              const totalPenalties = locationGroup.shops.reduce((sum, shop) => sum + shop.penalties.length, 0)
+              
+              return (
+                <Marker
+                  key={idx}
+                  position={[locationGroup.location.lat, locationGroup.location.lon]}
+                  icon={L.divIcon({
+                    className: 'custom-marker',
+                    html: `<div style="
+                      background-color: ${getMarkerColor(totalPenalties)};
+                      width: 22px;
+                      height: 22px;
+                      border-radius: 50%;
+                      border: 3px solid white;
+                      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+                      cursor: pointer;
+                      transition: transform 0.2s;
+                    "></div>`,
+                    iconSize: [22, 22],
+                    iconAnchor: [11, 11]
+                  })}
+                  eventHandlers={{
+                    click: () => {
+                      setSelectedLocation(locationGroup)
+                      setSelectedShopIndex(0)
+                      setSidebarOpen(false)
+                    }
+                  }}
+                />
+              )
+            })}
           </MapContainer>
         </div>
         {selectedLocation && (
           <>
-            <div className="card-overlay" onClick={() => setSelectedLocation(null)} />
+            <div className="card-overlay" onClick={() => {
+              setSelectedLocation(null)
+              setSelectedShopIndex(0)
+            }} />
             <PenaltyCard
-              location={selectedLocation}
-              onClose={() => setSelectedLocation(null)}
+              location={selectedLocation.shops[selectedShopIndex]}
+              locationGroup={selectedLocation}
+              selectedShopIndex={selectedShopIndex}
+              onShopChange={setSelectedShopIndex}
+              onClose={() => {
+                setSelectedLocation(null)
+                setSelectedShopIndex(0)
+              }}
             />
           </>
         )}

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { OFFENCE_CODES } from '../utils'
 
-function PenaltyCard({ location, onClose }) {
+function PenaltyCard({ location, locationGroup, selectedShopIndex, onShopChange, onClose }) {
   const formatDate = (dateStr) => {
     return new Date(dateStr).toLocaleDateString('en-AU', {
       year: 'numeric',
@@ -21,6 +21,8 @@ function PenaltyCard({ location, onClose }) {
     return `$${amount.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
   }
 
+  const hasMultipleShops = locationGroup && locationGroup.shops && locationGroup.shops.length > 1
+
   return (
     <div className="penalty-card">
       <div className="card-header">
@@ -29,6 +31,53 @@ function PenaltyCard({ location, onClose }) {
           <div className="card-section-content" style={{ fontSize: '0.8125rem', color: '#6c757d' }}>
             {location.address}
           </div>
+          {hasMultipleShops && (
+            <div style={{ marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid #e9ecef' }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#6c757d', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                {locationGroup.shops.length} Shops at This Location
+              </div>
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                {locationGroup.shops.map((shop, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => onShopChange(idx)}
+                    style={{
+                      padding: '0.5rem 0.75rem',
+                      border: selectedShopIndex === idx ? '2px solid #667eea' : '1px solid #dee2e6',
+                      borderRadius: '6px',
+                      background: selectedShopIndex === idx ? '#f0f4ff' : 'white',
+                      color: selectedShopIndex === idx ? '#667eea' : '#212529',
+                      fontSize: '0.8125rem',
+                      fontWeight: selectedShopIndex === idx ? 600 : 400,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      maxWidth: '200px'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (selectedShopIndex !== idx) {
+                        e.target.style.background = '#f8f9fa'
+                        e.target.style.borderColor = '#adb5bd'
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (selectedShopIndex !== idx) {
+                        e.target.style.background = 'white'
+                        e.target.style.borderColor = '#dee2e6'
+                      }
+                    }}
+                  >
+                    {shop.name}
+                    <span style={{ marginLeft: '0.5rem', fontSize: '0.75rem', opacity: 0.7 }}>
+                      ({shop.penalties.length})
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
         <button className="card-close" onClick={onClose}>×</button>
       </div>
