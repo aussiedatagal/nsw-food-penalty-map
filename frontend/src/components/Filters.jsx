@@ -33,9 +33,26 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
     setFilters({ ...filters, councils: updated })
   }
 
+  const handleTextFilterChange = (value) => {
+    setFilters({ ...filters, textFilter: value })
+  }
+
   return (
     <div className="filters">
       <div className="filter-group">
+            <label>Text Search (Regex)</label>
+            <input
+              type="text"
+              className="text-filter-input"
+              placeholder="Search name, offence, party served... (regex supported)"
+              value={filters.textFilter || ''}
+              onChange={(e) => handleTextFilterChange(e.target.value)}
+            />
+            <div className="text-filter-hint">
+              Matches: name, offence description, offence nature, party served
+            </div>
+          </div>
+          <div className="filter-group">
         <label>Date Range</label>
         <RangeSlider
           min={dateRange[0]}

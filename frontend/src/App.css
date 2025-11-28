@@ -16,10 +16,11 @@
 .header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  z-index: 1000;
+  z-index: 2003;
   flex-shrink: 0;
+  position: relative;
 }
 
 .header-content {
@@ -28,22 +29,50 @@
   align-items: center;
 }
 
+.header-left {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
 .header h1 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.5px;
   margin: 0;
+}
+
+.header-byline {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.header-byline a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+}
+
+.header-byline a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.header-byline a:not(:last-child) {
+  margin-right: 0;
 }
 
 .info-toggle {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -57,15 +86,15 @@
 }
 
 .header-info {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-size: 0.8125rem;
+  line-height: 1.5;
 }
 
 .header-info p {
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 0.5rem 0;
 }
 
 .header-info p:last-child {
@@ -89,6 +118,27 @@
   position: relative;
 }
 
+.sidebar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1998;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .sidebar {
   width: 320px;
   background: white;
@@ -96,8 +146,18 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+  box-shadow: -2px 0 16px rgba(0,0,0,0.2);
   flex-shrink: 0;
+  position: absolute;
+  right: -320px;
+  top: 0;
+  bottom: 0;
+  z-index: 1999;
+  transition: right 0.3s ease;
+}
+
+.sidebar.open {
+  right: 0;
 }
 
 .sidebar-header {
@@ -122,7 +182,7 @@
 }
 
 .sidebar-close {
-  display: none;
+  display: flex;
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -137,17 +197,16 @@
   border-radius: 6px;
   transition: all 0.2s;
   margin-left: 1rem;
-}
-
-@media (max-width: 1024px) {
-  .sidebar-close {
-    display: flex;
-  }
+  line-height: 1;
 }
 
 .sidebar-close:hover {
   background: #e9ecef;
   color: #212529;
+}
+
+.sidebar-close:active {
+  transform: scale(0.95);
 }
 
 .sidebar-content {
@@ -173,8 +232,17 @@
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  z-index: 1000;
+  z-index: 2001;
   font-size: 0.875rem;
+}
+
+/* Ensure Leaflet controls stay visible above sidebar */
+.leaflet-control-container {
+  z-index: 2001 !important;
+}
+
+.leaflet-control-attribution {
+  z-index: 2001 !important;
 }
 
 .legend-title {
@@ -225,6 +293,35 @@
   color: #495057;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.text-filter-input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  background: white;
+  color: #212529;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.text-filter-input:hover {
+  border-color: #adb5bd;
+}
+
+.text-filter-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.text-filter-hint {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+  font-style: italic;
 }
 
 .filter-group input[type="range"] {
@@ -289,6 +386,23 @@
   border: 1px solid #dee2e6;
   border-radius: 6px;
   background: white;
+}
+
+.multiselect-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.multiselect-container::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+.multiselect-container::-webkit-scrollbar-thumb {
+  background: #dee2e6;
+  border-radius: 3px;
+}
+
+.multiselect-container::-webkit-scrollbar-thumb:hover {
+  background: #adb5bd;
 }
 
 .multiselect-option {
@@ -382,13 +496,25 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  z-index: 2000;
+  z-index: 3000;
   max-width: 90vw;
   max-height: 90vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 600px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .card-overlay {
@@ -399,7 +525,8 @@
   bottom: 0;
   background: rgba(0,0,0,0.5);
   backdrop-filter: blur(4px);
-  z-index: 1999;
+  z-index: 2999;
+  animation: fadeIn 0.3s ease;
 }
 
 .card-header {
@@ -500,12 +627,11 @@
   border: none !important;
 }
 
-.mobile-toggle {
-  display: none;
+.sidebar-toggle {
   position: absolute;
   top: 1rem;
-  right: 4.5rem;
-  z-index: 1001;
+  right: 1rem;
+  z-index: 2002;
   background: white;
   border: none;
   padding: 0.75rem 1rem;
@@ -515,26 +641,58 @@
   font-weight: 600;
   font-size: 0.875rem;
   color: #212529;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sidebar-toggle:hover {
+  background: #f8f9fa;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.sidebar-toggle:active {
+  transform: translateY(0);
+}
+
+.sidebar-toggle.has-filters {
+  border: 2px solid #667eea;
+  padding: calc(0.75rem - 2px) calc(1rem - 2px);
+}
+
+.filter-indicator {
+  width: 8px;
+  height: 8px;
+  background: #dc3545;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 @media (max-width: 1024px) {
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
   .sidebar {
     position: fixed;
-    right: -320px;
     top: 0;
     bottom: 0;
-    z-index: 2000;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 16px rgba(0,0,0,0.2);
-  }
-
-  .sidebar.open {
-    right: 0;
-  }
-
-  .mobile-toggle {
-    display: block;
-    right: 1rem;
   }
 
   .map-legend {
@@ -545,15 +703,21 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 0.875rem 1.25rem;
+    padding: 0.625rem 1rem;
   }
 
   .header h1 {
     font-size: 1.125rem;
   }
 
+  .header-byline {
+    font-size: 0.6875rem;
+  }
+
   .header-info {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
   }
 
   .penalty-card {

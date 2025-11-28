@@ -12,6 +12,7 @@ This script:
 """
 
 import json
+import shutil
 from collections import defaultdict
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -174,24 +175,29 @@ def main():
                     if norm_party1 and norm_party2 and norm_party1 == norm_party2:
                         party_match = True
                 
-                # 2. Exact address match (normalized)
-                address_match = False
-                norm_addr1 = normalize_address_for_comparison(address)
-                norm_addr2 = normalize_address_for_comparison(group_address)
-                if norm_addr1 and norm_addr2 and norm_addr1 == norm_addr2:
-                    address_match = True
-                
-                # If party_served matches exactly OR address matches exactly, merge regardless of name similarity
-                if party_match or address_match:
+                # If party_served matches exactly, merge regardless of name similarity
+                # This indicates the same business owner/entity
+                if party_match:
                     matched_group = group
                     break
                 
                 # Otherwise, check if names are similar enough
                 # Use lower threshold when coordinates match exactly
+                # But don't merge just based on address alone - require name similarity
+                # Different party_served at same address likely means different business
                 similarity = name_similarity(name, group_name)
                 threshold = NAME_SIMILARITY_THRESHOLD_EXACT_COORDS if coords_match else NAME_SIMILARITY_THRESHOLD
                 
-                if similarity >= threshold:
+                # If names are similar, but party_served is different and both are present,
+                # don't merge - likely different businesses
+                party_mismatch = False
+                if party_served and group_party_served:
+                    norm_party1 = normalize_party_served(party_served)
+                    norm_party2 = normalize_party_served(group_party_served)
+                    if norm_party1 and norm_party2 and norm_party1 != norm_party2:
+                        party_mismatch = True
+                
+                if similarity >= threshold and not party_mismatch:
                     matched_group = group
                     break
         
@@ -236,6 +242,15 @@ def main():
     print(f"\nSaving {len(groups)} grouped locations to {output_file}...")
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(groups, f, indent=2, ensure_ascii=False)
+    
+    # Copy to frontend folder
+    frontend_file = Path("frontend/public/grouped_locations.json")
+    if frontend_file.parent.exists():
+        print(f"Copying to {frontend_file}...")
+        shutil.copy2(output_file, frontend_file)
+        print(f"Successfully copied to frontend folder")
+    else:
+        print(f"Warning: Frontend folder not found at {frontend_file.parent}")
     
     # Print summary statistics
     total_penalties = sum(len(g["penalties"]) for g in groups)
