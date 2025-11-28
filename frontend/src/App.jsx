@@ -15,7 +15,7 @@ L.Icon.Default.mergeOptions({
 })
 
 function App() {
-  const [penalties, setPenalties] = useState({})
+  const [groupedLocations, setGroupedLocations] = useState([])
   const [selectedLocation, setSelectedLocation] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [filters, setFilters] = useState({
@@ -28,50 +28,65 @@ function App() {
   })
 
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}penalty_notices.json`)
+    fetch(`${import.meta.env.BASE_URL}grouped_locations.json`)
       .then(res => res.json())
-      .then(data => setPenalties(data))
-      .catch(err => console.error('Error loading penalty notices:', err))
+      .then(data => {
+        // Transform the grouped_locations format to match what the rest of the code expects
+        const transformed = data.map(group => ({
+          location: { lat: group.address.lat, lon: group.address.lon },
+          name: group.name,
+          address: group.address.full,
+          council: group.council,
+          party_served: group.party_served,
+          penalties: group.penalties
+        }))
+        setGroupedLocations(transformed)
+      })
+      .catch(err => console.error('Error loading grouped locations:', err))
   }, [])
 
   const groupedByLocation = useMemo(() => {
+    // Convert array to object keyed by location for compatibility
     const groups = {}
-    Object.values(penalties).forEach(penalty => {
-      if (!penalty.address?.lat || !penalty.address?.lon) return
-      
-      const key = `${penalty.address.lat.toFixed(4)},${penalty.address.lon.toFixed(4)}`
-      if (!groups[key]) {
-        groups[key] = {
-          location: { lat: penalty.address.lat, lon: penalty.address.lon },
-          name: penalty.name,
-          address: penalty.address.full,
-          council: penalty.council,
-          penalties: []
-        }
-      }
-      groups[key].penalties.push(penalty)
+    groupedLocations.forEach((group, idx) => {
+      const key = `${group.location.lat.toFixed(4)},${group.location.lon.toFixed(4)}-${idx}`
+      groups[key] = group
     })
     return groups
-  }, [penalties])
+  }, [groupedLocations])
 
   const councils = useMemo(() => {
     const set = new Set()
-    Object.values(penalties).forEach(p => p.council && set.add(p.council))
+    groupedLocations.forEach(group => {
+      if (group.council) set.add(group.council)
+    })
     return Array.from(set).sort()
-  }, [penalties])
+  }, [groupedLocations])
 
   const dateRange = useMemo(() => {
-    if (Object.keys(penalties).length === 0) return [0, 0]
-    const dates = Object.values(penalties).map(p => new Date(p.date_of_offence).getTime())
-    return [Math.min(...dates), Math.max(...dates)]
-  }, [penalties])
+    if (groupedLocations.length === 0) return [0, 0]
+    const dates = []
+    groupedLocations.forEach(group => {
+      group.penalties.forEach(penalty => {
+        if (penalty.date_of_offence) {
+          dates.push(new Date(penalty.date_of_offence).getTime())
+        }
+      })
+    })
+    return dates.length > 0 ? [Math.min(...dates), Math.max(...dates)] : [0, 0]
+  }, [groupedLocations])
 
   const penaltyRange = useMemo(() => {
-    if (Object.keys(penalties).length === 0) return [0, 10000]
-    const amounts = Object.values(penalties)
-      .map(p => parseFloat(p.penalty_amount.replace(/[^0-9.]/g, '')) || 0)
-    return [Math.min(...amounts), Math.max(...amounts)]
-  }, [penalties])
+    if (groupedLocations.length === 0) return [0, 10000]
+    const amounts = []
+    groupedLocations.forEach(group => {
+      group.penalties.forEach(penalty => {
+        const amount = parseFloat(penalty.penalty_amount?.replace(/[^0-9.]/g, '') || '0') || 0
+        amounts.push(amount)
+      })
+    })
+    return amounts.length > 0 ? [Math.min(...amounts), Math.max(...amounts)] : [0, 10000]
+  }, [groupedLocations])
 
   const totalPenaltyRange = useMemo(() => {
     if (Object.keys(groupedByLocation).length === 0) return [0, 100000]
@@ -92,18 +107,20 @@ function App() {
 
   const offenceOptionsFromData = useMemo(() => {
     const descriptionMap = new Map()
-    Object.values(penalties).forEach(p => {
-      if (p.offence_code && p.offence_description) {
-        let description = p.offence_description.trim()
-        description = description.replace(/\s*-\s*(Individual|Corporation)$/i, '').trim()
-        
-        if (!descriptionMap.has(description)) {
-          descriptionMap.set(description, [])
+    groupedLocations.forEach(group => {
+      group.penalties.forEach(p => {
+        if (p.offence_code && p.offence_description) {
+          let description = p.offence_description.trim()
+          description = description.replace(/\s*-\s*(Individual|Corporation)$/i, '').trim()
+          
+          if (!descriptionMap.has(description)) {
+            descriptionMap.set(description, [])
+          }
+          if (!descriptionMap.get(description).includes(p.offence_code)) {
+            descriptionMap.get(description).push(p.offence_code)
+          }
         }
-        if (!descriptionMap.get(description).includes(p.offence_code)) {
-          descriptionMap.get(description).push(p.offence_code)
-        }
-      }
+      })
     })
     const options = Array.from(descriptionMap.entries())
       .map(([description, codes]) => ({ 
@@ -118,7 +135,7 @@ function App() {
       options: options.map(opt => ({ description: opt.description, codes: opt.codes }))
     })
     return options
-  }, [penalties])
+  }, [groupedLocations])
 
   const allOffenceCodesInData = useMemo(() => {
     const allCodes = new Set()
@@ -129,7 +146,7 @@ function App() {
   }, [offenceOptionsFromData])
 
   useEffect(() => {
-    if (Object.keys(penalties).length > 0 && dateRange[0] !== 0 && dateRange[1] !== 0) {
+    if (groupedLocations.length > 0 && dateRange[0] !== 0 && dateRange[1] !== 0) {
       setFilters(prev => {
         if (prev.dateRange[0] === 0 && prev.dateRange[1] === 0) {
           return {
@@ -145,7 +162,7 @@ function App() {
         return prev
       })
     }
-  }, [penalties, dateRange, penaltyRange, totalPenaltyRange, offenceCountRange, councils, allOffenceCodesInData])
+  }, [groupedLocations, dateRange, penaltyRange, totalPenaltyRange, offenceCountRange, councils, allOffenceCodesInData])
 
   const filteredLocations = useMemo(() => {
     const totalLocations = Object.values(groupedByLocation).length
@@ -327,7 +344,7 @@ function App() {
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Created by <a href="https://aussiedatagal.github.io/" target="_blank" rel="noopener noreferrer">Aussie Data Gal</a>'
             />
             {filteredLocations.map((group, idx) => (
               <Marker
