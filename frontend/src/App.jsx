@@ -18,13 +18,15 @@ function App() {
   const [groupedLocations, setGroupedLocations] = useState([])
   const [selectedLocation, setSelectedLocation] = useState(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [defaultFilters, setDefaultFilters] = useState(null)
   const [filters, setFilters] = useState({
     dateRange: [0, 0],
     penaltyAmount: [0, 10000],
     totalPenaltyAmount: [0, 100000],
     offenceCount: [1, 100],
     offenceCodes: [],
-    councils: []
+    councils: [],
+    textFilter: ''
   })
 
   useEffect(() => {
@@ -149,7 +151,7 @@ function App() {
     if (groupedLocations.length > 0 && dateRange[0] !== 0 && dateRange[1] !== 0) {
       setFilters(prev => {
         if (prev.dateRange[0] === 0 && prev.dateRange[1] === 0) {
-          return {
+          const newFilters = {
             ...prev,
             dateRange: dateRange,
             penaltyAmount: penaltyRange,
@@ -158,11 +160,24 @@ function App() {
             offenceCodes: allOffenceCodesInData,
             councils: councils
           }
+          // Set defaults when filters are first initialized
+          if (!defaultFilters) {
+            setDefaultFilters({
+              dateRange: dateRange,
+              penaltyAmount: penaltyRange,
+              totalPenaltyAmount: totalPenaltyRange,
+              offenceCount: offenceCountRange,
+              offenceCodes: allOffenceCodesInData,
+              councils: councils,
+              textFilter: ''
+            })
+          }
+          return newFilters
         }
         return prev
       })
     }
-  }, [groupedLocations, dateRange, penaltyRange, totalPenaltyRange, offenceCountRange, councils, allOffenceCodesInData])
+  }, [groupedLocations, dateRange, penaltyRange, totalPenaltyRange, offenceCountRange, councils, allOffenceCodesInData, defaultFilters])
 
   const filteredLocations = useMemo(() => {
     const totalLocations = Object.values(groupedByLocation).length
@@ -174,13 +189,26 @@ function App() {
         totalPenaltyAmount: filters.totalPenaltyAmount,
         offenceCount: filters.offenceCount,
         offenceCodesCount: filters.offenceCodes.length,
-        councilsCount: filters.councils.length
+        councilsCount: filters.councils.length,
+        textFilter: filters.textFilter
       }
     })
 
     if (filters.dateRange[0] === 0 && filters.dateRange[1] === 0) {
       console.log('✅ No date filter - returning all locations')
       return Object.values(groupedByLocation)
+    }
+
+    // Helper function to test text filter with regex
+    const matchesTextFilter = (text) => {
+      if (!filters.textFilter || filters.textFilter.trim() === '') return true
+      try {
+        const regex = new RegExp(filters.textFilter, 'i')
+        return regex.test(text || '')
+      } catch (e) {
+        // If regex is invalid, fall back to simple string matching
+        return (text || '').toLowerCase().includes(filters.textFilter.toLowerCase())
+      }
     }
 
     const stats = {
@@ -191,10 +219,26 @@ function App() {
       filteredByTotalAmount: 0,
       filteredByCode: 0,
       filteredByCouncil: 0,
+      filteredByText: 0,
       passed: 0
     }
 
     const filtered = Object.values(groupedByLocation).filter(group => {
+      // Check text filter first (matches name, offence_description, offence_nature, party_served)
+      if (filters.textFilter && filters.textFilter.trim() !== '') {
+        const matchesName = matchesTextFilter(group.name)
+        const matchesPartyServed = matchesTextFilter(group.party_served)
+        const matchesAnyPenalty = group.penalties.some(penalty => 
+          matchesTextFilter(penalty.offence_description) || 
+          matchesTextFilter(penalty.offence_nature)
+        )
+        
+        if (!matchesName && !matchesPartyServed && !matchesAnyPenalty) {
+          stats.filteredByText++
+          return false
+        }
+      }
+
       const offenceCount = group.penalties.length
       const matchesOffenceCount = offenceCount >= filters.offenceCount[0] && offenceCount <= filters.offenceCount[1]
       
@@ -251,11 +295,52 @@ function App() {
 
   const [infoExpanded, setInfoExpanded] = useState(true)
 
+  // Check if any filters are active (not at default values)
+  const hasActiveFilters = useMemo(() => {
+    if (!defaultFilters) return false
+    
+    // Check text filter
+    if (filters.textFilter && filters.textFilter.trim() !== '') return true
+    
+    // Check offence codes (not all selected)
+    if (filters.offenceCodes.length !== defaultFilters.offenceCodes.length) return true
+    
+    // Check councils (not all selected)
+    if (filters.councils.length !== defaultFilters.councils.length) return true
+    
+    // Check date range
+    if (filters.dateRange[0] !== defaultFilters.dateRange[0] || 
+        filters.dateRange[1] !== defaultFilters.dateRange[1]) return true
+    
+    // Check penalty amount range
+    if (filters.penaltyAmount[0] !== defaultFilters.penaltyAmount[0] || 
+        filters.penaltyAmount[1] !== defaultFilters.penaltyAmount[1]) return true
+    
+    // Check total penalty amount range
+    if (filters.totalPenaltyAmount[0] !== defaultFilters.totalPenaltyAmount[0] || 
+        filters.totalPenaltyAmount[1] !== defaultFilters.totalPenaltyAmount[1]) return true
+    
+    // Check offence count range
+    if (filters.offenceCount[0] !== defaultFilters.offenceCount[0] || 
+        filters.offenceCount[1] !== defaultFilters.offenceCount[1]) return true
+    
+    return false
+  }, [filters, defaultFilters])
+
   return (
     <div className="app">
       <div className="header">
         <div className="header-content">
-          <h1>NSW Food Penalty Notices</h1>
+          <div className="header-left">
+            <h1>NSW Food Penalty Notices</h1>
+            <div className="header-byline">
+              by <a href="https://aussiedatagal.github.io/" target="_blank" rel="noopener noreferrer">Aussie Data Gal</a>
+              {' • '}
+              Data source: <a href="https://www.foodauthority.nsw.gov.au/offences" target="_blank" rel="noopener noreferrer">
+                NSW Food Authority
+              </a>
+            </div>
+          </div>
           <button 
             className="info-toggle"
             onClick={() => setInfoExpanded(!infoExpanded)}
@@ -267,25 +352,28 @@ function App() {
         {infoExpanded && (
           <div className="header-info">
             <p>
-              Each marker represents a food business issued a penalty notice for violating food safety standards. 
-              The data shows where regulatory action has been taken across New South Wales.
-            </p>
-            <p>
-              <strong>Data source:</strong>{' '}
-              <a href="https://www.foodauthority.nsw.gov.au/offences" target="_blank" rel="noopener noreferrer">
-                NSW Food Authority
-              </a>
+             The NSW Food Authority publishes lists of businesses that have breached or are alleged to have breached NSW food safety laws.
+              Publishing the lists gives consumers more information to make decisions about where they eat or buy food.
+             Each marker represents a food business issued a penalty notice for violating food safety standards. 
             </p>
           </div>
         )}
       </div>
       <div className="main-content">
         <button 
-          className="mobile-toggle"
+          className={`sidebar-toggle ${hasActiveFilters ? 'has-filters' : ''}`}
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
           {sidebarOpen ? '✕' : '☰ Filters'}
+          {hasActiveFilters && <span className="filter-indicator" aria-label="Filters active"></span>}
         </button>
+        {sidebarOpen && (
+          <div 
+            className="sidebar-overlay"
+            onClick={() => setSidebarOpen(false)}
+            aria-label="Close sidebar"
+          />
+        )}
         <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
           <div className="sidebar-header">
             <div>
@@ -338,7 +426,7 @@ function App() {
             </div>
           </div>
           <MapContainer
-            center={[-33.8688, 151.2093]}
+            center={[-33.8688, 150.9]}
             zoom={10}
             style={{ height: '100%', width: '100%' }}
           >

@@ -603,6 +603,42 @@
     ]
   },
   {
+    "name": "AL MANDI AND KARAHI HOUSE",
+    "address": {
+      "street": "156 HALDON STREET",
+      "city": "LAKEMBA",
+      "postal_code": "2195",
+      "full": "156 HALDON STREET, LAKEMBA, 2195",
+      "lat": -33.9180948,
+      "lon": 151.0759747
+    },
+    "council": "Canterbury-Bankstown",
+    "party_served": "RUMAISA HAYATH PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3289769230",
+        "name": "AL MANDI AND KARAHI HOUSE",
+        "address": {
+          "street": "156 HALDON STREET",
+          "city": "LAKEMBA",
+          "postal_code": "2195",
+          "full": "156 HALDON STREET, LAKEMBA, 2195",
+          "lat": -33.9180948,
+          "lon": 151.0759747
+        },
+        "council": "Canterbury-Bankstown",
+        "date_of_offence": "2025-03-14T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to, when processing food, take all necessary steps to prevent the likelihood of food being contaminated - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "RUMAISA HAYATH PTY LTD",
+        "date_issued": "2025-06-10T12:00:00Z",
+        "issued_by": "Canterbury Bankstown Council"
+      }
+    ]
+  },
+  {
     "name": "ALDI",
     "address": {
       "street": "440-450 CHAPEL ROAD",
@@ -933,6 +969,42 @@
     ]
   },
   {
+    "name": "ASIAN EVEN 2",
+    "address": {
+      "street": "224 PROSPECT HIGHWAY",
+      "city": "SEVEN HILLS",
+      "postal_code": "2147",
+      "full": "224 PROSPECT HIGHWAY, SEVEN HILLS, 2147",
+      "lat": -33.771968,
+      "lon": 150.9372064
+    },
+    "council": "Blacktown",
+    "party_served": "TRIANGLE SHALLOTS PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120331318",
+        "name": "ASIAN EVEN 2",
+        "address": {
+          "street": "224 PROSPECT HIGHWAY",
+          "city": "SEVEN HILLS",
+          "postal_code": "2147",
+          "full": "224 PROSPECT HIGHWAY, SEVEN HILLS, 2147",
+          "lat": -33.771968,
+          "lon": 150.9372064
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-05-15T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain all premises, fixtures, fittings, and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "TRIANGLE SHALLOTS PTY LTD",
+        "date_issued": "2025-05-19T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
     "name": "ASIAN GROCERY SHOP",
     "address": {
       "street": "81 AUBURN ROAD",
@@ -1036,69 +1108,6 @@
         "penalty_amount": "$880.00",
         "party_served": "C H HOLDINGS PTY LTD",
         "date_issued": "2025-03-25T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120330712",
-        "name": "SIR MANONG",
-        "address": {
-          "street": "159 ROOTY HILL ROAD SOUTH",
-          "city": "EASTERN CREEK",
-          "postal_code": "2766",
-          "full": "159 ROOTY HILL ROAD SOUTH, EASTERN CREEK, 2766",
-          "lat": -33.784048,
-          "lon": 150.8532705
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-03-03T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "CUCINA PTY LTD",
-        "date_issued": "2025-03-25T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332427",
-        "name": "SIR MANONG",
-        "address": {
-          "street": "159 ROOTY HILL ROAD SOUTH",
-          "city": "EASTERN CREEK",
-          "postal_code": "2766",
-          "full": "159 ROOTY HILL ROAD SOUTH, EASTERN CREEK, 2766",
-          "lat": -33.784048,
-          "lon": 150.8532705
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2024-12-05T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "CUCINA PTY LTD",
-        "date_issued": "2024-12-19T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332436",
-        "name": "SIR MANONG",
-        "address": {
-          "street": "159 ROOTY HILL ROAD SOUTH",
-          "city": "EASTERN CREEK",
-          "postal_code": "2766",
-          "full": "159 ROOTY HILL ROAD SOUTH, EASTERN CREEK, 2766",
-          "lat": -33.784048,
-          "lon": 150.8532705
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2024-11-05T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
-        "penalty_amount": "$880.00",
-        "party_served": "CUCINA PTY LTD",
-        "date_issued": "2024-12-19T12:00:00Z",
         "issued_by": "Blacktown City Council"
       }
     ]
@@ -1560,6 +1569,42 @@
     ]
   },
   {
+    "name": "BAR Q SUSHI",
+    "address": {
+      "street": "12 JACKSONS ROAD",
+      "city": "WARRIEWOOD",
+      "postal_code": "2102",
+      "full": "12 JACKSONS ROAD, WARRIEWOOD, 2102",
+      "lat": -33.6958552,
+      "lon": 151.2956672
+    },
+    "council": "Northern Beaches",
+    "party_served": "FIL COMPANY PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3273875404",
+        "name": "BAR Q SUSHI",
+        "address": {
+          "street": "12 JACKSONS ROAD",
+          "city": "WARRIEWOOD",
+          "postal_code": "2102",
+          "full": "12 JACKSONS ROAD, WARRIEWOOD, 2102",
+          "lat": -33.6958552,
+          "lon": 151.2956672
+        },
+        "council": "Northern Beaches",
+        "date_of_offence": "2025-07-15T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to display potentially hazardous food under temperature control - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "FIL COMPANY PTY LTD",
+        "date_issued": "2025-07-17T12:00:00Z",
+        "issued_by": "Northern Beaches Council"
+      }
+    ]
+  },
+  {
     "name": "BARRINGTON GENERAL STORE",
     "address": {
       "street": "12-16 ARGYLE STREET",
@@ -1851,27 +1896,6 @@
     "council": "Blacktown",
     "party_served": "DEIN",
     "penalties": [
-      {
-        "penalty_notice_number": "3120330914",
-        "name": "KING OF KEBABS",
-        "address": {
-          "street": "6 ST MARTINS CRESENT",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "6 ST MARTINS CRESENT, BLACKTOWN, 2148",
-          "lat": -33.7816779,
-          "lon": 150.9166792
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-04-17T12:00:00Z",
-        "offence_code": "11338",
-        "offence_description": "Fail to comply with Food Standards Code - Individual",
-        "offence_nature": "Fail to maintain premises, and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$440.00",
-        "party_served": "UGUR",
-        "date_issued": "2025-05-05T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
       {
         "penalty_notice_number": "3120330831",
         "name": "BELLAYUMI",
@@ -3405,6 +3429,42 @@
     ]
   },
   {
+    "name": "CAFFE CHERRY BEANS",
+    "address": {
+      "street": "180 CAROLINE CHISHOLM DRIVE",
+      "city": "WINSTON HILLS",
+      "postal_code": "2153",
+      "full": "180 CAROLINE CHISHOLM DRIVE, WINSTON HILLS, 2153",
+      "lat": -33.7728999,
+      "lon": 150.971111
+    },
+    "council": "The Hills",
+    "party_served": "KAZZ TRADING PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3285940076",
+        "name": "CAFFE CHERRY BEANS",
+        "address": {
+          "street": "180 CAROLINE CHISHOLM DRIVE",
+          "city": "WINSTON HILLS",
+          "postal_code": "2153",
+          "full": "180 CAROLINE CHISHOLM DRIVE, WINSTON HILLS, 2153",
+          "lat": -33.7728999,
+          "lon": 150.971111
+        },
+        "council": "The Hills",
+        "date_of_offence": "2025-01-07T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to store potentially hazardous food under temperature control",
+        "penalty_amount": "$880.00",
+        "party_served": "KAZZ TRADING PTY LTD",
+        "date_issued": "2025-02-14T12:00:00Z",
+        "issued_by": "The Hills Shire Council"
+      }
+    ]
+  },
+  {
     "name": "CALVIN CREPES BELMORE",
     "address": {
       "street": "408 BURWOOD ROAD",
@@ -3437,6 +3497,42 @@
         "party_served": "HMA TRANSPORT PTY LTD",
         "date_issued": "2025-08-29T12:00:00Z",
         "issued_by": "Canterbury Bankstown Council"
+      }
+    ]
+  },
+  {
+    "name": "CARKEY'S CAFE & NEPALESE FOOD",
+    "address": {
+      "street": "20 THIRD AVENUE",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
+      "lat": -33.7660959,
+      "lon": 150.9124893
+    },
+    "council": "Blacktown",
+    "party_served": "DHAKAL",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332371",
+        "name": "CARKEY'S CAFE & NEPALESE FOOD",
+        "address": {
+          "street": "20 THIRD AVENUE",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
+          "lat": -33.7660959,
+          "lon": 150.9124893
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2024-11-25T12:00:00Z",
+        "offence_code": "11338",
+        "offence_description": "Fail to comply with Food Standards Code - Individual",
+        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$440.00",
+        "party_served": "DHAKAL",
+        "date_issued": "2024-11-25T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -3617,6 +3713,42 @@
         "party_served": "ENRICH GANESHA PTY LTD",
         "date_issued": "2025-09-16T12:00:00Z",
         "issued_by": "City of Ryde"
+      }
+    ]
+  },
+  {
+    "name": "CHATTKORE",
+    "address": {
+      "street": "20 THIRD AVENUE",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
+      "lat": -33.7660959,
+      "lon": 150.9124893
+    },
+    "council": "Blacktown",
+    "party_served": "SINGH",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332353",
+        "name": "CHATTKORE",
+        "address": {
+          "street": "20 THIRD AVENUE",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
+          "lat": -33.7660959,
+          "lon": 150.9124893
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2024-11-25T12:00:00Z",
+        "offence_code": "11338",
+        "offence_description": "Fail to comply with Food Standards Code - Individual",
+        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$440.00",
+        "party_served": "SINGH",
+        "date_issued": "2024-12-05T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -4147,6 +4279,42 @@
     "party_served": "SHRISI INDIAN FOOD AND SWEET PTY LTD",
     "penalties": [
       {
+        "penalty_notice_number": "3120332701",
+        "name": "CHOICE INDIAN FOOD",
+        "address": {
+          "street": "6 DOUGLAS ROAD",
+          "city": "QUAKERS HILL",
+          "postal_code": "2763",
+          "full": "6 DOUGLAS ROAD, QUAKERS HILL, 2763",
+          "lat": -33.727031,
+          "lon": 150.8842544
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-19T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "SHRISI INDIAN FOOD AND SWEET PTY LTD",
+        "date_issued": "2025-02-20T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
+    "name": "CHOICE INDIAN FOOD",
+    "address": {
+      "street": "6 DOUGLAS ROAD",
+      "city": "QUAKERS HILL",
+      "postal_code": "2763",
+      "full": "6 DOUGLAS ROAD, QUAKERS HILL, 2763",
+      "lat": -33.727031,
+      "lon": 150.8842544
+    },
+    "council": "Blacktown",
+    "party_served": "SHRIJI INDIAN FOOD AND SWEET PTY LTD",
+    "penalties": [
+      {
         "penalty_notice_number": "3250249650",
         "name": "CHOICE INDIAN FOOD",
         "address": {
@@ -4186,27 +4354,6 @@
         "penalty_amount": "$880.00",
         "party_served": "SHRIJI INDIAN FOOD AND SWEET PTY LTD",
         "date_issued": "2025-06-25T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332701",
-        "name": "CHOICE INDIAN FOOD",
-        "address": {
-          "street": "6 DOUGLAS ROAD",
-          "city": "QUAKERS HILL",
-          "postal_code": "2763",
-          "full": "6 DOUGLAS ROAD, QUAKERS HILL, 2763",
-          "lat": -33.727031,
-          "lon": 150.8842544
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-19T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "SHRISI INDIAN FOOD AND SWEET PTY LTD",
-        "date_issued": "2025-02-20T12:00:00Z",
         "issued_by": "Blacktown City Council"
       },
       {
@@ -4342,153 +4489,6 @@
         "penalty_amount": "$880.00",
         "party_served": "LAKSHACHANDI PTY LTD",
         "date_issued": "2025-03-12T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332995",
-        "name": "LEAF CAFE BLACKTOWN",
-        "address": {
-          "street": "17 PATRICK STREET",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
-          "lat": -33.770397,
-          "lon": 150.9073843
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-26T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain at or near each hand washing facility a supply of - single use towels",
-        "penalty_amount": "$880.00",
-        "party_served": "HUI AND RUI PTY LTD",
-        "date_issued": "2025-03-11T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332784",
-        "name": "KOCHI",
-        "address": {
-          "street": "17 PATRICK STREET",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
-          "lat": -33.770397,
-          "lon": 150.9073843
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-20T12:00:00Z",
-        "offence_code": "11323",
-        "offence_description": "Sell food that is unsuitable - Corporation",
-        "offence_nature": "Sale of food that is unsuitable",
-        "penalty_amount": "$1320.00",
-        "party_served": "PHJ INTERNATIONAL PTY LTD",
-        "date_issued": "2025-02-26T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332793",
-        "name": "SEHAJ  INDIAN FOOD AND SWEETS",
-        "address": {
-          "street": "17 PATRICK STREET",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
-          "lat": -33.770397,
-          "lon": 150.9073843
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-20T12:00:00Z",
-        "offence_code": "11323",
-        "offence_description": "Sell food that is unsuitable - Corporation",
-        "offence_nature": "Fail to take all practicable measures to sell only safe and suitable food",
-        "penalty_amount": "$1320.00",
-        "party_served": "RPST GROUP PTY LTD",
-        "date_issued": "2025-02-26T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332802",
-        "name": "SEHAJ INDIAN FOOD & SWEETS",
-        "address": {
-          "street": "17 PATRICK ST",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "17 PATRICK ST, BLACKTOWN, 2148",
-          "lat": -33.770397,
-          "lon": 150.9073843
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-20T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "RPST GROUP PTY LTD",
-        "date_issued": "2025-02-26T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332811",
-        "name": "WESTPOINT DELI",
-        "address": {
-          "street": "17 PATRICK STREET",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
-          "lat": -33.770397,
-          "lon": 150.9073843
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-21T12:00:00Z",
-        "offence_code": "11323",
-        "offence_description": "Sell food that is unsuitable - Corporation",
-        "offence_nature": "Fail to take all practicable measures to process only safe and suitable food",
-        "penalty_amount": "$1320.00",
-        "party_served": "WESTPOINT DELI PTY LTD",
-        "date_issued": "2025-02-26T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332820",
-        "name": "ROLL'D WESTPOINT",
-        "address": {
-          "street": "17 PATRICK STREET",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
-          "lat": -33.770397,
-          "lon": 150.9073843
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-20T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to display potentially hazardous food under temperature control",
-        "penalty_amount": "$880.00",
-        "party_served": "HEAFO PTY LTD",
-        "date_issued": "2025-02-26T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332921",
-        "name": "COSTI'S SEAFOOD",
-        "address": {
-          "street": "17 PATRICK STREET",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
-          "lat": -33.770397,
-          "lon": 150.9073843
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-26T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "PSARI PTY LTD",
-        "date_issued": "2025-02-26T12:00:00Z",
         "issued_by": "Blacktown City Council"
       }
     ]
@@ -4967,6 +4967,42 @@
         "party_served": "KONTILY PTY LTD",
         "date_issued": "2024-12-16T12:00:00Z",
         "issued_by": "The Hills Shire Council"
+      }
+    ]
+  },
+  {
+    "name": "COSTI'S SEAFOOD",
+    "address": {
+      "street": "17 PATRICK STREET",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+      "lat": -33.770397,
+      "lon": 150.9073843
+    },
+    "council": "Blacktown",
+    "party_served": "PSARI PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332921",
+        "name": "COSTI'S SEAFOOD",
+        "address": {
+          "street": "17 PATRICK STREET",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+          "lat": -33.770397,
+          "lon": 150.9073843
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-26T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "PSARI PTY LTD",
+        "date_issued": "2025-02-26T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -5922,6 +5958,42 @@
     ]
   },
   {
+    "name": "DOSA ON WHEELS",
+    "address": {
+      "street": "20 THIRD AVENUE",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
+      "lat": -33.7660959,
+      "lon": 150.9124893
+    },
+    "council": "Blacktown",
+    "party_served": "SINGEETHAM",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332362",
+        "name": "DOSA ON WHEELS",
+        "address": {
+          "street": "20 THIRD AVENUE",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
+          "lat": -33.7660959,
+          "lon": 150.9124893
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2024-11-25T12:00:00Z",
+        "offence_code": "11338",
+        "offence_description": "Fail to comply with Food Standards Code - Individual",
+        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$440.00",
+        "party_served": "SINGEETHAM",
+        "date_issued": "2024-12-05T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
     "name": "DUMPLING & NOODLE HOUSE",
     "address": {
       "street": "430 WATTLE STREET",
@@ -6190,90 +6262,6 @@
         "penalty_amount": "$880.00",
         "party_served": "ENZO'S CUCINA MT DRUITT PTY LTD",
         "date_issued": "2025-06-16T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332930",
-        "name": "RED LEA MOUNT DRUITT",
-        "address": {
-          "street": "49 NORTH PARADE",
-          "city": "MOUNT DRUITT",
-          "postal_code": "2770",
-          "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
-          "lat": -33.7661197,
-          "lon": 150.8210589
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-20T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "PARIN AND KENIT PTY LTD",
-        "date_issued": "2025-02-27T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332849",
-        "name": "LILONG BY TASTE OF SHANGHAI",
-        "address": {
-          "street": "49 NORTH PARADE",
-          "city": "MOUNT DRUITT",
-          "postal_code": "2770",
-          "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
-          "lat": -33.7661197,
-          "lon": 150.8210589
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-24T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
-        "penalty_amount": "$880.00",
-        "party_served": "JOY FOOD PTY LTD",
-        "date_issued": "2025-02-26T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332858",
-        "name": "PHO MASTER",
-        "address": {
-          "street": "49 NORTH PARADE",
-          "city": "MOUNT DRUITT",
-          "postal_code": "2770",
-          "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
-          "lat": -33.7661197,
-          "lon": 150.8210589
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-24T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
-        "penalty_amount": "$880.00",
-        "party_served": "NGUYEN FRIENDS PTY LTD",
-        "date_issued": "2025-02-26T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332867",
-        "name": "HONG KONG SEAFOOD MOUNT DRUITT",
-        "address": {
-          "street": "49 NORTH PARADE",
-          "city": "MOUNT DRUITT",
-          "postal_code": "2770",
-          "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
-          "lat": -33.7661197,
-          "lon": 150.8210589
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-24T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
-        "penalty_amount": "$880.00",
-        "party_served": "WEI AND WONG NSW PTY LTD",
-        "date_issued": "2025-02-26T12:00:00Z",
         "issued_by": "Blacktown City Council"
       }
     ]
@@ -6985,27 +6973,6 @@
     "party_served": "FUNDIES BYRON PTY LTD",
     "penalties": [
       {
-        "penalty_notice_number": "3241514394",
-        "name": "FUNDIES ORGANICS",
-        "address": {
-          "street": "61 JONSON STREET",
-          "city": "BYRON BAY",
-          "postal_code": "2481",
-          "full": "61 JONSON STREET, BYRON BAY, 2481",
-          "lat": -28.6475673,
-          "lon": 153.6128394
-        },
-        "council": "Byron",
-        "date_of_offence": "2025-05-24T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain the food premises to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "FUNDIES ORGANICS PTY LTD",
-        "date_issued": "2025-06-05T12:00:00Z",
-        "issued_by": "Byron Shire Council"
-      },
-      {
         "penalty_notice_number": "3241514293",
         "name": "FUNDIES BYRON PTY LTD",
         "address": {
@@ -7024,6 +6991,42 @@
         "penalty_amount": "$880.00",
         "party_served": "FUNDIES BYRON PTY LTD",
         "date_issued": "2024-09-23T12:00:00Z",
+        "issued_by": "Byron Shire Council"
+      }
+    ]
+  },
+  {
+    "name": "FUNDIES ORGANICS",
+    "address": {
+      "street": "61 JONSON STREET",
+      "city": "BYRON BAY",
+      "postal_code": "2481",
+      "full": "61 JONSON STREET, BYRON BAY, 2481",
+      "lat": -28.6475673,
+      "lon": 153.6128394
+    },
+    "council": "Byron",
+    "party_served": "FUNDIES ORGANICS PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3241514394",
+        "name": "FUNDIES ORGANICS",
+        "address": {
+          "street": "61 JONSON STREET",
+          "city": "BYRON BAY",
+          "postal_code": "2481",
+          "full": "61 JONSON STREET, BYRON BAY, 2481",
+          "lat": -28.6475673,
+          "lon": 153.6128394
+        },
+        "council": "Byron",
+        "date_of_offence": "2025-05-24T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "FUNDIES ORGANICS PTY LTD",
+        "date_issued": "2025-06-05T12:00:00Z",
         "issued_by": "Byron Shire Council"
       }
     ]
@@ -7590,6 +7593,63 @@
     ]
   },
   {
+    "name": "GOODLUCK FRUIT MARKET",
+    "address": {
+      "street": "19 FIRST AVENUE",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "19 FIRST AVENUE, BLACKTOWN, 2148",
+      "lat": -33.7681436,
+      "lon": 150.9113337
+    },
+    "council": "Blacktown",
+    "party_served": "D AND C LUCKY FRESH PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332665",
+        "name": "GOODLUCK FRUIT MARKET",
+        "address": {
+          "street": "19 FIRST AVENUE",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "19 FIRST AVENUE, BLACKTOWN, 2148",
+          "lat": -33.7681436,
+          "lon": 150.9113337
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-19T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to display potentially hazardous food under temperature control",
+        "penalty_amount": "$880.00",
+        "party_served": "D AND C LUCKY FRESH PTY LTD",
+        "date_issued": "2025-02-19T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      },
+      {
+        "penalty_notice_number": "3120332674",
+        "name": "GOOD LUCK FRUIT MARKET",
+        "address": {
+          "street": "19 FIRST AVENUE",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "19 FIRST AVENUE, BLACKTOWN, 2148",
+          "lat": -33.7681436,
+          "lon": 150.9113337
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-19T12:00:00Z",
+        "offence_code": "11323",
+        "offence_description": "Sell food that is unsuitable - Corporation",
+        "offence_nature": "Selling food that is unsuitable",
+        "penalty_amount": "$1320.00",
+        "party_served": "D AND C LUCKY FRESH PTY LTD",
+        "date_issued": "2025-02-19T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
     "name": "GOSING CHINESE RESTAURANT",
     "address": {
       "street": "19 ROOTY HILL ROAD NORTH",
@@ -8136,27 +8196,6 @@
     "council": "Canterbury-Bankstown",
     "party_served": "ALI SUPERMARKET PTY LTD",
     "penalties": [
-      {
-        "penalty_notice_number": "3289769230",
-        "name": "AL MANDI AND KARAHI HOUSE",
-        "address": {
-          "street": "156 HALDON STREET",
-          "city": "LAKEMBA",
-          "postal_code": "2195",
-          "full": "156 HALDON STREET, LAKEMBA, 2195",
-          "lat": -33.9180948,
-          "lon": 151.0759747
-        },
-        "council": "Canterbury-Bankstown",
-        "date_of_offence": "2025-03-14T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to, when processing food, take all necessary steps to prevent the likelihood of food being contaminated - Previous warnings given",
-        "penalty_amount": "$880.00",
-        "party_served": "RUMAISA HAYATH PTY LTD",
-        "date_issued": "2025-06-10T12:00:00Z",
-        "issued_by": "Canterbury Bankstown Council"
-      },
       {
         "penalty_notice_number": "3275145208",
         "name": "HALA ALI DINE INN AND TAKEAWAY",
@@ -8878,27 +8917,6 @@
     "party_served": "YILOIZ",
     "penalties": [
       {
-        "penalty_notice_number": "3120331318",
-        "name": "ASIAN EVEN 2",
-        "address": {
-          "street": "224 PROSPECT HIGHWAY",
-          "city": "SEVEN HILLS",
-          "postal_code": "2147",
-          "full": "224 PROSPECT HIGHWAY, SEVEN HILLS, 2147",
-          "lat": -33.771968,
-          "lon": 150.9372064
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-05-15T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain all premises, fixtures, fittings, and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "TRIANGLE SHALLOTS PTY LTD",
-        "date_issued": "2025-05-19T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
         "penalty_notice_number": "3120330602",
         "name": "HILLS KEBAB AND MEXICAN",
         "address": {
@@ -8916,27 +8934,6 @@
         "offence_nature": "Fail to maintain premises and all fixtures, fittings and equipment to the required standard of cleanliness",
         "penalty_amount": "$440.00",
         "party_served": "YILOIZ",
-        "date_issued": "2025-03-12T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120330611",
-        "name": "JUICE SPOT & BUBBLE TEA",
-        "address": {
-          "street": "224 PROSPECT HIGHWAY",
-          "city": "SEVEN HILLS",
-          "postal_code": "2147",
-          "full": "224 PROSPECT HIGHWAY, SEVEN HILLS, 2147",
-          "lat": -33.771968,
-          "lon": 150.9372064
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-03-04T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "VJAY VENTURES PTY LTD",
         "date_issued": "2025-03-12T12:00:00Z",
         "issued_by": "Blacktown City Council"
       }
@@ -9013,27 +9010,6 @@
     "party_served": "HONG KONG FOOD ENTERPRISES PTY LTD",
     "penalties": [
       {
-        "penalty_notice_number": "3272280010",
-        "name": "HONG KONG KITCHEN",
-        "address": {
-          "street": "SHOP 10B, 445 VICTORIA AVE",
-          "city": "CHATSWOOD",
-          "postal_code": "2067",
-          "full": "SHOP 10B, 445 VICTORIA AVE, CHATSWOOD, 2067",
-          "lat": -33.7963127,
-          "lon": 151.181952
-        },
-        "council": "Willoughby",
-        "date_of_offence": "2025-02-27T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to ensure eating and drinking utensils is in a clean and sanitary condition - Previous warnings given",
-        "penalty_amount": "$880.00",
-        "party_served": "HONG KONG FOOD ENTERPRISE PTY LTD",
-        "date_issued": "2025-04-28T12:00:00Z",
-        "issued_by": "Willoughby City Council"
-      },
-      {
         "penalty_notice_number": "3245212080",
         "name": "HONG KONG KITCHEN",
         "address": {
@@ -9053,6 +9029,78 @@
         "party_served": "HONG KONG FOOD ENTERPRISES PTY LTD",
         "date_issued": "2024-11-01T12:00:00Z",
         "issued_by": "Willoughby City Council"
+      }
+    ]
+  },
+  {
+    "name": "HONG KONG KITCHEN",
+    "address": {
+      "street": "SHOP 10B, 445 VICTORIA AVE",
+      "city": "CHATSWOOD",
+      "postal_code": "2067",
+      "full": "SHOP 10B, 445 VICTORIA AVE, CHATSWOOD, 2067",
+      "lat": -33.7963127,
+      "lon": 151.181952
+    },
+    "council": "Willoughby",
+    "party_served": "HONG KONG FOOD ENTERPRISE PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3272280010",
+        "name": "HONG KONG KITCHEN",
+        "address": {
+          "street": "SHOP 10B, 445 VICTORIA AVE",
+          "city": "CHATSWOOD",
+          "postal_code": "2067",
+          "full": "SHOP 10B, 445 VICTORIA AVE, CHATSWOOD, 2067",
+          "lat": -33.7963127,
+          "lon": 151.181952
+        },
+        "council": "Willoughby",
+        "date_of_offence": "2025-02-27T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to ensure eating and drinking utensils is in a clean and sanitary condition - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "HONG KONG FOOD ENTERPRISE PTY LTD",
+        "date_issued": "2025-04-28T12:00:00Z",
+        "issued_by": "Willoughby City Council"
+      }
+    ]
+  },
+  {
+    "name": "HONG KONG SEAFOOD MOUNT DRUITT",
+    "address": {
+      "street": "49 NORTH PARADE",
+      "city": "MOUNT DRUITT",
+      "postal_code": "2770",
+      "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
+      "lat": -33.7661197,
+      "lon": 150.8210589
+    },
+    "council": "Blacktown",
+    "party_served": "WEI AND WONG NSW PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332867",
+        "name": "HONG KONG SEAFOOD MOUNT DRUITT",
+        "address": {
+          "street": "49 NORTH PARADE",
+          "city": "MOUNT DRUITT",
+          "postal_code": "2770",
+          "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
+          "lat": -33.7661197,
+          "lon": 150.8210589
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-24T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
+        "penalty_amount": "$880.00",
+        "party_served": "WEI AND WONG NSW PTY LTD",
+        "date_issued": "2025-02-26T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -10017,6 +10065,63 @@
     ]
   },
   {
+    "name": "JACK'S SEAFOOD",
+    "address": {
+      "street": "4 MOUNT STREET",
+      "city": "MOUNT DRUITT",
+      "postal_code": "2770",
+      "full": "4 MOUNT STREET, MOUNT DRUITT, 2770",
+      "lat": -33.7657732,
+      "lon": 150.8249627
+    },
+    "council": "Blacktown",
+    "party_served": "GOLDWORLD FISH PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3250249586",
+        "name": "JACK'S SEAFOOD",
+        "address": {
+          "street": "4 MOUNT STREET",
+          "city": "MOUNT DRUITT",
+          "postal_code": "2770",
+          "full": "4 MOUNT STREET, MOUNT DRUITT, 2770",
+          "lat": -33.7657732,
+          "lon": 150.8249627
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-06-19T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "GOLDWORLD FISH PTY LTD",
+        "date_issued": "2025-06-23T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      },
+      {
+        "penalty_notice_number": "3250249595",
+        "name": "JACK'S SEAFOOD",
+        "address": {
+          "street": "4 MOUNT STREET",
+          "city": "MOUNT DRUITT",
+          "postal_code": "2770",
+          "full": "4 MOUNT STREET, MOUNT DRUITT, 2770",
+          "lat": -33.7657732,
+          "lon": 150.8249627
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-06-19T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
+        "penalty_amount": "$880.00",
+        "party_served": "GOLDWORLD FISH PTY LTD",
+        "date_issued": "2025-06-23T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
     "name": "JAGGI'S INDIAN EATERY",
     "address": {
       "street": "31 BOOMERANG PLACE",
@@ -10625,7 +10730,22 @@
         "party_served": "M T JSL PTY LTD",
         "date_issued": "2025-03-05T12:00:00Z",
         "issued_by": "Willoughby City Council"
-      },
+      }
+    ]
+  },
+  {
+    "name": "JOOMAK",
+    "address": {
+      "street": "7/18-26 ANDERSON STREET",
+      "city": "CHATSWOOD",
+      "postal_code": "2067",
+      "full": "7/18-26 ANDERSON STREET, CHATSWOOD, 2067",
+      "lat": -33.795465,
+      "lon": 151.182035
+    },
+    "council": "Willoughby",
+    "party_served": "MT JSL PTY LTD",
+    "penalties": [
       {
         "penalty_notice_number": "3272198849",
         "name": "JOOMAK",
@@ -10646,6 +10766,99 @@
         "party_served": "MT JSL PTY LTD",
         "date_issued": "2025-03-05T12:00:00Z",
         "issued_by": "Willoughby City Council"
+      }
+    ]
+  },
+  {
+    "name": "JUGNU TIKKA CORNER",
+    "address": {
+      "street": "20 THIRD AVENUE",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
+      "lat": -33.7660959,
+      "lon": 150.9124893
+    },
+    "council": "Blacktown",
+    "party_served": "JUGNU TIKKA CORNER PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332380",
+        "name": "JUGNU TIKKA CORNER",
+        "address": {
+          "street": "20 THIRD AVENUE",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
+          "lat": -33.7660959,
+          "lon": 150.9124893
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2024-11-25T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "JUGNU TIKKA CORNER PTY LTD",
+        "date_issued": "2024-12-05T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      },
+      {
+        "penalty_notice_number": "3120332390",
+        "name": "JUGNU TIKKA CORNER",
+        "address": {
+          "street": "20 THIRD AVENUE",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
+          "lat": -33.7660959,
+          "lon": 150.9124893
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2024-11-25T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to take all practicable measures to eradicate and prevent the harbourage of pests",
+        "penalty_amount": "$880.00",
+        "party_served": "JUGNU TIKKA CORNER PTY LTD",
+        "date_issued": "2024-12-05T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
+    "name": "JUICE SPOT & BUBBLE TEA",
+    "address": {
+      "street": "224 PROSPECT HIGHWAY",
+      "city": "SEVEN HILLS",
+      "postal_code": "2147",
+      "full": "224 PROSPECT HIGHWAY, SEVEN HILLS, 2147",
+      "lat": -33.771968,
+      "lon": 150.9372064
+    },
+    "council": "Blacktown",
+    "party_served": "VJAY VENTURES PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120330611",
+        "name": "JUICE SPOT & BUBBLE TEA",
+        "address": {
+          "street": "224 PROSPECT HIGHWAY",
+          "city": "SEVEN HILLS",
+          "postal_code": "2147",
+          "full": "224 PROSPECT HIGHWAY, SEVEN HILLS, 2147",
+          "lat": -33.771968,
+          "lon": 150.9372064
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-03-04T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "VJAY VENTURES PTY LTD",
+        "date_issued": "2025-03-12T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -10722,27 +10935,6 @@
         "offence_nature": "Fail to ensure food contact surfaces of equipment is in a clean and sanitary condition - Previous warnings given",
         "penalty_amount": "$880.00",
         "party_served": "KAS COMPANY PTY LTD",
-        "date_issued": "2025-07-17T12:00:00Z",
-        "issued_by": "Northern Beaches Council"
-      },
-      {
-        "penalty_notice_number": "3273875404",
-        "name": "BAR Q SUSHI",
-        "address": {
-          "street": "12 JACKSONS ROAD",
-          "city": "WARRIEWOOD",
-          "postal_code": "2102",
-          "full": "12 JACKSONS ROAD, WARRIEWOOD, 2102",
-          "lat": -33.6958552,
-          "lon": 151.2956672
-        },
-        "council": "Northern Beaches",
-        "date_of_offence": "2025-07-15T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to display potentially hazardous food under temperature control - Previous warnings given",
-        "penalty_amount": "$880.00",
-        "party_served": "FIL COMPANY PTY LTD",
         "date_issued": "2025-07-17T12:00:00Z",
         "issued_by": "Northern Beaches Council"
       },
@@ -10935,6 +11127,42 @@
     ]
   },
   {
+    "name": "KING OF KEBABS",
+    "address": {
+      "street": "6 ST MARTINS CRESENT",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "6 ST MARTINS CRESENT, BLACKTOWN, 2148",
+      "lat": -33.7816779,
+      "lon": 150.9166792
+    },
+    "council": "Blacktown",
+    "party_served": "UGUR",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120330914",
+        "name": "KING OF KEBABS",
+        "address": {
+          "street": "6 ST MARTINS CRESENT",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "6 ST MARTINS CRESENT, BLACKTOWN, 2148",
+          "lat": -33.7816779,
+          "lon": 150.9166792
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-04-17T12:00:00Z",
+        "offence_code": "11338",
+        "offence_description": "Fail to comply with Food Standards Code - Individual",
+        "offence_nature": "Fail to maintain premises, and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$440.00",
+        "party_served": "UGUR",
+        "date_issued": "2025-05-05T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
     "name": "KING TEA CABRAMATTA",
     "address": {
       "street": "3/105-107 JOHN STREET",
@@ -11003,6 +11231,42 @@
         "party_served": "LIANG",
         "date_issued": "2025-08-19T12:00:00Z",
         "issued_by": "Bayside Council"
+      }
+    ]
+  },
+  {
+    "name": "KOCHI",
+    "address": {
+      "street": "17 PATRICK STREET",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+      "lat": -33.770397,
+      "lon": 150.9073843
+    },
+    "council": "Blacktown",
+    "party_served": "PHJ INTERNATIONAL PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332784",
+        "name": "KOCHI",
+        "address": {
+          "street": "17 PATRICK STREET",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+          "lat": -33.770397,
+          "lon": 150.9073843
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-20T12:00:00Z",
+        "offence_code": "11323",
+        "offence_description": "Sell food that is unsuitable - Corporation",
+        "offence_nature": "Sale of food that is unsuitable",
+        "penalty_amount": "$1320.00",
+        "party_served": "PHJ INTERNATIONAL PTY LTD",
+        "date_issued": "2025-02-26T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -11203,111 +11467,6 @@
         "penalty_amount": "$880.00",
         "party_served": "BHAG SINGH AND SONS PTY LTD",
         "date_issued": "2024-12-05T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332353",
-        "name": "CHATTKORE",
-        "address": {
-          "street": "20 THIRD AVENUE",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
-          "lat": -33.7660959,
-          "lon": 150.9124893
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2024-11-25T12:00:00Z",
-        "offence_code": "11338",
-        "offence_description": "Fail to comply with Food Standards Code - Individual",
-        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$440.00",
-        "party_served": "SINGH",
-        "date_issued": "2024-12-05T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332362",
-        "name": "DOSA ON WHEELS",
-        "address": {
-          "street": "20 THIRD AVENUE",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
-          "lat": -33.7660959,
-          "lon": 150.9124893
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2024-11-25T12:00:00Z",
-        "offence_code": "11338",
-        "offence_description": "Fail to comply with Food Standards Code - Individual",
-        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$440.00",
-        "party_served": "SINGEETHAM",
-        "date_issued": "2024-12-05T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332380",
-        "name": "JUGNU TIKKA CORNER",
-        "address": {
-          "street": "20 THIRD AVENUE",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
-          "lat": -33.7660959,
-          "lon": 150.9124893
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2024-11-25T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "JUGNU TIKKA CORNER PTY LTD",
-        "date_issued": "2024-12-05T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332390",
-        "name": "JUGNU TIKKA CORNER",
-        "address": {
-          "street": "20 THIRD AVENUE",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
-          "lat": -33.7660959,
-          "lon": 150.9124893
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2024-11-25T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to take all practicable measures to eradicate and prevent the harbourage of pests",
-        "penalty_amount": "$880.00",
-        "party_served": "JUGNU TIKKA CORNER PTY LTD",
-        "date_issued": "2024-12-05T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332371",
-        "name": "CARKEY'S CAFE & NEPALESE FOOD",
-        "address": {
-          "street": "20 THIRD AVENUE",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "20 THIRD AVENUE, BLACKTOWN, 2148",
-          "lat": -33.7660959,
-          "lon": 150.9124893
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2024-11-25T12:00:00Z",
-        "offence_code": "11338",
-        "offence_description": "Fail to comply with Food Standards Code - Individual",
-        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$440.00",
-        "party_served": "DHAKAL",
-        "date_issued": "2024-11-25T12:00:00Z",
         "issued_by": "Blacktown City Council"
       }
     ]
@@ -11655,6 +11814,42 @@
     ]
   },
   {
+    "name": "LEAF CAFE BLACKTOWN",
+    "address": {
+      "street": "17 PATRICK STREET",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+      "lat": -33.770397,
+      "lon": 150.9073843
+    },
+    "council": "Blacktown",
+    "party_served": "HUI AND RUI PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332995",
+        "name": "LEAF CAFE BLACKTOWN",
+        "address": {
+          "street": "17 PATRICK STREET",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+          "lat": -33.770397,
+          "lon": 150.9073843
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-26T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain at or near each hand washing facility a supply of - single use towels",
+        "penalty_amount": "$880.00",
+        "party_served": "HUI AND RUI PTY LTD",
+        "date_issued": "2025-03-11T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
     "name": "LIEN AN ASIAN FOODS",
     "address": {
       "street": "326 CHAPEL ROAD",
@@ -11727,6 +11922,42 @@
     ]
   },
   {
+    "name": "LILONG BY TASTE OF SHANGHAI",
+    "address": {
+      "street": "49 NORTH PARADE",
+      "city": "MOUNT DRUITT",
+      "postal_code": "2770",
+      "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
+      "lat": -33.7661197,
+      "lon": 150.8210589
+    },
+    "council": "Blacktown",
+    "party_served": "JOY FOOD PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332849",
+        "name": "LILONG BY TASTE OF SHANGHAI",
+        "address": {
+          "street": "49 NORTH PARADE",
+          "city": "MOUNT DRUITT",
+          "postal_code": "2770",
+          "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
+          "lat": -33.7661197,
+          "lon": 150.8210589
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-24T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
+        "penalty_amount": "$880.00",
+        "party_served": "JOY FOOD PTY LTD",
+        "date_issued": "2025-02-26T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
     "name": "LITTLE INDIA GROCERIES DOONSIDE",
     "address": {
       "street": "60 ROSENTHAL STREET",
@@ -11739,27 +11970,6 @@
     "council": "Blacktown",
     "party_served": "PATEL",
     "penalties": [
-      {
-        "penalty_notice_number": "3120331280",
-        "name": "ROSENTHAL TAKEAWAY",
-        "address": {
-          "street": "60 ROSENTHAL STREET",
-          "city": "DOONSIDE",
-          "postal_code": "2767",
-          "full": "60 ROSENTHAL STREET, DOONSIDE, 2767",
-          "lat": -33.7731278,
-          "lon": 150.8771144
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-05-12T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to display potentially hazardous food under temperature control",
-        "penalty_amount": "$880.00",
-        "party_served": "SU BEN 2023 PTY LTD",
-        "date_issued": "2025-05-19T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
       {
         "penalty_notice_number": "3120330850",
         "name": "LITTLE INDIA GROCERIES DOONSIDE",
@@ -12623,48 +12833,6 @@
         "party_served": "CENTRAL AIR 123 PTY LTD",
         "date_issued": "2024-09-27T12:00:00Z",
         "issued_by": "Canterbury Bankstown Council"
-      },
-      {
-        "penalty_notice_number": "3275144703",
-        "name": "SUSHI SAPPORO",
-        "address": {
-          "street": "24 ROSELAND AVENUE",
-          "city": "ROSELANDS",
-          "postal_code": "2196",
-          "full": "24 ROSELAND AVENUE, ROSELANDS, 2196",
-          "lat": -33.9343534,
-          "lon": 151.0690979
-        },
-        "council": "Canterbury-Bankstown",
-        "date_of_offence": "2024-09-19T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to display potentially hazardous food under temperature control - Previous warnings given",
-        "penalty_amount": "$880.00",
-        "party_served": "SS TEAM PTY LTD",
-        "date_issued": "2024-09-27T12:00:00Z",
-        "issued_by": "Canterbury Bankstown Council"
-      },
-      {
-        "penalty_notice_number": "3275144712",
-        "name": "SUSHI SAPPORO",
-        "address": {
-          "street": "24 ROSELAND AVENUE",
-          "city": "ROSELANDS",
-          "postal_code": "2196",
-          "full": "24 ROSELAND AVENUE, ROSELANDS, 2196",
-          "lat": -33.9343534,
-          "lon": 151.0690979
-        },
-        "council": "Canterbury-Bankstown",
-        "date_of_offence": "2024-09-19T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain the food premises to the required standard of cleanliness - Previous warnings given",
-        "penalty_amount": "$880.00",
-        "party_served": "SS TEAM PTY LTD",
-        "date_issued": "2024-09-27T12:00:00Z",
-        "issued_by": "Canterbury Bankstown Council"
       }
     ]
   },
@@ -13331,6 +13499,42 @@
         "party_served": "FORTUNE PIG PTY LTD",
         "date_issued": "2025-07-24T12:00:00Z",
         "issued_by": "Willoughby City Council"
+      }
+    ]
+  },
+  {
+    "name": "MOBY'S MACARTHUR SQUARE",
+    "address": {
+      "street": "SHOP L30, 200 GILCHRIST DRIVE",
+      "city": "CAMPBELLTOWN",
+      "postal_code": "2560",
+      "full": "SHOP L30, 200 GILCHRIST DRIVE, CAMPBELLTOWN, 2560",
+      "lat": -34.0751963,
+      "lon": 150.7977961
+    },
+    "council": "Campbelltown",
+    "party_served": "BADA ENTERPRISE PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3285146408",
+        "name": "MOBY'S MACARTHUR SQUARE",
+        "address": {
+          "street": "SHOP L30, 200 GILCHRIST DRIVE",
+          "city": "CAMPBELLTOWN",
+          "postal_code": "2560",
+          "full": "SHOP L30, 200 GILCHRIST DRIVE, CAMPBELLTOWN, 2560",
+          "lat": -34.0751963,
+          "lon": 150.7977961
+        },
+        "council": "Campbelltown",
+        "date_of_offence": "2024-11-25T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain at or near each hand washing facility a supply of - single use towels. Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "BADA ENTERPRISE PTY LTD",
+        "date_issued": "2024-12-03T12:00:00Z",
+        "issued_by": "Campbelltown City Council"
       }
     ]
   },
@@ -14053,27 +14257,6 @@
         "penalty_amount": "$880.00",
         "party_served": "ZXZ PTY LTD",
         "date_issued": "2025-04-08T12:00:00Z",
-        "issued_by": "Campbelltown City Council"
-      },
-      {
-        "penalty_notice_number": "3285146408",
-        "name": "MOBY'S MACARTHUR SQUARE",
-        "address": {
-          "street": "SHOP L30, 200 GILCHRIST DRIVE",
-          "city": "CAMPBELLTOWN",
-          "postal_code": "2560",
-          "full": "SHOP L30, 200 GILCHRIST DRIVE, CAMPBELLTOWN, 2560",
-          "lat": -34.0751963,
-          "lon": 150.7977961
-        },
-        "council": "Campbelltown",
-        "date_of_offence": "2024-11-25T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain at or near each hand washing facility a supply of - single use towels. Previous warnings given",
-        "penalty_amount": "$880.00",
-        "party_served": "BADA ENTERPRISE PTY LTD",
-        "date_issued": "2024-12-03T12:00:00Z",
         "issued_by": "Campbelltown City Council"
       },
       {
@@ -14865,6 +15048,42 @@
     ]
   },
   {
+    "name": "PHO MASTER",
+    "address": {
+      "street": "49 NORTH PARADE",
+      "city": "MOUNT DRUITT",
+      "postal_code": "2770",
+      "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
+      "lat": -33.7661197,
+      "lon": 150.8210589
+    },
+    "council": "Blacktown",
+    "party_served": "NGUYEN FRIENDS PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332858",
+        "name": "PHO MASTER",
+        "address": {
+          "street": "49 NORTH PARADE",
+          "city": "MOUNT DRUITT",
+          "postal_code": "2770",
+          "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
+          "lat": -33.7661197,
+          "lon": 150.8210589
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-24T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
+        "penalty_amount": "$880.00",
+        "party_served": "NGUYEN FRIENDS PTY LTD",
+        "date_issued": "2025-02-26T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
     "name": "PHO NAM DINH",
     "address": {
       "street": "148 NORTON STREET",
@@ -15561,6 +15780,42 @@
     ]
   },
   {
+    "name": "RED LEA MOUNT DRUITT",
+    "address": {
+      "street": "49 NORTH PARADE",
+      "city": "MOUNT DRUITT",
+      "postal_code": "2770",
+      "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
+      "lat": -33.7661197,
+      "lon": 150.8210589
+    },
+    "council": "Blacktown",
+    "party_served": "PARIN AND KENIT PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332930",
+        "name": "RED LEA MOUNT DRUITT",
+        "address": {
+          "street": "49 NORTH PARADE",
+          "city": "MOUNT DRUITT",
+          "postal_code": "2770",
+          "full": "49 NORTH PARADE, MOUNT DRUITT, 2770",
+          "lat": -33.7661197,
+          "lon": 150.8210589
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-20T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "PARIN AND KENIT PTY LTD",
+        "date_issued": "2025-02-27T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
     "name": "RED ROOSTER",
     "address": {
       "street": "670 RICHMOND ROADD",
@@ -15984,7 +16239,7 @@
     ]
   },
   {
-    "name": "RIVER CANYON BAR & GRILL RESTAURANT",
+    "name": "RIVER CANYON BAR & GRILL",
     "address": {
       "street": "96 PHILLIP STREET",
       "city": "PARRAMATTA",
@@ -15994,29 +16249,8 @@
       "lon": 151.00947
     },
     "council": "City of Parramatta",
-    "party_served": "THE GENTLEMEN KITCHEN & EVENTS PTY LTD",
+    "party_served": "THE GENTLEMEN KITCHEN @ EVENTS PTY LTD",
     "penalties": [
-      {
-        "penalty_notice_number": "3145247600",
-        "name": "RIVER CANYON BAR & GRILL RESTAURANT",
-        "address": {
-          "street": "96 PHILLIP STREET",
-          "city": "PARRAMATTA",
-          "postal_code": "2150",
-          "full": "96 PHILLIP STREET, PARRAMATTA, 2150",
-          "lat": -33.8135058,
-          "lon": 151.00947
-        },
-        "council": "City of Parramatta",
-        "date_of_offence": "2025-03-26T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
-        "penalty_amount": "$880.00",
-        "party_served": "THE GENTLEMEN KITCHEN & EVENTS PTY LTD",
-        "date_issued": "2025-06-06T12:00:00Z",
-        "issued_by": "City of Parramatta Council"
-      },
       {
         "penalty_notice_number": "3145247610",
         "name": "RIVER CANYON BAR & GRILL",
@@ -16079,6 +16313,114 @@
         "party_served": "THE GENTLEMEN KITCHEN @ EVENTS PTY LTD",
         "date_issued": "2025-06-06T12:00:00Z",
         "issued_by": "City of Parramatta Council"
+      }
+    ]
+  },
+  {
+    "name": "RIVER CANYON BAR & GRILL RESTAURANT",
+    "address": {
+      "street": "96 PHILLIP STREET",
+      "city": "PARRAMATTA",
+      "postal_code": "2150",
+      "full": "96 PHILLIP STREET, PARRAMATTA, 2150",
+      "lat": -33.8135058,
+      "lon": 151.00947
+    },
+    "council": "City of Parramatta",
+    "party_served": "THE GENTLEMEN KITCHEN & EVENTS PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3145247600",
+        "name": "RIVER CANYON BAR & GRILL RESTAURANT",
+        "address": {
+          "street": "96 PHILLIP STREET",
+          "city": "PARRAMATTA",
+          "postal_code": "2150",
+          "full": "96 PHILLIP STREET, PARRAMATTA, 2150",
+          "lat": -33.8135058,
+          "lon": 151.00947
+        },
+        "council": "City of Parramatta",
+        "date_of_offence": "2025-03-26T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
+        "penalty_amount": "$880.00",
+        "party_served": "THE GENTLEMEN KITCHEN & EVENTS PTY LTD",
+        "date_issued": "2025-06-06T12:00:00Z",
+        "issued_by": "City of Parramatta Council"
+      }
+    ]
+  },
+  {
+    "name": "ROLL'D WESTPOINT",
+    "address": {
+      "street": "17 PATRICK STREET",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+      "lat": -33.770397,
+      "lon": 150.9073843
+    },
+    "council": "Blacktown",
+    "party_served": "HEAFO PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332820",
+        "name": "ROLL'D WESTPOINT",
+        "address": {
+          "street": "17 PATRICK STREET",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+          "lat": -33.770397,
+          "lon": 150.9073843
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-20T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to display potentially hazardous food under temperature control",
+        "penalty_amount": "$880.00",
+        "party_served": "HEAFO PTY LTD",
+        "date_issued": "2025-02-26T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
+    "name": "ROSENTHAL TAKEAWAY",
+    "address": {
+      "street": "60 ROSENTHAL STREET",
+      "city": "DOONSIDE",
+      "postal_code": "2767",
+      "full": "60 ROSENTHAL STREET, DOONSIDE, 2767",
+      "lat": -33.7731278,
+      "lon": 150.8771144
+    },
+    "council": "Blacktown",
+    "party_served": "SU BEN 2023 PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120331280",
+        "name": "ROSENTHAL TAKEAWAY",
+        "address": {
+          "street": "60 ROSENTHAL STREET",
+          "city": "DOONSIDE",
+          "postal_code": "2767",
+          "full": "60 ROSENTHAL STREET, DOONSIDE, 2767",
+          "lat": -33.7731278,
+          "lon": 150.8771144
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-05-12T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to display potentially hazardous food under temperature control",
+        "penalty_amount": "$880.00",
+        "party_served": "SU BEN 2023 PTY LTD",
+        "date_issued": "2025-05-19T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -16318,69 +16660,6 @@
     "party_served": "RAMBUTAN RIVER PTY LTD",
     "penalties": [
       {
-        "penalty_notice_number": "3277717549",
-        "name": "THIRSTY MONKEY",
-        "address": {
-          "street": "20 SMIDMORE STREET",
-          "city": "MARRICKVILLE",
-          "postal_code": "2204",
-          "full": "20 SMIDMORE STREET, MARRICKVILLE, 2204",
-          "lat": -33.9063839,
-          "lon": 151.172797
-        },
-        "council": "Inner West",
-        "date_of_offence": "2024-11-27T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to ensure food contact surfaces of equipment is in a clean and sanitary condition - Previous warnings given",
-        "penalty_amount": "$880.00",
-        "party_served": "NAJJAR ESTABLISHMENTS PTY LTD",
-        "date_issued": "2024-11-28T12:00:00Z",
-        "issued_by": "Inner West Council"
-      },
-      {
-        "penalty_notice_number": "3277717511",
-        "name": "SUSHI BAR",
-        "address": {
-          "street": "20 SMIDMORE STREET",
-          "city": "MARRICKVILLE",
-          "postal_code": "2204",
-          "full": "20 SMIDMORE STREET, MARRICKVILLE, 2204",
-          "lat": -33.9063839,
-          "lon": 151.172797
-        },
-        "council": "Inner West",
-        "date_of_offence": "2024-10-10T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to store potentially hazardous food under temperature control - Previous warnings given",
-        "penalty_amount": "$880.00",
-        "party_served": "CXW GROUP PTY LTD",
-        "date_issued": "2024-10-11T12:00:00Z",
-        "issued_by": "Inner West Council"
-      },
-      {
-        "penalty_notice_number": "3277717520",
-        "name": "SUSHI BAR",
-        "address": {
-          "street": "20 SMIDMORE STREET",
-          "city": "MARRICKVILLE",
-          "postal_code": "2204",
-          "full": "20 SMIDMORE STREET, MARRICKVILLE, 2204",
-          "lat": -33.9063839,
-          "lon": 151.172797
-        },
-        "council": "Inner West",
-        "date_of_offence": "2024-10-10T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to take all practicable measures to eradicate and prevent the harbourage of pests",
-        "penalty_amount": "$880.00",
-        "party_served": "CXW GROUP PTY LTD",
-        "date_issued": "2024-10-11T12:00:00Z",
-        "issued_by": "Inner West Council"
-      },
-      {
         "penalty_notice_number": "3277717502",
         "name": "SANDWICH STACK",
         "address": {
@@ -16493,6 +16772,63 @@
         "party_served": "SJ CAFE & RESTAURANT PTY LTD",
         "date_issued": "2024-10-23T12:00:00Z",
         "issued_by": "Waverley Council"
+      }
+    ]
+  },
+  {
+    "name": "SEHAJ  INDIAN FOOD AND SWEETS",
+    "address": {
+      "street": "17 PATRICK STREET",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+      "lat": -33.770397,
+      "lon": 150.9073843
+    },
+    "council": "Blacktown",
+    "party_served": "RPST GROUP PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332793",
+        "name": "SEHAJ  INDIAN FOOD AND SWEETS",
+        "address": {
+          "street": "17 PATRICK STREET",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+          "lat": -33.770397,
+          "lon": 150.9073843
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-20T12:00:00Z",
+        "offence_code": "11323",
+        "offence_description": "Sell food that is unsuitable - Corporation",
+        "offence_nature": "Fail to take all practicable measures to sell only safe and suitable food",
+        "penalty_amount": "$1320.00",
+        "party_served": "RPST GROUP PTY LTD",
+        "date_issued": "2025-02-26T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      },
+      {
+        "penalty_notice_number": "3120332802",
+        "name": "SEHAJ INDIAN FOOD & SWEETS",
+        "address": {
+          "street": "17 PATRICK ST",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "17 PATRICK ST, BLACKTOWN, 2148",
+          "lat": -33.770397,
+          "lon": 150.9073843
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-20T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "RPST GROUP PTY LTD",
+        "date_issued": "2025-02-26T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -16701,27 +17037,6 @@
     "council": "The Hills",
     "party_served": "PRANAV ALAINA LATHER PTY LTD",
     "penalties": [
-      {
-        "penalty_notice_number": "3285940076",
-        "name": "CAFFE CHERRY BEANS",
-        "address": {
-          "street": "180 CAROLINE CHISHOLM DRIVE",
-          "city": "WINSTON HILLS",
-          "postal_code": "2153",
-          "full": "180 CAROLINE CHISHOLM DRIVE, WINSTON HILLS, 2153",
-          "lat": -33.7728999,
-          "lon": 150.971111
-        },
-        "council": "The Hills",
-        "date_of_offence": "2025-01-07T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to store potentially hazardous food under temperature control",
-        "penalty_amount": "$880.00",
-        "party_served": "KAZZ TRADING PTY LTD",
-        "date_issued": "2025-02-14T12:00:00Z",
-        "issued_by": "The Hills Shire Council"
-      },
       {
         "penalty_notice_number": "3285940049",
         "name": "SEHAJ INDIAN FOODS & SWEETS (WINSTON HILLS)",
@@ -17246,6 +17561,84 @@
         "party_served": "SIMPLOT AUSTRALIA PTY LTD",
         "date_issued": "2024-11-29T12:00:00Z",
         "issued_by": "NSW Food Authority"
+      }
+    ]
+  },
+  {
+    "name": "SIR MANONG",
+    "address": {
+      "street": "159 ROOTY HILL ROAD SOUTH",
+      "city": "EASTERN CREEK",
+      "postal_code": "2766",
+      "full": "159 ROOTY HILL ROAD SOUTH, EASTERN CREEK, 2766",
+      "lat": -33.784048,
+      "lon": 150.8532705
+    },
+    "council": "Blacktown",
+    "party_served": "CUCINA PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120330712",
+        "name": "SIR MANONG",
+        "address": {
+          "street": "159 ROOTY HILL ROAD SOUTH",
+          "city": "EASTERN CREEK",
+          "postal_code": "2766",
+          "full": "159 ROOTY HILL ROAD SOUTH, EASTERN CREEK, 2766",
+          "lat": -33.784048,
+          "lon": 150.8532705
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-03-03T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "CUCINA PTY LTD",
+        "date_issued": "2025-03-25T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      },
+      {
+        "penalty_notice_number": "3120332427",
+        "name": "SIR MANONG",
+        "address": {
+          "street": "159 ROOTY HILL ROAD SOUTH",
+          "city": "EASTERN CREEK",
+          "postal_code": "2766",
+          "full": "159 ROOTY HILL ROAD SOUTH, EASTERN CREEK, 2766",
+          "lat": -33.784048,
+          "lon": 150.8532705
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2024-12-05T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises and all fixtures, fittings and equipment to the required standard of cleanliness",
+        "penalty_amount": "$880.00",
+        "party_served": "CUCINA PTY LTD",
+        "date_issued": "2024-12-19T12:00:00Z",
+        "issued_by": "Blacktown City Council"
+      },
+      {
+        "penalty_notice_number": "3120332436",
+        "name": "SIR MANONG",
+        "address": {
+          "street": "159 ROOTY HILL ROAD SOUTH",
+          "city": "EASTERN CREEK",
+          "postal_code": "2766",
+          "full": "159 ROOTY HILL ROAD SOUTH, EASTERN CREEK, 2766",
+          "lat": -33.784048,
+          "lon": 150.8532705
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2024-11-05T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
+        "penalty_amount": "$880.00",
+        "party_served": "CUCINA PTY LTD",
+        "date_issued": "2024-12-19T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -18477,6 +18870,63 @@
     ]
   },
   {
+    "name": "SUSHI BAR",
+    "address": {
+      "street": "20 SMIDMORE STREET",
+      "city": "MARRICKVILLE",
+      "postal_code": "2204",
+      "full": "20 SMIDMORE STREET, MARRICKVILLE, 2204",
+      "lat": -33.9063839,
+      "lon": 151.172797
+    },
+    "council": "Inner West",
+    "party_served": "CXW GROUP PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3277717511",
+        "name": "SUSHI BAR",
+        "address": {
+          "street": "20 SMIDMORE STREET",
+          "city": "MARRICKVILLE",
+          "postal_code": "2204",
+          "full": "20 SMIDMORE STREET, MARRICKVILLE, 2204",
+          "lat": -33.9063839,
+          "lon": 151.172797
+        },
+        "council": "Inner West",
+        "date_of_offence": "2024-10-10T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to store potentially hazardous food under temperature control - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "CXW GROUP PTY LTD",
+        "date_issued": "2024-10-11T12:00:00Z",
+        "issued_by": "Inner West Council"
+      },
+      {
+        "penalty_notice_number": "3277717520",
+        "name": "SUSHI BAR",
+        "address": {
+          "street": "20 SMIDMORE STREET",
+          "city": "MARRICKVILLE",
+          "postal_code": "2204",
+          "full": "20 SMIDMORE STREET, MARRICKVILLE, 2204",
+          "lat": -33.9063839,
+          "lon": 151.172797
+        },
+        "council": "Inner West",
+        "date_of_offence": "2024-10-10T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to take all practicable measures to eradicate and prevent the harbourage of pests",
+        "penalty_amount": "$880.00",
+        "party_served": "CXW GROUP PTY LTD",
+        "date_issued": "2024-10-11T12:00:00Z",
+        "issued_by": "Inner West Council"
+      }
+    ]
+  },
+  {
     "name": "SUSHI BAR DONG HAE",
     "address": {
       "street": "SHOP 5/199 BEAMISH STREET",
@@ -18653,6 +19103,63 @@
         "party_served": "KWANG BROTHERS PTY LTD",
         "date_issued": "2025-02-26T12:00:00Z",
         "issued_by": "Blacktown City Council"
+      }
+    ]
+  },
+  {
+    "name": "SUSHI SAPPORO",
+    "address": {
+      "street": "24 ROSELAND AVENUE",
+      "city": "ROSELANDS",
+      "postal_code": "2196",
+      "full": "24 ROSELAND AVENUE, ROSELANDS, 2196",
+      "lat": -33.9343534,
+      "lon": 151.0690979
+    },
+    "council": "Canterbury-Bankstown",
+    "party_served": "SS TEAM PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3275144703",
+        "name": "SUSHI SAPPORO",
+        "address": {
+          "street": "24 ROSELAND AVENUE",
+          "city": "ROSELANDS",
+          "postal_code": "2196",
+          "full": "24 ROSELAND AVENUE, ROSELANDS, 2196",
+          "lat": -33.9343534,
+          "lon": 151.0690979
+        },
+        "council": "Canterbury-Bankstown",
+        "date_of_offence": "2024-09-19T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to display potentially hazardous food under temperature control - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "SS TEAM PTY LTD",
+        "date_issued": "2024-09-27T12:00:00Z",
+        "issued_by": "Canterbury Bankstown Council"
+      },
+      {
+        "penalty_notice_number": "3275144712",
+        "name": "SUSHI SAPPORO",
+        "address": {
+          "street": "24 ROSELAND AVENUE",
+          "city": "ROSELANDS",
+          "postal_code": "2196",
+          "full": "24 ROSELAND AVENUE, ROSELANDS, 2196",
+          "lat": -33.9343534,
+          "lon": 151.0690979
+        },
+        "council": "Canterbury-Bankstown",
+        "date_of_offence": "2024-09-19T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises to the required standard of cleanliness - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "SS TEAM PTY LTD",
+        "date_issued": "2024-09-27T12:00:00Z",
+        "issued_by": "Canterbury Bankstown Council"
       }
     ]
   },
@@ -19372,48 +19879,6 @@
     "party_served": "CHAN",
     "penalties": [
       {
-        "penalty_notice_number": "3250249586",
-        "name": "JACK'S SEAFOOD",
-        "address": {
-          "street": "4 MOUNT STREET",
-          "city": "MOUNT DRUITT",
-          "postal_code": "2770",
-          "full": "4 MOUNT STREET, MOUNT DRUITT, 2770",
-          "lat": -33.7657732,
-          "lon": 150.8249627
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-06-19T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to maintain premises and all fixtures, fittings and equipment to the required standard of cleanliness",
-        "penalty_amount": "$880.00",
-        "party_served": "GOLDWORLD FISH PTY LTD",
-        "date_issued": "2025-06-23T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3250249595",
-        "name": "JACK'S SEAFOOD",
-        "address": {
-          "street": "4 MOUNT STREET",
-          "city": "MOUNT DRUITT",
-          "postal_code": "2770",
-          "full": "4 MOUNT STREET, MOUNT DRUITT, 2770",
-          "lat": -33.7657732,
-          "lon": 150.8249627
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-06-19T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to store food in such a way that it is protected from the likelihood of contamination",
-        "penalty_amount": "$880.00",
-        "party_served": "GOLDWORLD FISH PTY LTD",
-        "date_issued": "2025-06-23T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
         "penalty_notice_number": "3120332445",
         "name": "TERESA'S SIOPAO & CATERING (FOOD STALL)",
         "address": {
@@ -19619,7 +20084,22 @@
         "party_served": "KMV KITCHEN PTTY LTD",
         "date_issued": "2025-07-11T12:00:00Z",
         "issued_by": "Camden Council"
-      },
+      }
+    ]
+  },
+  {
+    "name": "THAI HARRINGTON",
+    "address": {
+      "street": "12/23 FAIRWATER DRIVE",
+      "city": "HARRINGTON PARK",
+      "postal_code": "2567",
+      "full": "12/23 FAIRWATER DRIVE, HARRINGTON PARK, 2567",
+      "lat": -34.0309043,
+      "lon": 150.7305758
+    },
+    "council": "Camden",
+    "party_served": "KMV KITCHEN PTY LTD",
+    "penalties": [
       {
         "penalty_notice_number": "3269334164",
         "name": "THAI HARRINGTON",
@@ -19853,7 +20333,22 @@
         "party_served": "THAI LA-ONG DRUMMOYNE PTY LTD",
         "date_issued": "2025-02-12T12:00:00Z",
         "issued_by": "City of Canada Bay Council"
-      },
+      }
+    ]
+  },
+  {
+    "name": "THAI LA-ONG DRUMMYONE",
+    "address": {
+      "street": "11 CHURCH STREET",
+      "city": "DRUMMOYNE",
+      "postal_code": "2047",
+      "full": "11 CHURCH STREET, DRUMMOYNE, 2047",
+      "lat": -33.854394,
+      "lon": 151.1562315
+    },
+    "council": "City of Canada Bay",
+    "party_served": "THAI LA-ONG DRUMMYONE PTY LTD",
+    "penalties": [
       {
         "penalty_notice_number": "3282653267",
         "name": "THAI LA-ONG DRUMMYONE",
@@ -20618,7 +21113,22 @@
         "party_served": "BURWOOD NSW RESTAURANT PTY LTD",
         "date_issued": "2025-03-24T12:00:00Z",
         "issued_by": "Burwood Council"
-      },
+      }
+    ]
+  },
+  {
+    "name": "THE SKEWER SHACK",
+    "address": {
+      "street": "SHOP 2, 195A BURWOOD ROAD",
+      "city": "BURWOOD",
+      "postal_code": "2134",
+      "full": "SHOP 2, 195A BURWOOD ROAD, BURWOOD, 2134",
+      "lat": -33.8795164,
+      "lon": 151.1032645
+    },
+    "council": "Burwood",
+    "party_served": "BURWOOD RESTAURANT NSW PTY LTD",
+    "penalties": [
       {
         "penalty_notice_number": "3287879100",
         "name": "THE SKEWER SHACK",
@@ -20810,6 +21320,42 @@
         "party_served": "CSRU Trading Pty Ltd",
         "date_issued": "2025-02-18T12:00:00Z",
         "issued_by": "The Hills Shire Council"
+      }
+    ]
+  },
+  {
+    "name": "THIRSTY MONKEY",
+    "address": {
+      "street": "20 SMIDMORE STREET",
+      "city": "MARRICKVILLE",
+      "postal_code": "2204",
+      "full": "20 SMIDMORE STREET, MARRICKVILLE, 2204",
+      "lat": -33.9063839,
+      "lon": 151.172797
+    },
+    "council": "Inner West",
+    "party_served": "NAJJAR ESTABLISHMENTS PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3277717549",
+        "name": "THIRSTY MONKEY",
+        "address": {
+          "street": "20 SMIDMORE STREET",
+          "city": "MARRICKVILLE",
+          "postal_code": "2204",
+          "full": "20 SMIDMORE STREET, MARRICKVILLE, 2204",
+          "lat": -33.9063839,
+          "lon": 151.172797
+        },
+        "council": "Inner West",
+        "date_of_offence": "2024-11-27T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to ensure food contact surfaces of equipment is in a clean and sanitary condition - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "NAJJAR ESTABLISHMENTS PTY LTD",
+        "date_issued": "2024-11-28T12:00:00Z",
+        "issued_by": "Inner West Council"
       }
     ]
   },
@@ -21311,7 +21857,22 @@
         "party_served": "DUNPEC PTY LTD",
         "date_issued": "2025-07-11T12:00:00Z",
         "issued_by": "NSW Food Authority"
-      },
+      }
+    ]
+  },
+  {
+    "name": "VALUE FRESH",
+    "address": {
+      "street": "UNIT 4 8-20 ANDERSON ROAD",
+      "city": "SMEATON GRANGE",
+      "postal_code": "2567",
+      "full": "UNIT 4 8-20 ANDERSON ROAD, SMEATON GRANGE, 2567",
+      "lat": -34.0373577,
+      "lon": 150.7656497
+    },
+    "council": "Camden",
+    "party_served": "DUNPEC PTLY LIMITED",
+    "penalties": [
       {
         "penalty_notice_number": "3161231206",
         "name": "VALUE FRESH",
@@ -21596,48 +22157,6 @@
         "party_served": "HE",
         "date_issued": "2025-05-05T12:00:00Z",
         "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332665",
-        "name": "GOODLUCK FRUIT MARKET",
-        "address": {
-          "street": "19 FIRST AVENUE",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "19 FIRST AVENUE, BLACKTOWN, 2148",
-          "lat": -33.7681436,
-          "lon": 150.9113337
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-19T12:00:00Z",
-        "offence_code": "11339",
-        "offence_description": "Fail to comply with Food Standards Code - Corporation",
-        "offence_nature": "Fail to display potentially hazardous food under temperature control",
-        "penalty_amount": "$880.00",
-        "party_served": "D AND C LUCKY FRESH PTY LTD",
-        "date_issued": "2025-02-19T12:00:00Z",
-        "issued_by": "Blacktown City Council"
-      },
-      {
-        "penalty_notice_number": "3120332674",
-        "name": "GOOD LUCK FRUIT MARKET",
-        "address": {
-          "street": "19 FIRST AVENUE",
-          "city": "BLACKTOWN",
-          "postal_code": "2148",
-          "full": "19 FIRST AVENUE, BLACKTOWN, 2148",
-          "lat": -33.7681436,
-          "lon": 150.9113337
-        },
-        "council": "Blacktown",
-        "date_of_offence": "2025-02-19T12:00:00Z",
-        "offence_code": "11323",
-        "offence_description": "Sell food that is unsuitable - Corporation",
-        "offence_nature": "Selling food that is unsuitable",
-        "penalty_amount": "$1320.00",
-        "party_served": "D AND C LUCKY FRESH PTY LTD",
-        "date_issued": "2025-02-19T12:00:00Z",
-        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -21746,6 +22265,42 @@
         "party_served": "WEI ZUI ZI PTY LTD",
         "date_issued": "2024-11-01T12:00:00Z",
         "issued_by": "Willoughby City Council"
+      }
+    ]
+  },
+  {
+    "name": "WESTPOINT DELI",
+    "address": {
+      "street": "17 PATRICK STREET",
+      "city": "BLACKTOWN",
+      "postal_code": "2148",
+      "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+      "lat": -33.770397,
+      "lon": 150.9073843
+    },
+    "council": "Blacktown",
+    "party_served": "WESTPOINT DELI PTY LTD",
+    "penalties": [
+      {
+        "penalty_notice_number": "3120332811",
+        "name": "WESTPOINT DELI",
+        "address": {
+          "street": "17 PATRICK STREET",
+          "city": "BLACKTOWN",
+          "postal_code": "2148",
+          "full": "17 PATRICK STREET, BLACKTOWN, 2148",
+          "lat": -33.770397,
+          "lon": 150.9073843
+        },
+        "council": "Blacktown",
+        "date_of_offence": "2025-02-21T12:00:00Z",
+        "offence_code": "11323",
+        "offence_description": "Sell food that is unsuitable - Corporation",
+        "offence_nature": "Fail to take all practicable measures to process only safe and suitable food",
+        "penalty_amount": "$1320.00",
+        "party_served": "WESTPOINT DELI PTY LTD",
+        "date_issued": "2025-02-26T12:00:00Z",
+        "issued_by": "Blacktown City Council"
       }
     ]
   },
@@ -21911,6 +22466,42 @@
         "party_served": "JORDAN SPRINGS ENTERPRISES PTY LTD",
         "date_issued": "2024-10-25T12:00:00Z",
         "issued_by": "Penrith City Council"
+      }
+    ]
+  },
+  {
+    "name": "XUGANG (FOOD STALL)",
+    "address": {
+      "street": "5020 HAY STREET",
+      "city": "HAYMARKET",
+      "postal_code": "2000",
+      "full": "5020 HAY STREET, HAYMARKET, 2000",
+      "lat": -33.8801943,
+      "lon": 151.2078621
+    },
+    "council": "City of Sydney",
+    "party_served": "WANG",
+    "penalties": [
+      {
+        "penalty_notice_number": "7250609567",
+        "name": "XUGANG (FOOD STALL)",
+        "address": {
+          "street": "5020 HAY STREET",
+          "city": "HAYMARKET",
+          "postal_code": "2000",
+          "full": "5020 HAY STREET, HAYMARKET, 2000",
+          "lat": -33.8801943,
+          "lon": 151.2078621
+        },
+        "council": "City of Sydney",
+        "date_of_offence": "2024-09-13T12:00:00Z",
+        "offence_code": "11338",
+        "offence_description": "Fail to comply with Food Standards Code - Individual",
+        "offence_nature": "Fail to maintain at or near each hand washing facility a supply of - warm running water",
+        "penalty_amount": "$440.00",
+        "party_served": "WANG",
+        "date_issued": "2024-09-16T12:00:00Z",
+        "issued_by": "The Council of the City of Sydney"
       }
     ]
   },
@@ -22344,27 +22935,6 @@
         "offence_nature": "Fail to maintain at or near each hand washing facility a supply of - warm running water",
         "penalty_amount": "$440.00",
         "party_served": "LI",
-        "date_issued": "2024-09-16T12:00:00Z",
-        "issued_by": "The Council of the City of Sydney"
-      },
-      {
-        "penalty_notice_number": "7250609567",
-        "name": "XUGANG (FOOD STALL)",
-        "address": {
-          "street": "5020 HAY STREET",
-          "city": "HAYMARKET",
-          "postal_code": "2000",
-          "full": "5020 HAY STREET, HAYMARKET, 2000",
-          "lat": -33.8801943,
-          "lon": 151.2078621
-        },
-        "council": "City of Sydney",
-        "date_of_offence": "2024-09-13T12:00:00Z",
-        "offence_code": "11338",
-        "offence_description": "Fail to comply with Food Standards Code - Individual",
-        "offence_nature": "Fail to maintain at or near each hand washing facility a supply of - warm running water",
-        "penalty_amount": "$440.00",
-        "party_served": "WANG",
         "date_issued": "2024-09-16T12:00:00Z",
         "issued_by": "The Council of the City of Sydney"
       }
