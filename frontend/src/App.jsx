@@ -443,20 +443,28 @@ function App() {
             <div className="legend-title">Number of Offences</div>
             <div className="legend-items">
               <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#ff9800' }}></div>
+                <div className="legend-marker" style={{ backgroundColor: '#ffb74d' }}></div>
                 <span>1</span>
               </div>
               <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#fbc02d' }}></div>
+                <div className="legend-marker" style={{ backgroundColor: '#ff9800' }}></div>
                 <span>2</span>
               </div>
               <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#f57c00' }}></div>
-                <span>3-4</span>
+                <div className="legend-marker" style={{ backgroundColor: '#ff6f00' }}></div>
+                <span>3</span>
               </div>
               <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#d32f2f' }}></div>
-                <span>5+</span>
+                <div className="legend-marker" style={{ backgroundColor: '#f4511e' }}></div>
+                <span>4</span>
+              </div>
+              <div className="legend-item">
+                <div className="legend-marker" style={{ backgroundColor: '#e53935' }}></div>
+                <span>5</span>
+              </div>
+              <div className="legend-item">
+                <div className="legend-marker" style={{ backgroundColor: '#c62828' }}></div>
+                <span>6+</span>
               </div>
             </div>
           </div>

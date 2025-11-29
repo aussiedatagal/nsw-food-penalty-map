@@ -87,7 +87,7 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
           </label>
         </div>
       </div>
-          <div className="filter-group">
+      <div className="filter-group">
         <label>Date Range</label>
         <RangeSlider
           min={dateRange[0]}

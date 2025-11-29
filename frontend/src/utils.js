@@ -37,18 +37,38 @@ export const OFFENCE_OPTIONS = Object.entries(uniqueOffences).map(([desc, code])
   description: desc
 })).sort((a, b) => a.description.localeCompare(b.description))
 
+// Continuous color scale from light (few offences) to dark (many offences)
+// Using a gradient from light orange -> orange -> red -> dark red
+// All colors represent violations, with darker = more severe
 export function getMarkerColor(count) {
-  if (count >= 5) return '#d32f2f'
-  if (count >= 3) return '#f57c00'
-  if (count >= 2) return '#fbc02d'
-  return '#ff9800'
+  // Color stops for a continuous scale - all represent violations
+  // 1: light orange/peach (#ffb74d)
+  // 2: orange (#ff9800)
+  // 3: dark orange (#ff6f00)
+  // 4: red-orange (#f4511e)
+  // 5: red (#e53935)
+  // 6+: dark red (#c62828)
+  
+  if (count >= 10) return '#8b0000'  // Very dark red
+  if (count >= 8) return '#b71c1c'   // Dark red
+  if (count >= 6) return '#c62828'   // Red
+  if (count >= 5) return '#e53935'   // Bright red
+  if (count >= 4) return '#f4511e'   // Red-orange
+  if (count >= 3) return '#ff6f00'   // Dark orange
+  if (count >= 2) return '#ff9800'   // Orange
+  return '#ffb74d'                   // Light orange (still a violation)
 }
 
 export function getBadgeColor(count) {
-  if (count >= 5) return { bg: '#ffebee', color: '#d32f2f' }
-  if (count >= 3) return { bg: '#fff3e0', color: '#f57c00' }
-  if (count >= 2) return { bg: '#fffde7', color: '#fbc02d' }
-  return { bg: '#fff3e0', color: '#ff9800' }
+  // Matching badge colors with light backgrounds - all represent violations
+  if (count >= 10) return { bg: '#ffebee', color: '#8b0000' }
+  if (count >= 8) return { bg: '#ffebee', color: '#b71c1c' }
+  if (count >= 6) return { bg: '#ffebee', color: '#c62828' }
+  if (count >= 5) return { bg: '#ffebee', color: '#e53935' }
+  if (count >= 4) return { bg: '#fff3e0', color: '#f4511e' }
+  if (count >= 3) return { bg: '#fff3e0', color: '#ff6f00' }
+  if (count >= 2) return { bg: '#fff3e0', color: '#ff9800' }
+  return { bg: '#fff3e0', color: '#ffb74d' }  // Light orange background
 }
 
 /**
