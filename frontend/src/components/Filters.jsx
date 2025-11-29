@@ -107,6 +107,62 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
           onChange={(range) => setFilters({ ...filters, penaltyAmount: range })}
           formatValue={formatCurrency}
         />
+        <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', flex: 1 }}>
+            <label style={{ fontSize: '0.875rem', color: '#6c757d' }}>Min:</label>
+            <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+              <span style={{ paddingRight: '0.25rem', fontSize: '0.875rem', color: '#6c757d' }}>$</span>
+              <input
+                type="number"
+                value={filters.penaltyAmount[0]}
+                onChange={(e) => {
+                  const numValue = parseFloat(e.target.value)
+                  if (!isNaN(numValue) && numValue >= 0) {
+                    const [min, max] = filters.penaltyAmount
+                    const newMin = Math.max(penaltyRange[0], Math.min(numValue, max - 1))
+                    setFilters({ ...filters, penaltyAmount: [newMin, max] })
+                  }
+                }}
+                min={penaltyRange[0]}
+                max={filters.penaltyAmount[1] - 1}
+                style={{
+                  flex: 1,
+                  padding: '0.375rem 0.5rem',
+                  border: '1px solid #dee2e6',
+                  borderRadius: '4px',
+                  fontSize: '0.875rem'
+                }}
+              />
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', flex: 1 }}>
+            <label style={{ fontSize: '0.875rem', color: '#6c757d' }}>Max:</label>
+            <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+              <span style={{ paddingRight: '0.25rem', fontSize: '0.875rem', color: '#6c757d' }}>$</span>
+              <input
+                type="number"
+                value={filters.penaltyAmount[1]}
+                onChange={(e) => {
+                  const numValue = parseFloat(e.target.value)
+                  if (!isNaN(numValue) && numValue >= 0) {
+                    const [min, max] = filters.penaltyAmount
+                    const newMax = Math.min(penaltyRange[1], Math.max(numValue, min + 1))
+                    setFilters({ ...filters, penaltyAmount: [min, newMax] })
+                  }
+                }}
+                min={filters.penaltyAmount[0] + 1}
+                max={penaltyRange[1]}
+                style={{
+                  flex: 1,
+                  padding: '0.375rem 0.5rem',
+                  border: '1px solid #dee2e6',
+                  borderRadius: '4px',
+                  fontSize: '0.875rem'
+                }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="filter-group">
@@ -118,6 +174,62 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
           onChange={(range) => setFilters({ ...filters, totalPenaltyAmount: range })}
           formatValue={formatCurrency}
         />
+        <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', flex: 1 }}>
+            <label style={{ fontSize: '0.875rem', color: '#6c757d' }}>Min:</label>
+            <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+              <span style={{ paddingRight: '0.25rem', fontSize: '0.875rem', color: '#6c757d' }}>$</span>
+              <input
+                type="number"
+                value={filters.totalPenaltyAmount[0]}
+                onChange={(e) => {
+                  const numValue = parseFloat(e.target.value)
+                  if (!isNaN(numValue) && numValue >= 0) {
+                    const [min, max] = filters.totalPenaltyAmount
+                    const newMin = Math.max(totalPenaltyRange[0], Math.min(numValue, max - 1))
+                    setFilters({ ...filters, totalPenaltyAmount: [newMin, max] })
+                  }
+                }}
+                min={totalPenaltyRange[0]}
+                max={filters.totalPenaltyAmount[1] - 1}
+                style={{
+                  flex: 1,
+                  padding: '0.375rem 0.5rem',
+                  border: '1px solid #dee2e6',
+                  borderRadius: '4px',
+                  fontSize: '0.875rem'
+                }}
+              />
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', flex: 1 }}>
+            <label style={{ fontSize: '0.875rem', color: '#6c757d' }}>Max:</label>
+            <div style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+              <span style={{ paddingRight: '0.25rem', fontSize: '0.875rem', color: '#6c757d' }}>$</span>
+              <input
+                type="number"
+                value={filters.totalPenaltyAmount[1]}
+                onChange={(e) => {
+                  const numValue = parseFloat(e.target.value)
+                  if (!isNaN(numValue) && numValue >= 0) {
+                    const [min, max] = filters.totalPenaltyAmount
+                    const newMax = Math.min(totalPenaltyRange[1], Math.max(numValue, min + 1))
+                    setFilters({ ...filters, totalPenaltyAmount: [min, newMax] })
+                  }
+                }}
+                min={filters.totalPenaltyAmount[0] + 1}
+                max={totalPenaltyRange[1]}
+                style={{
+                  flex: 1,
+                  padding: '0.375rem 0.5rem',
+                  border: '1px solid #dee2e6',
+                  borderRadius: '4px',
+                  fontSize: '0.875rem'
+                }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="filter-group">
