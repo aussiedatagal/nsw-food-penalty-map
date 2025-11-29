@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { OFFENCE_CODES, parsePenaltyAmount } from '../utils'
+import { OFFENCE_CODES, parsePenaltyAmount, getCanonicalUrl } from '../utils'
 
 function PenaltyCard({ location, locationGroup, selectedShopIndex, onShopChange, onClose }) {
   const formatDate = (dateStr) => {
@@ -154,6 +154,32 @@ function PenaltyCard({ location, locationGroup, selectedShopIndex, onShopChange,
                       )}
                       {isProsecution && penalty.prosecution?.court && (
                         <div style={{ marginTop: '0.25rem' }}>Court: {penalty.prosecution.court}</div>
+                      )}
+                      {getCanonicalUrl(penalty) && (
+                        <div style={{ marginTop: '0.5rem' }}>
+                          <a
+                            href={getCanonicalUrl(penalty)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              color: '#667eea',
+                              textDecoration: 'none',
+                              fontSize: '0.8125rem',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '0.25rem'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.target.style.textDecoration = 'underline'
+                            }}
+                            onMouseLeave={(e) => {
+                              e.target.style.textDecoration = 'none'
+                            }}
+                          >
+                            View on NSW Food Authority
+                            <span style={{ fontSize: '0.7rem' }}>↗</span>
+                          </a>
+                        </div>
                       )}
                     </div>
                   </div>
