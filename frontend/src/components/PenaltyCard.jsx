@@ -104,31 +104,61 @@ function PenaltyCard({ location, locationGroup, selectedShopIndex, onShopChange,
           <div className="penalty-list">
             {location.penalties
               .sort((a, b) => new Date(b.date_of_offence) - new Date(a.date_of_offence))
-              .map((penalty, idx) => (
-                <div key={idx} className="penalty-item">
-                  <div className="penalty-date">
-                    {formatDate(penalty.date_of_offence)}
-                  </div>
-                  <div className="card-section-content">
-                    <strong>{(OFFENCE_CODES[penalty.offence_code] || penalty.offence_description || '').replace(/\s*-\s*(Individual|Corporation)$/i, '')}</strong>
-                  </div>
-                  {penalty.offence_nature && (
-                    <div className="card-section-content" style={{ marginTop: '0.5rem', fontSize: '0.8125rem', color: '#6c757d', lineHeight: '1.5' }}>
-                      {penalty.offence_nature}
+              .map((penalty, idx) => {
+                const isProsecution = penalty.type === 'prosecution' || !!penalty.prosecution
+                return (
+                  <div key={idx} className="penalty-item">
+                    <div className="penalty-date">
+                      {penalty.date_of_offence ? formatDate(penalty.date_of_offence) : 'No offence date'}
                     </div>
-                  )}
-                  <div className="penalty-amount">
-                    {penalty.penalty_amount}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#6c757d', marginTop: '0.5rem', paddingTop: '0.5rem', borderTop: '1px solid #e9ecef' }}>
-                    <div>Issued: {formatDate(penalty.date_issued)}</div>
-                    <div style={{ marginTop: '0.25rem' }}>By: {penalty.issued_by}</div>
-                    {penalty.party_served && (
-                      <div style={{ marginTop: '0.25rem' }}>Party: {penalty.party_served}</div>
+                    {isProsecution && (
+                      <div style={{ marginBottom: '0.25rem' }}>
+                        <span style={{
+                          display: 'inline-block',
+                          padding: '0.15rem 0.5rem',
+                          borderRadius: '999px',
+                          backgroundColor: '#dc3545',
+                          color: 'white',
+                          fontSize: '0.7rem',
+                          fontWeight: 600,
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.5px'
+                        }}>
+                          Prosecution
+                        </span>
+                      </div>
                     )}
+                    <div className="card-section-content">
+                      <strong>
+                        {(OFFENCE_CODES[penalty.offence_code] || penalty.offence_description || '')
+                          .replace(/\s*-\s*(Individual|Corporation)$/i, '')}
+                      </strong>
+                    </div>
+                    {penalty.offence_nature && (
+                      <div className="card-section-content" style={{ marginTop: '0.5rem', fontSize: '0.8125rem', color: '#6c757d', lineHeight: '1.5' }}>
+                        {penalty.offence_nature}
+                      </div>
+                    )}
+                    <div className="penalty-amount">
+                      {penalty.penalty_amount}
+                    </div>
+                    <div style={{ fontSize: '0.75rem', color: '#6c757d', marginTop: '0.5rem', paddingTop: '0.5rem', borderTop: '1px solid #e9ecef' }}>
+                      {penalty.date_issued && (
+                        <div>Issued: {formatDate(penalty.date_issued)}</div>
+                      )}
+                      {penalty.issued_by && (
+                        <div style={{ marginTop: '0.25rem' }}>By: {penalty.issued_by}</div>
+                      )}
+                      {penalty.party_served && (
+                        <div style={{ marginTop: '0.25rem' }}>Party: {penalty.party_served}</div>
+                      )}
+                      {isProsecution && penalty.prosecution?.court && (
+                        <div style={{ marginTop: '0.25rem' }}>Court: {penalty.prosecution.court}</div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
           </div>
         </div>
       </div>
