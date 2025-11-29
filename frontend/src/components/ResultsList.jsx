@@ -32,6 +32,7 @@ function ResultsList({ locations, onSelect }) {
             .sort((a, b) => b.penalties.length - a.penalties.length)
             .map((location, idx) => {
               const badge = getBadgeColor(location.penalties.length)
+              const prosecutionCount = location.penalties.filter(p => p.type === 'prosecution' || !!p.prosecution).length
               return (
                 <div
                   key={idx}
@@ -45,6 +46,11 @@ function ResultsList({ locations, onSelect }) {
                     style={{ backgroundColor: badge.bg, color: badge.color }}
                   >
                     {location.penalties.length} penalty{location.penalties.length !== 1 ? 'ies' : 'y'}
+                    {prosecutionCount > 0 && (
+                      <span style={{ marginLeft: '0.35rem', fontSize: '0.7rem', opacity: 0.9 }}>
+                        ({prosecutionCount} prosecution{prosecutionCount !== 1 ? 's' : ''})
+                      </span>
+                    )}
                   </span>
                 </div>
               )
