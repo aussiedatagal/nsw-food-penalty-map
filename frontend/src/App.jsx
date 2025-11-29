@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css'
 import './App.css'
 import PenaltyCard from './components/PenaltyCard'
 import Filters from './components/Filters'
-import { OFFENCE_CODES, getMarkerColor } from './utils'
+import { OFFENCE_CODES, getMarkerColor, parsePenaltyAmount } from './utils'
 
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -89,7 +89,7 @@ function App() {
     const amounts = []
     groupedLocations.forEach(group => {
       group.penalties.forEach(penalty => {
-        const amount = parseFloat(penalty.penalty_amount?.replace(/[^0-9.]/g, '') || '0') || 0
+        const amount = parsePenaltyAmount(penalty.penalty_amount)
         amounts.push(amount)
       })
     })
@@ -100,7 +100,7 @@ function App() {
     if (Object.keys(groupedByLocation).length === 0) return [0, 100000]
     const totals = Object.values(groupedByLocation).map(group => {
       return group.penalties.reduce((sum, penalty) => {
-        const amount = parseFloat(penalty.penalty_amount.replace(/[^0-9.]/g, '')) || 0
+        const amount = parsePenaltyAmount(penalty.penalty_amount)
         return sum + amount
       }, 0)
     })
@@ -255,7 +255,7 @@ function App() {
       }
 
       const totalAmount = group.penalties.reduce((sum, penalty) => {
-        const amount = parseFloat(penalty.penalty_amount.replace(/[^0-9.]/g, '')) || 0
+        const amount = parsePenaltyAmount(penalty.penalty_amount)
         return sum + amount
       }, 0)
       const matchesTotalAmount = totalAmount >= filters.totalPenaltyAmount[0] && totalAmount <= filters.totalPenaltyAmount[1]
@@ -282,7 +282,7 @@ function App() {
         // For prosecutions, use date_issued if date_of_offence is null
         const dateToUse = penalty.date_of_offence || penalty.date_issued
         const date = dateToUse ? new Date(dateToUse).getTime() : null
-        const amount = parseFloat(penalty.penalty_amount.replace(/[^0-9.]/g, '')) || 0
+        const amount = parsePenaltyAmount(penalty.penalty_amount)
         // If date is null/invalid, only match if date range hasn't been set (still at default)
         const matchesDate = !date || isNaN(date)
           ? (filters.dateRange[0] === 0 && filters.dateRange[1] === 0)
@@ -314,7 +314,7 @@ function App() {
       if (!hasMatchingPenalty) {
         const samplePenalty = group.penalties[0]
         const date = new Date(samplePenalty.date_of_offence).getTime()
-        const amount = parseFloat(samplePenalty.penalty_amount.replace(/[^0-9.]/g, '')) || 0
+        const amount = parsePenaltyAmount(samplePenalty.penalty_amount)
         if (date < filters.dateRange[0] || date > filters.dateRange[1]) stats.filteredByDate++
         else if (amount < filters.penaltyAmount[0] || amount > filters.penaltyAmount[1]) stats.filteredByIndividualAmount++
         else if (filters.offenceCodes.length > 0 && !filters.offenceCodes.includes(samplePenalty.offence_code)) stats.filteredByCode++

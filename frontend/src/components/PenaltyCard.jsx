@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { OFFENCE_CODES } from '../utils'
+import { OFFENCE_CODES, parsePenaltyAmount } from '../utils'
 
 function PenaltyCard({ location, locationGroup, selectedShopIndex, onShopChange, onClose }) {
   const formatDate = (dateStr) => {
@@ -12,7 +12,7 @@ function PenaltyCard({ location, locationGroup, selectedShopIndex, onShopChange,
 
   const totalPenaltyAmount = useMemo(() => {
     return location.penalties.reduce((sum, penalty) => {
-      const amount = parseFloat(penalty.penalty_amount.replace(/[^0-9.]/g, '')) || 0
+      const amount = parsePenaltyAmount(penalty.penalty_amount)
       return sum + amount
     }, 0)
   }, [location.penalties])
