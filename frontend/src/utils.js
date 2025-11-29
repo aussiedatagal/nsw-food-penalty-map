@@ -50,3 +50,26 @@ export function getBadgeColor(count) {
   if (count >= 2) return { bg: '#fffde7', color: '#fbc02d' }
   return { bg: '#fff3e0', color: '#ff9800' }
 }
+
+/**
+ * Parses a penalty amount string that may contain multiple amounts separated by spaces.
+ * For example: "$3,000 $700 $500" will return 4200
+ * @param {string} penaltyAmount - The penalty amount string (e.g., "$3,000 $700 $500")
+ * @returns {number} - The sum of all amounts found in the string
+ */
+export function parsePenaltyAmount(penaltyAmount) {
+  if (!penaltyAmount || typeof penaltyAmount !== 'string') return 0
+  
+  // Split by spaces to handle multiple amounts
+  const parts = penaltyAmount.trim().split(/\s+/)
+  
+  let total = 0
+  for (const part of parts) {
+    // Extract numeric value from each part (removes $ and commas)
+    const cleaned = part.replace(/[^0-9.]/g, '')
+    const amount = parseFloat(cleaned) || 0
+    total += amount
+  }
+  
+  return total
+}
