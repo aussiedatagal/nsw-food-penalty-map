@@ -172,7 +172,6 @@ def parse_penalty_notice(file_path: Path) -> Optional[Dict]:
     
     soup = BeautifulSoup(content, 'lxml')
     
-    # Extract penalty notice number
     penalty_notice_number = extract_text(
         soup, '.field--name-field-penalty-notice-number .field__item'
     )
@@ -181,44 +180,36 @@ def parse_penalty_notice(file_path: Path) -> Optional[Dict]:
         print(f"Warning: Could not find penalty notice number in {file_path}")
         return None
     
-    # Extract trade name (for the "name" field)
     trade_name = extract_text(
         soup, '.field--name-field-penalty-notice-trade .field__item'
     )
     
-    # Extract party served (surname takes precedence over trade name)
     party_served_trade = extract_text(
         soup, '.field--name-field-penalty-notice-trade .field__item'
     )
     party_served_surname = extract_text(
         soup, '.field--name-field-penalty-notice-surname .field__item'
     )
-    # Use surname if available, otherwise trade name
     party_served = party_served_surname or party_served_trade
     
-    # Extract address fields
     street = extract_text(
         soup, '.field--name-field-penalty-notice-street .field__item'
     )
     
-    # Get city and postal code
     city = extract_text(
         soup, '.field--name-field-penalty-notice-city .field__item'
     )
     
-    # Try to get postal code from zip field first, otherwise use city as specified
     postal_code = extract_text(
         soup, '.field--name-field-penalty-notice-zip .field__item'
     )
     if not postal_code:
-        # As per user instructions, use city field as postal_code if zip not found
         postal_code = city
     
     council = extract_text(
         soup, '.field--name-field-penalty-notice-council .field__item'
     )
     
-    # Build full address
     address_parts = []
     if street:
         address_parts.append(street)
@@ -228,7 +219,6 @@ def parse_penalty_notice(file_path: Path) -> Optional[Dict]:
         address_parts.append(postal_code)
     full_address = ", ".join(address_parts) if address_parts else None
     
-    # Extract dates
     date_of_offence = extract_datetime(
         soup, '.field--name-field-penalty-notice-date .field__item time'
     )
@@ -236,7 +226,6 @@ def parse_penalty_notice(file_path: Path) -> Optional[Dict]:
         soup, '.field--name-field-penalty-notice-issued-date .field__item time'
     )
     
-    # Extract offence details
     offence_code = extract_text(
         soup, '.field--name-field-penalty-notice-code .field__item'
     )
@@ -247,17 +236,13 @@ def parse_penalty_notice(file_path: Path) -> Optional[Dict]:
         soup, '.field--name-field-penalty-notice-nature .field__item'
     )
     
-    # Extract penalty amount
     penalty_amount = extract_text(
         soup, '.field--name-field-penalty-notice-amount .field__item'
     )
     
-    # Extract issued by
     issued_by = extract_text(
         soup, '.field--name-field-penalty-notice-issued-by .field__item'
     )
-    
-    # Build the result dictionary
     result = {
         "type": "penalty_notice",
         "penalty_notice_number": penalty_notice_number,
@@ -275,7 +260,6 @@ def parse_penalty_notice(file_path: Path) -> Optional[Dict]:
         "offence_code": offence_code,
         "offence_description": offence_description,
         "offence_nature": offence_nature,
-        # Always store a string so the frontend can safely call .replace(...)
         "penalty_amount": penalty_amount or "",
         "party_served": party_served,
         "date_issued": date_issued,
@@ -296,16 +280,13 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
 
     soup = BeautifulSoup(content, "lxml")
 
-    # Use shortlink node ID as a stable identifier if available
     prosecution_id: Optional[str] = None
     shortlink = soup.select_one('link[rel="shortlink"]')
     if shortlink and shortlink.get("href"):
-        # e.g. /node/26710 -> 26710
         node_match = re.search(r"/node/(\d+)", shortlink["href"])
         if node_match:
             prosecution_id = f"prosecution-{node_match.group(1)}"
 
-    # Fall back to filename slug if we can't find a node id
     if not prosecution_id:
         prosecution_id = f"prosecution-{file_path.name}"
 
@@ -329,7 +310,6 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
         soup, ".field--name-field-prosecution-notice-brought .field__item"
     )
 
-    # Address at which offence was committed
     address_element = soup.select_one(
         ".field--name-field-prosecution-notice-address .field__item"
     )
@@ -337,8 +317,6 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
     city = None
     full_address = None
     if address_element:
-        # Lines are broken with <br>, e.g.
-        # "Shop 2, 2 Boomerang Place" + "Cambridge Gardens"
         lines = [line.strip() for line in address_element.stripped_strings if line.strip()]
         if lines:
             street = lines[0]
@@ -347,18 +325,15 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
             full_parts = [part for part in [street, city] if part]
             full_address = ", ".join(full_parts) if full_parts else None
 
-    # Date of offence is plain text, e.g. "18 September 2023"
     date_of_offence_text = extract_html_text(
         soup, ".field--name-field-prosecution-notice-offence .field__item"
     )
     date_of_offence = parse_date_text(date_of_offence_text)
 
-    # Nature and circumstances of offence (rich text)
     offence_nature = extract_html_text(
         soup, ".field--name-field-prosecution-notice-nature .field__item"
     )
 
-    # Decision (used to build an offence_description)
     decision_text = extract_html_text(
         soup, ".field--name-field-prosecution-notice-desc .field__item"
     )
@@ -366,11 +341,9 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
         f"Prosecution: {decision_text}" if decision_text else "Prosecution"
     )
 
-    # Penalty text contains per-offence amounts and a "Total penalty: $X" line
     penalty_text = extract_html_text(
         soup, ".field--name-field-prosecution-notice-penalty .field__item"
     )
-    # Default to the raw text so we always have a string value
     penalty_amount = penalty_text or ""
     if penalty_text:
         total_match = re.search(
@@ -379,7 +352,6 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
             flags=re.IGNORECASE,
         )
         if total_match:
-            # Preserve commas; frontend strips non-numerics when aggregating
             amount_str = total_match.group(1)
             penalty_amount = f"${amount_str}"
 
@@ -393,10 +365,8 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
     result = {
         "type": "prosecution",
         "prosecution_notice_id": prosecution_id,
-        # For consistency with penalties / grouping:
         "penalty_notice_number": prosecution_id,
         "name": trade_name or "(NO TRADING NAME)",
-        # Treat 'party_served' analogously as the convicted party
         "party_served": name_of_convicted,
         "address": {
             "street": street,
@@ -407,7 +377,6 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
             "lon": None,
         },
         "council": council,
-        # For prosecutions, "date of offence" and "date of decision" map naturally:
         "date_of_offence": date_of_offence,
         "date_issued": date_of_decision,
         "offence_code": None,
@@ -415,7 +384,6 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
         "offence_nature": offence_nature,
         "penalty_amount": penalty_amount,
         "issued_by": brought_by,
-        # Extra prosecution-specific metadata
         "prosecution": {
             "court": court,
             "brought_by": brought_by,
@@ -431,7 +399,6 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
 
 def compare_entries(existing: Dict, new: Dict) -> bool:
     """Compare two penalty notice entries to see if they're the same."""
-    # Compare all fields except lat/lon (which may be added later)
     fields_to_compare = [
         "penalty_notice_number", "name", "council", "date_of_offence",
         "offence_code", "offence_description", "offence_nature",
@@ -442,7 +409,6 @@ def compare_entries(existing: Dict, new: Dict) -> bool:
         if existing.get(field) != new.get(field):
             return False
     
-    # Compare address fields
     for field in ["street", "city", "postal_code", "full"]:
         if existing.get("address", {}).get(field) != new.get("address", {}).get(field):
             return False
@@ -455,7 +421,6 @@ def main():
     base_dir = Path(__file__).parent
     output_file = base_dir / "penalty_notices.json"
     
-    # Load existing data if it exists
     existing_data = {}
     if output_file.exists():
         try:
@@ -466,11 +431,9 @@ def main():
             print(f"Warning: Could not load existing data: {e}")
             existing_data = {}
     
-    # Find all penalty notice files
     penalty_files = find_penalty_notice_files(str(base_dir))
     print(f"Found {len(penalty_files)} penalty notice files to process")
 
-    # Find all prosecution files
     prosecution_files = find_prosecution_files(str(base_dir))
     print(f"Found {len(prosecution_files)} prosecution files to process")
     
@@ -478,7 +441,6 @@ def main():
         print("No files found to process")
         return
     
-    # Process each file
     processed_penalties = 0
     skipped_penalties = 0
     updated_penalties = 0
@@ -489,7 +451,6 @@ def main():
     updated_prosecutions = 0
     error_prosecutions = 0
     
-    # Penalty notices
     for file_path in penalty_files:
         result = parse_penalty_notice(file_path)
         
@@ -499,26 +460,20 @@ def main():
         
         penalty_number = result["penalty_notice_number"]
         
-        # Check if this penalty notice already exists
         if penalty_number in existing_data:
-            # Compare with existing entry
             if compare_entries(existing_data[penalty_number], result):
                 skipped_penalties += 1
                 continue
             else:
-                # Data differs - log it
                 print(f"WARNING: Penalty notice {penalty_number} already exists but data differs!")
                 print(f"  Existing: {json.dumps(existing_data[penalty_number], indent=2)}")
                 print(f"  New: {json.dumps(result, indent=2)}")
-                # Update with new data
                 existing_data[penalty_number] = result
                 updated_penalties += 1
         else:
-            # New entry
             existing_data[penalty_number] = result
             processed_penalties += 1
 
-    # Prosecutions
     for file_path in prosecution_files:
         result = parse_prosecution_notice(file_path)
 
@@ -542,7 +497,6 @@ def main():
             existing_data[prosecution_key] = result
             processed_prosecutions += 1
     
-    # Save the updated data
     print(f"\nSaving results to {output_file}")
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(existing_data, f, indent=2, ensure_ascii=False)

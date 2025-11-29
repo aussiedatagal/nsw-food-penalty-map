@@ -1,18 +1,18 @@
 # NSW Food Penalty Notices
 
-An interactive map visualization of food safety penalty notices issued by the NSW Food Authority. Explore penalty notices by location, date, offence type, and penalty amount.
+Interactive map visualization of food safety penalty notices issued by the NSW Food Authority. Filter by location, date, offence type, and penalty amount.
 
-🔗 **Live Site**: [View on GitHub Pages](https://aussiedatagal.github.io/food_penalties/)
+**Live Site**: [View on GitHub Pages](https://aussiedatagal.github.io/food_penalties/)
 
 ![NSW Food Penalty Notices Screenshot](screenshot.png)
 
 ## Features
 
-- 🗺️ **Interactive Map**: Visualize penalty notices on an interactive map powered by Leaflet and OpenStreetMap
-- 🔍 **Advanced Filtering**: Filter by date range, penalty amount, offence code, and council area
-- 📊 **Location Grouping**: Penalties are grouped by location with color-coded markers indicating frequency
-- 📱 **Responsive Design**: Works seamlessly on desktop and mobile devices
-- 🔗 **Detailed Information**: Click on any location to see all penalty notices for that business
+- Interactive map with Leaflet and OpenStreetMap
+- Filter by date range, penalty amount, offence code, and council area
+- Location grouping with color-coded markers showing frequency
+- Responsive design for desktop and mobile
+- Click any location to view all penalty notices for that business
 
 ## Data Source
 
@@ -33,12 +33,10 @@ food_penalties/
 │   ├── src/              # React components and utilities
 │   ├── public/           # Static assets and data files
 │   └── dist/             # Build output (for GitHub Pages)
-├── extract_penalty_notices.py    # Extract data from HTML files
-├── normalize_penalty_notices.py  # Normalize and clean data
-├── geocode_addresses.py          # Geocode addresses using OpenStreetMap
-├── group_by_shop.py              # Group penalties by business location
-├── fix_postcodes.py              # Fix and normalize postcodes
-└── penalty_notices.json          # Processed penalty notice data
+├── 1_parse_scrape.py     # Extract data from HTML files
+├── 2_geocode.py          # Geocode addresses using OpenStreetMap
+├── 3_group_locations.py  # Group penalties by business location
+└── penalty_notices.json  # Processed penalty notice data
 ```
 
 ## Setup
@@ -91,45 +89,41 @@ The built files will be in `frontend/dist/`
 
 This repository is configured for automatic deployment to GitHub Pages using GitHub Actions.
 
-1. **Enable GitHub Pages**:
-   - Go to your repository Settings → Pages
+1. Enable GitHub Pages:
+   - Go to repository Settings → Pages
    - Under "Source", select "GitHub Actions"
 
-2. **Update Base Path** (if needed):
-   - If your repository name is different from `food_penalties`, update the `base` path in `frontend/vite.config.js`
-   - The base path should match your repository name: `base: '/your-repo-name/'`
+2. Update base path (if needed):
+   - If your repository name differs from `food_penalties`, update the `base` path in `frontend/vite.config.js`
+   - Base path should match your repository name: `base: '/your-repo-name/'`
 
-3. **Automatic Deployment**:
-   - The GitHub Actions workflow (`.github/workflows/deploy.yml`) will automatically build and deploy the site when you push to the `main` branch
-   - The site will be available at `https://yourusername.github.io/food_penalties/`
+3. Automatic deployment:
+   - The GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and deploys on push to `main`
+   - Site available at `https://yourusername.github.io/food_penalties/`
 
 ## Data Processing Pipeline
 
-The data processing involves several steps:
-
-1. **Extract** (`extract_penalty_notices.py`): Extract structured data from HTML files downloaded from the NSW Food Authority website
-2. **Normalize** (`normalize_penalty_notices.py`): Normalize shop names, addresses, and coordinates to handle inconsistencies
-3. **Geocode** (`geocode_addresses.py`): Add latitude/longitude coordinates using OpenStreetMap Nominatim API
-4. **Group** (`group_by_shop.py`): Group multiple penalty notices by business location
-5. **Fix Postcodes** (`fix_postcodes.py`): Clean and normalize postcode data
+1. **Extract** (`1_parse_scrape.py`): Extract structured data from HTML files
+2. **Geocode** (`2_geocode.py`): Add latitude/longitude coordinates using OpenStreetMap Nominatim API
+3. **Group** (`3_group_locations.py`): Group multiple penalty notices by business location
 
 ## Technologies Used
 
 ### Frontend
-- **React 19** - UI framework
-- **Vite** - Build tool and dev server
-- **Leaflet** - Interactive maps
-- **React Leaflet** - React bindings for Leaflet
+- React 19
+- Vite
+- Leaflet
+- React Leaflet
 
-### Backend/Data Processing
-- **Python 3** - Data processing scripts
-- **BeautifulSoup4** - HTML parsing
-- **Requests** - HTTP requests for geocoding
+### Data Processing
+- Python 3
+- BeautifulSoup4
+- geopy
 
 ### Data Sources
-- **NSW Food Authority** - Penalty notice data
-- **OpenStreetMap Nominatim** - Geocoding service
-- **OpenStreetMap** - Map tiles
+- NSW Food Authority
+- OpenStreetMap Nominatim
+- OpenStreetMap
 
 ## License
 
@@ -143,12 +137,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For questions or feedback, please contact:
+For questions or feedback:
 - Email: tkl9tlfno@mozmail.com
 - GitHub: [@aussiedatagal](https://github.com/aussiedatagal)
-- Other Projects: [aussiedatagal.github.io](https://github.com/aussiedatagal/aussiedatagal.github.io)
+- Projects: [aussiedatagal.github.io](https://aussiedatagal.github.io)
 
 ## Disclaimer
 
-This project is for informational purposes only. The data is sourced from publicly available information published by the NSW Food Authority. While every effort has been made to ensure accuracy, users should verify information independently if needed for official purposes.
+This project is for informational purposes only. Data is sourced from publicly available information published by the NSW Food Authority.
 

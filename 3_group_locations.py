@@ -19,16 +19,8 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 
 
-# Threshold for considering coordinates the same (in degrees)
-# Approximately 11 meters at the equator
 COORDINATE_EPSILON = 0.0001
-
-# Threshold for name similarity when coordinates match exactly (60%)
-# Lower threshold because exact coordinates strongly suggest same business
 NAME_SIMILARITY_THRESHOLD_EXACT_COORDS = 0.60
-
-# Threshold for name similarity when coordinates don't match (85%)
-# Higher threshold needed when locations differ
 NAME_SIMILARITY_THRESHOLD = 0.85
 
 
@@ -38,15 +30,13 @@ def normalize_name(name: str) -> str:
 
 
 def normalize_address_for_comparison(address: Dict) -> str:
-    """Normalize address for comparison (for exact matching)."""
+    """Normalize address for comparison."""
     import re
     
-    # Normalize street abbreviations
     def normalize_street(street: str) -> str:
         if not street:
             return ""
         street = street.strip().upper()
-        # Replace common abbreviations with full forms
         street = re.sub(r'\bST\b', 'STREET', street)
         street = re.sub(r'\bAVE\b', 'AVENUE', street)
         street = re.sub(r'\bRD\b', 'ROAD', street)
@@ -71,9 +61,7 @@ def normalize_party_served(party: str) -> str:
     """Normalize party_served for comparison."""
     if not party:
         return ""
-    # Remove common suffixes and normalize
     normalized = party.strip().upper()
-    # Remove common variations
     normalized = normalized.replace(" PTY LTD", "").replace(" PTY. LTD.", "").replace(" PTY", "")
     normalized = normalized.replace(" LTD", "").replace(" LIMITED", "")
     return normalized.strip()
@@ -86,15 +74,11 @@ def name_similarity(name1: str, name2: str) -> float:
     if not norm1 or not norm2:
         return 0.0
     
-    # If one name contains the other (or vice versa), consider it a strong match
-    # This handles cases like "O'CHICKEN" vs "O'CHICKEN MACARTHUR SQUARE"
     if norm1 in norm2 or norm2 in norm1:
-        # Return high similarity if one is substring of the other
-        # Weight it based on how much of the longer name is covered
         longer = max(len(norm1), len(norm2))
         shorter = min(len(norm1), len(norm2))
         if longer > 0:
-            return max(0.70, shorter / longer)  # At least 70% if substring match
+            return max(0.70, shorter / longer)
     
     return SequenceMatcher(None, norm1, norm2).ratio()
 
@@ -106,7 +90,6 @@ def coordinates_match(lat1: float, lon1: float, lat2: float, lon2: float) -> boo
 
 def create_penalty_dict(notice: Dict) -> Dict:
     """Create a copy of the full penalty notice data."""
-    # Return a deep copy of the entire notice
     return json.loads(json.dumps(notice))
 
 
@@ -122,7 +105,6 @@ def main():
     
     print(f"Loaded {len(penalty_notices)} penalty notices")
     
-    # Filter to only geocoded entries
     geocoded_notices = []
     skipped_count = 0
     
@@ -140,8 +122,6 @@ def main():
     print(f"Skipped {skipped_count} notices without geocoding")
     print(f"Processing {len(geocoded_notices)} geocoded notices")
     
-    # Group by location and name similarity
-    # We'll use a list to track groups, and for each new notice, check if it matches an existing group
     groups: List[Dict] = []
     
     for notice in geocoded_notices:
@@ -152,7 +132,6 @@ def main():
         council = notice.get("council", "")
         party_served = notice.get("party_served", "")
         
-        # Find matching group
         matched_group = None
         
         for group in groups:
@@ -162,12 +141,9 @@ def main():
             group_party_served = group.get("party_served", "")
             group_address = group["address"]
             
-            # Check if coordinates match
             coords_match = coordinates_match(lat, lon, group_lat, group_lon)
             
             if coords_match:
-                # Strong signals that it's the same business:
-                # 1. Exact party_served match (normalized)
                 party_match = False
                 if party_served and group_party_served:
                     norm_party1 = normalize_party_served(party_served)
@@ -175,21 +151,13 @@ def main():
                     if norm_party1 and norm_party2 and norm_party1 == norm_party2:
                         party_match = True
                 
-                # If party_served matches exactly, merge regardless of name similarity
-                # This indicates the same business owner/entity
                 if party_match:
                     matched_group = group
                     break
                 
-                # Otherwise, check if names are similar enough
-                # Use lower threshold when coordinates match exactly
-                # But don't merge just based on address alone - require name similarity
-                # Different party_served at same address likely means different business
                 similarity = name_similarity(name, group_name)
                 threshold = NAME_SIMILARITY_THRESHOLD_EXACT_COORDS if coords_match else NAME_SIMILARITY_THRESHOLD
                 
-                # If names are similar, but party_served is different and both are present,
-                # don't merge - likely different businesses
                 party_mismatch = False
                 if party_served and group_party_served:
                     norm_party1 = normalize_party_served(party_served)
@@ -201,17 +169,13 @@ def main():
                     matched_group = group
                     break
         
-        # Create penalty dict
         penalty = create_penalty_dict(notice)
         
         if matched_group:
-            # Add penalty to existing group
             matched_group["penalties"].append(penalty)
-            # Update party_served if it's different (keep first non-empty one, or merge if needed)
             if not matched_group.get("party_served") and party_served:
                 matched_group["party_served"] = party_served
         else:
-            # Create new group
             new_group = {
                 "name": name,
                 "address": {
@@ -228,22 +192,18 @@ def main():
             }
             groups.append(new_group)
     
-    # Sort groups by name for consistent output
     groups.sort(key=lambda g: normalize_name(g["name"]))
     
-    # Sort penalties within each group by date_issued (most recent first)
     for group in groups:
         group["penalties"].sort(
             key=lambda p: p.get("date_issued") or "", 
             reverse=True
         )
     
-    # Save results
     print(f"\nSaving {len(groups)} grouped locations to {output_file}...")
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(groups, f, indent=2, ensure_ascii=False)
     
-    # Copy to frontend folder
     frontend_file = Path("frontend/public/grouped_locations.json")
     if frontend_file.parent.exists():
         print(f"Copying to {frontend_file}...")
@@ -252,7 +212,6 @@ def main():
     else:
         print(f"Warning: Frontend folder not found at {frontend_file.parent}")
     
-    # Print summary statistics
     total_penalties = sum(len(g["penalties"]) for g in groups)
     groups_with_multiple = sum(1 for g in groups if len(g["penalties"]) > 1)
     max_penalties = max((len(g["penalties"]) for g in groups), default=0)
