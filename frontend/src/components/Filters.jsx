@@ -53,6 +53,41 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
             </div>
           </div>
           <div className="filter-group">
+        <label>Notice Type</label>
+        <div className="radio-group">
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="penaltyType"
+              value="all"
+              checked={filters.penaltyType === 'all'}
+              onChange={(e) => setFilters({ ...filters, penaltyType: e.target.value })}
+            />
+            <span>All</span>
+          </label>
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="penaltyType"
+              value="prosecution"
+              checked={filters.penaltyType === 'prosecution'}
+              onChange={(e) => setFilters({ ...filters, penaltyType: e.target.value })}
+            />
+            <span>Prosecutions Only</span>
+          </label>
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="penaltyType"
+              value="penalty"
+              checked={filters.penaltyType === 'penalty'}
+              onChange={(e) => setFilters({ ...filters, penaltyType: e.target.value })}
+            />
+            <span>Penalties Only</span>
+          </label>
+        </div>
+      </div>
+          <div className="filter-group">
         <label>Date Range</label>
         <RangeSlider
           min={dateRange[0]}

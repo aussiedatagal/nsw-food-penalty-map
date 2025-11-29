@@ -27,7 +27,8 @@ function App() {
     offenceCount: [1, 100],
     offenceCodes: [],
     councils: [],
-    textFilter: ''
+    textFilter: '',
+    penaltyType: 'all' // 'all', 'prosecution', 'penalty'
   })
 
   useEffect(() => {
@@ -62,6 +63,10 @@ function App() {
     const set = new Set()
     groupedLocations.forEach(group => {
       if (group.council) set.add(group.council)
+      // Also add councils from individual penalties
+      group.penalties.forEach(penalty => {
+        if (penalty.council) set.add(penalty.council)
+      })
     })
     return Array.from(set).sort()
   }, [groupedLocations])
@@ -170,7 +175,8 @@ function App() {
               offenceCount: offenceCountRange,
               offenceCodes: allOffenceCodesInData,
               councils: councils,
-              textFilter: ''
+              textFilter: '',
+              penaltyType: 'all'
             })
           }
           return newFilters
@@ -260,12 +266,47 @@ function App() {
       }
 
       const hasMatchingPenalty = group.penalties.some(penalty => {
-        const date = new Date(penalty.date_of_offence).getTime()
+        // Check penalty type filter first
+        if (filters.penaltyType === 'prosecution') {
+          const isProsecution = penalty.type === 'prosecution' || !!penalty.prosecution
+          if (!isProsecution) {
+            return false
+          }
+        } else if (filters.penaltyType === 'penalty') {
+          const isProsecution = penalty.type === 'prosecution' || !!penalty.prosecution
+          if (isProsecution) {
+            return false
+          }
+        }
+        
+        // For prosecutions, use date_issued if date_of_offence is null
+        const dateToUse = penalty.date_of_offence || penalty.date_issued
+        const date = dateToUse ? new Date(dateToUse).getTime() : null
         const amount = parseFloat(penalty.penalty_amount.replace(/[^0-9.]/g, '')) || 0
-        const matchesDate = date >= filters.dateRange[0] && date <= filters.dateRange[1]
+        // If date is null/invalid, only match if date range hasn't been set (still at default)
+        const matchesDate = !date || isNaN(date)
+          ? (filters.dateRange[0] === 0 && filters.dateRange[1] === 0)
+          : (date >= filters.dateRange[0] && date <= filters.dateRange[1])
         const matchesAmount = amount >= filters.penaltyAmount[0] && amount <= filters.penaltyAmount[1]
-        const matchesCode = filters.offenceCodes.length === 0 || filters.offenceCodes.includes(penalty.offence_code)
-        const matchesCouncil = filters.councils.length === 0 || filters.councils.includes(penalty.council)
+        // Handle null offence codes (prosecutions often have null offence_code)
+        // When all codes are selected (defaultFilters.offenceCodes.length === filters.offenceCodes.length),
+        // null codes should also be allowed
+        const allCodesSelected = defaultFilters && 
+          defaultFilters.offenceCodes.length > 0 &&
+          filters.offenceCodes.length === defaultFilters.offenceCodes.length &&
+          defaultFilters.offenceCodes.every(code => filters.offenceCodes.includes(code))
+        const matchesCode = penalty.offence_code === null
+          ? allCodesSelected  // Allow null codes when all codes are selected
+          : (filters.offenceCodes.length === 0 || filters.offenceCodes.includes(penalty.offence_code))
+        // Handle null councils (some prosecutions have null council)
+        // When all councils are selected, null councils should also be allowed
+        const allCouncilsSelected = defaultFilters && 
+          defaultFilters.councils.length > 0 &&
+          filters.councils.length === defaultFilters.councils.length &&
+          defaultFilters.councils.every(council => filters.councils.includes(council))
+        const matchesCouncil = penalty.council === null || penalty.council === undefined
+          ? allCouncilsSelected  // Allow null councils when all councils are selected
+          : (filters.councils.length === 0 || filters.councils.includes(penalty.council))
         
         return matchesDate && matchesAmount && matchesCode && matchesCouncil
       })
@@ -292,7 +333,7 @@ function App() {
     })
 
     return filtered
-  }, [groupedByLocation, filters])
+  }, [groupedByLocation, filters, defaultFilters])
 
   // Group filtered locations by coordinates to handle multiple shops at same location
   const locationsByCoordinates = useMemo(() => {
@@ -346,6 +387,9 @@ function App() {
     // Check offence count range
     if (filters.offenceCount[0] !== defaultFilters.offenceCount[0] || 
         filters.offenceCount[1] !== defaultFilters.offenceCount[1]) return true
+    
+    // Check penalty type filter
+    if (filters.penaltyType !== defaultFilters.penaltyType) return true
     
     return false
   }, [filters, defaultFilters])
