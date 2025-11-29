@@ -16251,7 +16251,7 @@
     "date_issued": "2025-07-09T12:00:00Z",
     "offence_code": null,
     "offence_description": "Prosecution: Section 10A on both offences",
-    "offence_nature": "The defendant was given a Sec. 10a for the offence under section 100(1) of the Food Act 2003 , failure to notify appropriate enforcement agency prior to conducting a food business. The defendant failed to notify their business details to the appropriate enforcement agency prior to the commencement of selling of a food product. The defendant was given a Sec. 10a for the offence under section 21(3) of the Food Act 2003 , failure to comply with the Food Standards Code, namely: Food Safety Standard 1.2.1 Clause 8(1c). Failure to label a packed product with ‘name and address of the supplier’.",
+    "offence_nature": "1. The defendant was given a Sec. 10a for the offence under section 100(1) of the Food Act 2003, failure to notify appropriate enforcement agency prior to conducting a food business. The defendant failed to notify their business details to the appropriate enforcement agency prior to the commencement of selling of a food product.\n2. The defendant was given a Sec. 10a for the offence under section 21(3) of the Food Act 2003, failure to comply with the Food Standards Code, namely: Food Safety Standard 1.2.1 Clause 8(1c). Failure to label a packed product with ‘name and address of the supplier’.",
     "penalty_amount": "$0 (Section 10a) professional costs $400",
     "issued_by": "Lismore City Council",
     "prosecution": {
@@ -16282,14 +16282,14 @@
     "date_issued": "2023-12-19T12:00:00Z",
     "offence_code": null,
     "offence_description": "Prosecution: Guilty, conviction recorded",
-    "offence_nature": "The defendant was convicted for the offence under section 21(1) of the Food Act 2003 , failure to comply with the Food Standards Code, namely: Food Safety Standard 3.2.2 Clause 6(l)(a). Failure to store food in such a way that it is protected from the likelihood of contamination. Food Safety Standard 3.2.2 Clause 17(l)(a). Failure to maintain easily accessible hand washing facilities. Food Safety Standard 3.2.2 Clause 19(1). Failure to maintain the food premises to a standard of cleanliness where there is no accumulation of food waste, dirt, grease or other visible matter Food Safety Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. Food Safety Standard 3.2.2 Clause 21(1). Failure to maintain fixtures, fittings and equipment in a good state of repair and working order having regard to their use. Food Safety Standard 3.2.2 Clause 24(l)(b) and (c). Failure to take all practical measures to prevent pests entering the premises and failure to take all practical measures to eradicate and prevent the harbourage of pests on the premises. Food Safety Standard 3.2.3 Clause 15(1). Failure to have adequate storage facilities for the storage of items likely to be the source of contamination.",
-    "penalty_amount": "$3,000 $700 $500 $900 $800 $800 $800",
+    "offence_nature": "The defendant was convicted for the offence under section 21(1) of the Food Act 2003, failure to comply with the Food Standards Code, namely:\n\n1. Food Safety Standard 3.2.2 Clause 6(l)(a). Failure to store food in such a way that it is protected from the likelihood of contamination.\n2. Food Safety Standard 3.2.2 Clause 17(l)(a). Failure to maintain easily accessible hand washing facilities.\n3. Food Safety Standard 3.2.2 Clause 19(1). Failure to maintain the food premises to a standard of cleanliness where there is no accumulation of food waste, dirt, grease or other visible matter\n4. Food Safety Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness.\n5. Food Safety Standard 3.2.2 Clause 21(1). Failure to maintain fixtures, fittings and equipment in a good state of repair and working order having regard to their use.\n6. Food Safety Standard 3.2.2 Clause 24(l)(b) and (c). Failure to take all practical measures to prevent pests entering the premises and failure to take all practical measures to eradicate and prevent the harbourage of pests on the premises.\n7. Food Safety Standard 3.2.3 Clause 15(1). Failure to have adequate storage facilities for the storage of items likely to be the source of contamination.",
+    "penalty_amount": "1. $3,000\n2. $700\n3. $500\n4. $900\n5. $800\n6. $800\n7. $800",
     "issued_by": "Georges River Council",
     "prosecution": {
       "court": "Sutherland Local Court",
       "brought_by": "Georges River Council",
       "decision": "Guilty, conviction recorded",
-      "penalty_details_raw": "$3,000 $700 $500 $900 $800 $800 $800",
+      "penalty_details_raw": "1. $3,000\n2. $700\n3. $500\n4. $900\n5. $800\n6. $800\n7. $800",
       "decision_details": "No web link available",
       "usual_place_of_business": "14 Morts Road Mortdale NSW 2223"
     }
@@ -16313,14 +16313,14 @@
     "date_issued": "2024-09-20T12:00:00Z",
     "offence_code": null,
     "offence_description": "Prosecution: Guilty, conviction recorded & fined",
-    "offence_nature": "The defendant company was convicted of Four (4) Principal Offences under the Food Act 2003 (NSW). Offences Three (3), Five (5) and Six (6) were dealt with by Form 1, whereby the court takes these offences into account when determining the sentence for Principal Offences. Section 21(1); Failure to comply with Food Standards Code 3.2.2, Clause 18(3)(a) – General duties of food businesses. Section 16(1); Handle food in a manner likely to render it unsafe. Section 17(1); Handling food in a manner likely to render it unsuitable Section 16(2); Sell unsafe food. Section 16(2); Sell unsuitable food. Section 19(1); Sale of food not complying with purchaser’s demand Section 21(1); Failure to comply with Food Standards Code 3.2.2, Clause 7(1)(a) – Food Processing.",
+    "offence_nature": "The defendant company was convicted of Four (4) Principal Offences under the Food Act 2003 (NSW). Offences Three (3), Five (5) and Six (6) were dealt with by Form 1, whereby the court takes these offences into account when determining the sentence for Principal Offences.\n\n1. Section 21(1); Failure to comply with Food Standards Code 3.2.2, Clause 18(3)(a) – General duties of food businesses.\n2. Section 16(1); Handle food in a manner likely to render it unsafe.\n3. Section 17(1); Handling food in a manner likely to render it unsuitable\n4. Section 16(2); Sell unsafe food.\n5. Section 16(2); Sell unsuitable food.\n6. Section 19(1); Sale of food not complying with purchaser’s demand\n7. Section 21(1); Failure to comply with Food Standards Code 3.2.2, Clause 7(1)(a) – Food Processing.",
     "penalty_amount": "$29,500",
     "issued_by": "NSW Food Authority",
     "prosecution": {
       "court": "Wollongong Local Court",
       "brought_by": "NSW Food Authority",
       "decision": "Guilty, conviction recorded & fined",
-      "penalty_details_raw": "Offence 1: $7,500 Offence 2: $6,000 Offence 4: $10,000 Offence 7: $6,000 Total penalty: $29,500 Professional costs: $18,000",
+      "penalty_details_raw": "Offence 1: $7,500\nOffence 2: $6,000\nOffence 4: $10,000\nOffence 7: $6,000\nTotal penalty: $29,500\nProfessional costs: $18,000",
       "decision_details": "No web link available",
       "usual_place_of_business": "11 Bourke Street Fairy Meadow NSW 2519"
     }
@@ -16344,14 +16344,14 @@
     "date_issued": "2024-08-13T12:00:00Z",
     "offence_code": null,
     "offence_description": "Prosecution: Guilty, conviction recorded",
-    "offence_nature": "The defendant was convicted for the offence under section 21(1) of the Food Act 2003 , failure to comply with the Food Standards Code, namely: Food Safety Standard 3.2.2 Clause 19(1). Failure to maintain the food premises to a standard of cleanliness where there is no accumulation of food waste, dirt, grease or other visible matter. Food Safety Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. Food Safety Standard 3.2.2 Clause 6(l). Failure to store food in such a way that it is protected from the likelihood of contamination. Food Safety Standard 3.2.2 Clause 24(l). Failure to take all practical measures to prevent pests entering the premises and failure to take all practical measures to prevent the harbourage of pests on the premises.",
-    "penalty_amount": "Offence 1. $440 Offence 2. $880 Offence 3. $2,200 Offence 4. $220",
+    "offence_nature": "The defendant was convicted for the offence under section 21(1) of the Food Act 2003, failure to comply with the Food Standards Code, namely:\n\n1. Food Safety Standard 3.2.2 Clause 19(1). Failure to maintain the food premises to a standard of cleanliness where there is no accumulation of food waste, dirt, grease or other visible matter.\n2. Food Safety Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness.\n3. Food Safety Standard 3.2.2 Clause 6(l). Failure to store food in such a way that it is protected from the likelihood of contamination.\n4. Food Safety Standard 3.2.2 Clause 24(l). Failure to take all practical measures to prevent pests entering the premises and failure to take all practical measures to prevent the harbourage of pests on the premises.",
+    "penalty_amount": "Offence 1. $440\nOffence 2. $880\nOffence 3. $2,200\nOffence 4. $220",
     "issued_by": "Georges River Council",
     "prosecution": {
       "court": "Sutherland Local Court",
       "brought_by": "Georges River Council",
       "decision": "Guilty, conviction recorded",
-      "penalty_details_raw": "Offence 1. $440 Offence 2. $880 Offence 3. $2,200 Offence 4. $220",
+      "penalty_details_raw": "Offence 1. $440\nOffence 2. $880\nOffence 3. $2,200\nOffence 4. $220",
       "decision_details": "No web link available",
       "usual_place_of_business": "Hurstville"
     }
@@ -16406,14 +16406,14 @@
     "date_issued": "2023-11-10T12:00:00Z",
     "offence_code": null,
     "offence_description": "Prosecution: Guilty, conviction recorded",
-    "offence_nature": "The defendant was convicted for offences under section 21(1) of the NSW Food Act 2003 , for failure to comply with the Food Standards Code, namely: Food Safety Standards 3.2.2 Clause 6(1)(a), failure to store food in such a way that it is protected form the likelihood of contamination. Food Safety Standards 3.2.2 Clause 17(1)(b)(ii) and 17(1)(d)(i), failure to maintain at or near the hand washing facility a supply of soap and supply of single use towels. Food Safety Standard 3.2.2 Clause 19(1), failure to maintain the premises to the required standard of cleanliness. Food Safety Standard 3.2.2 Clause 19(2), failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. Food Safety Standard 3.2.2 Clause 21(1), failure to maintain fixtures, fittings and equipment in a good state of repair and working order, having regards to their use. Food Safety Standard 3.2.2 Clause 24(1)(b) and 24(1)(c), failure to take all practicable measures to prevent pests entering the food premises, and to eradicate and prevent the harbourage of pest on the food premises.",
-    "penalty_amount": "Offence 1: $1600 Offence 2: $880 Offence 3: $1000 Offence 4: $880 Offence 5: $880 Offence 6: $1600",
+    "offence_nature": "The defendant was convicted for offences under section 21(1) of the NSW Food Act 2003, for failure to comply with the Food Standards Code, namely:\n\n1. Food Safety Standards 3.2.2 Clause 6(1)(a), failure to store food in such a way that it is protected form the likelihood of contamination.\n2. Food Safety Standards 3.2.2 Clause 17(1)(b)(ii) and 17(1)(d)(i), failure to maintain at or near the hand washing facility a supply of soap and supply of single use towels.\n3. Food Safety Standard 3.2.2 Clause 19(1), failure to maintain the premises to the required standard of cleanliness.\n4. Food Safety Standard 3.2.2 Clause 19(2), failure to maintain fixtures, fittings and equipment to the required standard of cleanliness.\n5. Food Safety Standard 3.2.2 Clause 21(1), failure to maintain fixtures, fittings and equipment in a good state of repair and working order, having regards to their use.\n6. Food Safety Standard 3.2.2 Clause 24(1)(b) and 24(1)(c), failure to take all practicable measures to prevent pests entering the food premises, and to eradicate and prevent the harbourage of pest on the food premises.",
+    "penalty_amount": "Offence 1: $1600\nOffence 2: $880\nOffence 3: $1000\nOffence 4: $880\nOffence 5: $880\nOffence 6: $1600",
     "issued_by": "Georges River council",
     "prosecution": {
       "court": "Sutherland Court House",
       "brought_by": "Georges River council",
       "decision": "Guilty, conviction recorded",
-      "penalty_details_raw": "Offence 1: $1600 Offence 2: $880 Offence 3: $1000 Offence 4: $880 Offence 5: $880 Offence 6: $1600",
+      "penalty_details_raw": "Offence 1: $1600\nOffence 2: $880\nOffence 3: $1000\nOffence 4: $880\nOffence 5: $880\nOffence 6: $1600",
       "decision_details": "No web link available",
       "usual_place_of_business": "532 King Georges Road Beverly Hills NSW 2209"
     }
@@ -16437,14 +16437,14 @@
     "date_issued": "2024-05-16T12:00:00Z",
     "offence_code": null,
     "offence_description": "Prosecution: Guilty, conviction recorded",
-    "offence_nature": "The defendant was convicted for offences under section 21(1) of the Food Act 2003 , failure to comply with Food Standards Code, namely: Food Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. There was an accumulation of mould, grime, and food scraps around the fridge and freezer door seals and inside fridges and freezers throughout the kitchen. Food Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. There was an accumulation of grime on the sinks and taps used to clean and sanitise food contact surfaces. Food Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. Plastic lids used to cover cooked food in the cool room were not in a clean and sanitised condition. There was an accumulation of grime on the lids. Food Standard 3.2.2 Clause 19(1). Failure to maintain food premises to the required standard of cleanliness. The walls were not being maintained in a clean condition. There was an accumulation of visible matter on the walls. Food Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. There was an accumulation of grease, grime and dirt on power outlets, food preparation bench, a cabinet to hold food, a pipe, and electrical fittings. Food Standard 3.2.2 Clause 19(1). Failure to maintain food premises to the required standard of cleanliness. There was an accumulation of grease, dirt, and food scraps on the floor underneath the fridges and shelves throughout the kitchen.",
+    "offence_nature": "The defendant was convicted for offences under section 21(1) of the Food Act 2003, failure to comply with Food Standards Code, namely:\n\n1. Food Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. There was an accumulation of mould, grime, and food scraps around the fridge and freezer door seals and inside fridges and freezers throughout the kitchen.\n2. Food Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. There was an accumulation of grime on the sinks and taps used to clean and sanitise food contact surfaces.\n3. Food Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. Plastic lids used to cover cooked food in the cool room were not in a clean and sanitised condition. There was an accumulation of grime on the lids.\n4. Food Standard 3.2.2 Clause 19(1). Failure to maintain food premises to the required standard of cleanliness. The walls were not being maintained in a clean condition. There was an accumulation of visible matter on the walls.\n5. Food Standard 3.2.2 Clause 19(2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. There was an accumulation of grease, grime and dirt on power outlets, food preparation bench, a cabinet to hold food, a pipe, and electrical fittings.\n6. Food Standard 3.2.2 Clause 19(1). Failure to maintain food premises to the required standard of cleanliness. There was an accumulation of grease, dirt, and food scraps on the floor underneath the fridges and shelves throughout the kitchen.",
     "penalty_amount": "$30,000",
     "issued_by": "Penrith City Council",
     "prosecution": {
       "court": "Penrith Local Court",
       "brought_by": "Penrith City Council",
       "decision": "Guilty, conviction recorded",
-      "penalty_details_raw": "Offence 1: $5,000 Offence 2: $5,000 Offence 3: $5,000 Offence 4: $5,000 Offence 5: $5,000 Offence 6: $5,000 Total penalty: $30,000 Professional costs: $1,500",
+      "penalty_details_raw": "Offence 1: $5,000\nOffence 2: $5,000\nOffence 3: $5,000\nOffence 4: $5,000\nOffence 5: $5,000\nOffence 6: $5,000\nTotal penalty: $30,000\nProfessional costs: $1,500",
       "decision_details": "No web link available",
       "usual_place_of_business": "Shop 2, 2 Boomerang Place Cambridge Gardens"
     }
@@ -16468,14 +16468,14 @@
     "date_issued": "2024-06-11T12:00:00Z",
     "offence_code": null,
     "offence_description": "Prosecution: Guilty, conviction recorded",
-    "offence_nature": "The defendant was convicted for the offence under section 21(1) of the Food Act 2003 , failure to comply with the Food Standards Code, namely: Food Safety Standard 3.2.2 Clause 6(1)(a). The Business did not store food in such a way that it was protected from the likelihood of contamination. The defendant was convicted for the offence under section 21(1) of the Food Act 2003 , failure to comply with the Food Standards Code, namely: Food Safety Standard 3.2.2 Clause 19(1). The Business did not maintain the Premises to the standard of cleanliness required under the Provision. The defendant was convicted for the offence under section 21(1) of the Food Act 2003 , failure to comply with the Food Standards Code, namely: Food Safety Standard 3.2.2 Clause 19(2). The Business did not maintain all fixtures, fittings and equipment in the Premises to the standard of cleanliness required under the Provision.",
+    "offence_nature": "1. The defendant was convicted for the offence under section 21(1) of the Food Act 2003, failure to comply with the Food Standards Code, namely:\nFood Safety Standard 3.2.2 Clause 6(1)(a). The Business did not store food in such a way that it was protected from the likelihood of contamination.\n2. The defendant was convicted for the offence under section 21(1) of the Food Act 2003, failure to comply with the Food Standards Code, namely:\nFood Safety Standard 3.2.2 Clause 19(1). The Business did not maintain the Premises to the standard of cleanliness required under the Provision.\n3. The defendant was convicted for the offence under section 21(1) of the Food Act 2003, failure to comply with the Food Standards Code, namely:\nFood Safety Standard 3.2.2 Clause 19(2). The Business did not maintain all fixtures, fittings and equipment in the Premises to the standard of cleanliness required under the Provision.",
     "penalty_amount": "$9,000",
     "issued_by": "MidCoast Council",
     "prosecution": {
       "court": "Forster Local Court",
       "brought_by": "MidCoast Council",
       "decision": "Guilty, conviction recorded",
-      "penalty_details_raw": "Offence 1: $3,000 Offence 2: $3,000 Offence 3: $3,000 Total penalty: $9,000 Professional costs $3,406.60",
+      "penalty_details_raw": "Offence 1: $3,000\nOffence 2: $3,000\nOffence 3: $3,000\nTotal penalty: $9,000\nProfessional costs $3,406.60",
       "decision_details": "No web link available",
       "usual_place_of_business": "21 Manning Street Tuncurry NSW 2430"
     }
@@ -16498,14 +16498,14 @@
     "date_of_offence": null,
     "date_issued": "2025-01-14T12:00:00Z",
     "offence_code": null,
-    "offence_description": "Prosecution: The Defendant did not attend court and was convicted in their absence under s 196 of the Criminal Procedure Act 1986 NSW .",
-    "offence_nature": "The defendant was convicted for the offence under section 21(1) of the Food Act 2003 , failure to comply with the Food Standards Code, namely: Food Safety Standard 3.2.2 Clause 6(1)(a). Failure to store the food in such a way that it is protected from the likelihood of contamination. Food Safety Standard 3.2.2 Clause 9(a). Failure to when packing food; to only use packaging material that is fit for its intended use. Food Safety Standard 3.2.2 Clause 17(b)(i). Failure to supply warm running water, at or near each hand washing facility. Food Safety Standard 3.2.2 Clause 17(b)(ii). Failure to supply soap, at or near each hand washing facility. Food Safety Standard 3.2.2 Clause 19 (2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness. Food Safety Standard 3.2.2 Clause 20(1)(b) Failure to maintain food contact surfaces of equipment in a clean and sanitary condition. Food Safety Standard 3.2.2 Clause 21(1). Failure to maintain all fixtures, fittings and equipment in good state of repair, having regard to their use. Food Safety Standard 3.2.2 Clause 22(a). Failure to have a temperature measuring device readily accessible. Food Safety Standard 3.2.2 Clause 24(1)(a). Failure to not permit live animals in areas in which food is handled, other than seafood or other fish or shellfish. Food Standards Code 3.2.3 Clause 3 (b). The food business failed to ensure the design and construction of food premises had adequate space for the activities to be conducted on the food premises and for the fixtures, fittings and equipment used for those activities. Food Standards Code 3.2.3 Clause 16. Failure to ensure that adequate toilets are made available for the use of food handlers working for the food business.",
+    "offence_description": "Prosecution: The Defendant did not attend court and was convicted in their absence under s 196 of the Criminal Procedure Act 1986 NSW.",
+    "offence_nature": "The defendant was convicted for the offence under section 21(1) of the Food Act 2003, failure to comply with the Food Standards Code, namely:\n\n1. Food Safety Standard 3.2.2 Clause 6(1)(a). Failure to store the food in such a way that it is protected from the likelihood of contamination.\n2. Food Safety Standard 3.2.2 Clause 9(a). Failure to when packing food; to only use packaging material that is fit for its intended use.\n3. Food Safety Standard 3.2.2 Clause 17(b)(i). Failure to supply warm running water, at or near each hand washing facility.\n4. Food Safety Standard 3.2.2 Clause 17(b)(ii). Failure to supply soap, at or near each hand washing facility.\n5. Food Safety Standard 3.2.2 Clause 19 (2). Failure to maintain fixtures, fittings and equipment to the required standard of cleanliness.\n6. Food Safety Standard 3.2.2 Clause 20(1)(b) Failure to maintain food contact surfaces of equipment in a clean and sanitary condition.\n7. Food Safety Standard 3.2.2 Clause 21(1). Failure to maintain all fixtures, fittings and equipment in good state of repair, having regard to their use.\n8. Food Safety Standard 3.2.2 Clause 22(a). Failure to have a temperature measuring device readily accessible.\n9. Food Safety Standard 3.2.2 Clause 24(1)(a). Failure to not permit live animals in areas in which food is handled, other than seafood or other fish or shellfish.\n10. Food Standards Code 3.2.3 Clause 3 (b). The food business failed to ensure the design and construction of food premises had adequate space for the activities to be conducted on the food premises and for the fixtures, fittings and equipment used for those activities.\n11. Food Standards Code 3.2.3 Clause 16. Failure to ensure that adequate toilets are made available for the use of food handlers working for the food business.",
     "penalty_amount": "$4000 for each offence. Total of $44,000 for eleven (11) offences. $2,083.00 in costs was awarded.",
     "issued_by": "City of Sydney",
     "prosecution": {
       "court": "Downing Centre Local Court",
       "brought_by": "City of Sydney",
-      "decision": "The Defendant did not attend court and was convicted in their absence under s 196 of the Criminal Procedure Act 1986 NSW .",
+      "decision": "The Defendant did not attend court and was convicted in their absence under s 196 of the Criminal Procedure Act 1986 NSW.",
       "penalty_details_raw": "$4000 for each offence. Total of $44,000 for eleven (11) offences. $2,083.00 in costs was awarded.",
       "decision_details": "No web link available",
       "usual_place_of_business": "Shop 4 87 Regent Street Chippendale NSW 2008"

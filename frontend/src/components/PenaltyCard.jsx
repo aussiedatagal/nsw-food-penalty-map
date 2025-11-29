@@ -135,7 +135,7 @@ function PenaltyCard({ location, locationGroup, selectedShopIndex, onShopChange,
                       </strong>
                     </div>
                     {penalty.offence_nature && (
-                      <div className="card-section-content" style={{ marginTop: '0.5rem', fontSize: '0.8125rem', color: '#6c757d', lineHeight: '1.5' }}>
+                      <div className="card-section-content" style={{ marginTop: '0.5rem', fontSize: '0.8125rem', color: '#6c757d', lineHeight: '1.5', whiteSpace: 'pre-line' }}>
                         {penalty.offence_nature}
                       </div>
                     )}

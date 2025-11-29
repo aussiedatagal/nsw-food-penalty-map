@@ -78,16 +78,63 @@ def extract_datetime(soup: BeautifulSoup, selector: str) -> Optional[str]:
 
 def extract_html_text(soup: BeautifulSoup, selector: str) -> Optional[str]:
     """
-    Extract text from a selector, preserving some structure (e.g. newlines)
-    but normalising whitespace.
+    Extract text from a selector, preserving line breaks from <br> tags,
+    list structure, and paragraph breaks.
     """
     element = soup.select_one(selector)
     if not element:
         return None
-    # Join with spaces to avoid "Shop 2, 2 Boomerang PlaceCambridge Gardens"
-    text = " ".join(element.stripped_strings)
-    # Normalise whitespace
-    return re.sub(r"\s+", " ", text).strip() or None
+    
+    # Create a copy to avoid modifying the original
+    element_copy = BeautifulSoup(str(element), "lxml")
+    
+    # Replace <br> and <br/> tags with newlines
+    for br in element_copy.find_all("br"):
+        br.replace_with("\n")
+    
+    # Replace <p> tags with newlines before and after
+    for p in element_copy.find_all("p"):
+        p.insert_before("\n")
+        p.insert_after("\n")
+    
+    # Replace <li> tags with newlines and add numbering/bullets
+    # Process each list separately to get correct numbering
+    for list_tag in element_copy.find_all(["ol", "ul"]):
+        list_items = list_tag.find_all("li", recursive=False)  # Only direct children
+        for idx, li in enumerate(list_items, start=1):
+            li.insert_before("\n")
+            if list_tag.name == "ol":
+                # Numbered list items for ordered lists
+                prefix = f"{idx}. "
+            else:
+                # Bullet points for unordered lists
+                prefix = "• "
+            
+            # Prepend the prefix to the list item content
+            if li.string:
+                li.string = prefix + li.string
+            else:
+                # If the li has nested elements, prepend prefix as text
+                li.insert(0, prefix)
+    
+    # Replace <ol> and <ul> tags with newlines
+    for list_tag in element_copy.find_all(["ol", "ul"]):
+        list_tag.insert_before("\n")
+        list_tag.insert_after("\n")
+    
+    # Get the text with preserved newlines
+    text = element_copy.get_text()
+    
+    # Normalise multiple consecutive newlines to at most two
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    # Normalise multiple spaces to single space (but preserve newlines)
+    text = re.sub(r"[ \t]+", " ", text)
+    # Remove spaces at the start/end of lines
+    text = "\n".join(line.strip() for line in text.split("\n"))
+    # Remove leading/trailing newlines
+    text = text.strip()
+    
+    return text or None
 
 
 def parse_date_text(date_str: Optional[str]) -> Optional[str]:
