@@ -281,6 +281,8 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
     soup = BeautifulSoup(content, "lxml")
 
     prosecution_id: Optional[str] = None
+    prosecution_slug = file_path.name
+    
     shortlink = soup.select_one('link[rel="shortlink"]')
     if shortlink and shortlink.get("href"):
         node_match = re.search(r"/node/(\d+)", shortlink["href"])
@@ -288,7 +290,7 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
             prosecution_id = f"prosecution-{node_match.group(1)}"
 
     if not prosecution_id:
-        prosecution_id = f"prosecution-{file_path.name}"
+        prosecution_id = f"prosecution-{prosecution_slug}"
 
     trade_name = extract_text(
         soup, ".field--name-field-prosecution-notice-trade .field__item"
@@ -365,6 +367,7 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
     result = {
         "type": "prosecution",
         "prosecution_notice_id": prosecution_id,
+        "prosecution_slug": prosecution_slug,
         "penalty_notice_number": prosecution_id,
         "name": trade_name or "(NO TRADING NAME)",
         "party_served": name_of_convicted,

@@ -60,16 +60,33 @@ export function getBadgeColor(count) {
 export function parsePenaltyAmount(penaltyAmount) {
   if (!penaltyAmount || typeof penaltyAmount !== 'string') return 0
   
-  // Split by spaces to handle multiple amounts
   const parts = penaltyAmount.trim().split(/\s+/)
   
   let total = 0
   for (const part of parts) {
-    // Extract numeric value from each part (removes $ and commas)
     const cleaned = part.replace(/[^0-9.]/g, '')
     const amount = parseFloat(cleaned) || 0
     total += amount
   }
   
   return total
+}
+
+export function getCanonicalUrl(penalty) {
+  if (penalty.type === 'prosecution' || penalty.prosecution) {
+    if (penalty.prosecution_slug) {
+      return `https://www.foodauthority.nsw.gov.au/offences/prosecutions/${penalty.prosecution_slug}`
+    }
+    const nodeId = penalty.prosecution_notice_id?.replace('prosecution-', '') || 
+                   penalty.penalty_notice_number?.replace('prosecution-', '')
+    if (nodeId && nodeId.match(/^\d+$/)) {
+      return `https://www.foodauthority.nsw.gov.au/offences/prosecutions/${nodeId}`
+    }
+  }
+  
+  if (penalty.penalty_notice_number && !penalty.penalty_notice_number.startsWith('prosecution-')) {
+    return `https://www.foodauthority.nsw.gov.au/offences/penalty-notices/${penalty.penalty_notice_number}`
+  }
+  
+  return null
 }
