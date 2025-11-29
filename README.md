@@ -2,7 +2,7 @@
 
 Interactive map visualization of food safety penalty notices issued by the NSW Food Authority. Filter by location, date, offence type, and penalty amount.
 
-**Live Site**: [View on GitHub Pages](https://aussiedatagal.github.io/food_penalties/)
+**Live Site**: [View on GitHub Pages](https://aussiedatagal.github.io/nsw-food-penalty-map/)
 
 ![NSW Food Penalty Notices Screenshot](screenshot.png)
 
@@ -50,7 +50,7 @@ food_penalties/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/aussiedatagal/food_penalties.git
+git clone https://github.com/aussiedatagal/nsw-food-penalty-map.git
 cd food_penalties
 ```
 
@@ -99,7 +99,7 @@ This repository is configured for automatic deployment to GitHub Pages using Git
 
 3. Automatic deployment:
    - The GitHub Actions workflow (`.github/workflows/deploy.yml`) builds and deploys on push to `main`
-   - Site available at `https://yourusername.github.io/food_penalties/`
+   - Site available at `https://yourusername.github.io/nsw-food-penalty-map/`
 
 ## Data Processing Pipeline
 
