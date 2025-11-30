@@ -439,16 +439,22 @@ function App() {
         </div>
         <div className="map-container">
           <div className="map-legend">
-            <div className="legend-gradient">
-              <div className="legend-gradient-bar"></div>
-              <div className="legend-gradient-labels">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-                <span>6+</span>
-              </div>
+            <div className="legend-label">Penalties</div>
+            <div className="legend-segments">
+              <div className="legend-segment" style={{ backgroundColor: '#ffb74d' }}></div>
+              <div className="legend-segment" style={{ backgroundColor: '#ff9800' }}></div>
+              <div className="legend-segment" style={{ backgroundColor: '#ff6f00' }}></div>
+              <div className="legend-segment" style={{ backgroundColor: '#f4511e' }}></div>
+              <div className="legend-segment" style={{ backgroundColor: '#e53935' }}></div>
+              <div className="legend-segment" style={{ backgroundColor: '#c62828' }}></div>
+            </div>
+            <div className="legend-gradient-labels">
+              <span style={{ left: '8.33%' }}>1</span>
+              <span style={{ left: '25%' }}>2</span>
+              <span style={{ left: '41.67%' }}>3</span>
+              <span style={{ left: '58.33%' }}>4</span>
+              <span style={{ left: '75%' }}>5</span>
+              <span style={{ left: '91.67%' }}>6+</span>
             </div>
           </div>
           <MapContainer
@@ -458,7 +464,7 @@ function App() {
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Created by <a href="https://aussiedatagal.github.io/" target="_blank" rel="noopener noreferrer">Aussie Data Gal</a>'
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             {locationsByCoordinates.map((locationGroup, idx) => {
               const totalPenalties = locationGroup.shops.reduce((sum, shop) => sum + shop.penalties.length, 0)
