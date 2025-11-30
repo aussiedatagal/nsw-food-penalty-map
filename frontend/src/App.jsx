@@ -17,7 +17,6 @@ L.Icon.Default.mergeOptions({
 function App() {
   const [groupedLocations, setGroupedLocations] = useState([])
   const [selectedLocation, setSelectedLocation] = useState(null)
-  const [selectedShopIndex, setSelectedShopIndex] = useState(0)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [defaultFilters, setDefaultFilters] = useState(null)
   const [filters, setFilters] = useState({
@@ -440,30 +439,14 @@ function App() {
         </div>
         <div className="map-container">
           <div className="map-legend">
-            <div className="legend-title">Number of Offences</div>
-            <div className="legend-items">
-              <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#ffb74d' }}></div>
+            <div className="legend-gradient">
+              <div className="legend-gradient-bar"></div>
+              <div className="legend-gradient-labels">
                 <span>1</span>
-              </div>
-              <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#ff9800' }}></div>
                 <span>2</span>
-              </div>
-              <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#ff6f00' }}></div>
                 <span>3</span>
-              </div>
-              <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#f4511e' }}></div>
                 <span>4</span>
-              </div>
-              <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#e53935' }}></div>
                 <span>5</span>
-              </div>
-              <div className="legend-item">
-                <div className="legend-marker" style={{ backgroundColor: '#c62828' }}></div>
                 <span>6+</span>
               </div>
             </div>
@@ -502,7 +485,6 @@ function App() {
                   eventHandlers={{
                     click: () => {
                       setSelectedLocation(locationGroup)
-                      setSelectedShopIndex(0)
                       setSidebarOpen(false)
                     }
                   }}
@@ -515,16 +497,12 @@ function App() {
           <>
             <div className="card-overlay" onClick={() => {
               setSelectedLocation(null)
-              setSelectedShopIndex(0)
             }} />
             <PenaltyCard
-              location={selectedLocation.shops[selectedShopIndex]}
+              location={selectedLocation.shops[0]}
               locationGroup={selectedLocation}
-              selectedShopIndex={selectedShopIndex}
-              onShopChange={setSelectedShopIndex}
               onClose={() => {
                 setSelectedLocation(null)
-                setSelectedShopIndex(0)
               }}
             />
           </>

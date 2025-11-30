@@ -45,7 +45,7 @@ function ResultsList({ locations, onSelect }) {
                     className="result-badge"
                     style={{ backgroundColor: badge.bg, color: badge.color }}
                   >
-                    {location.penalties.length} penalty{location.penalties.length !== 1 ? 'ies' : 'y'}
+                    {location.penalties.length} {location.penalties.length !== 1 ? 'penalties' : 'penalty'}
                     {prosecutionCount > 0 && (
                       <span style={{ marginLeft: '0.35rem', fontSize: '0.7rem', opacity: 0.9 }}>
                         ({prosecutionCount} prosecution{prosecutionCount !== 1 ? 's' : ''})
