@@ -17,9 +17,10 @@ import json
 import os
 import re
 import sys
+import argparse
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, Optional, List
 
 from bs4 import BeautifulSoup
 
@@ -269,8 +270,84 @@ def parse_penalty_notice(file_path: Path) -> Optional[Dict]:
     return result
 
 
-def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
-    """Parse a single prosecution HTML file."""
+def extract_list_items(soup: BeautifulSoup, selector: str) -> List[str]:
+    """
+    Extract individual <li> items from a selector that contains a list.
+    Returns a list of text content for each <li> item.
+    """
+    element = soup.select_one(selector)
+    if not element:
+        return []
+    
+    # Find all <ol> or <ul> lists within the element
+    lists = element.find_all(["ol", "ul"], recursive=True)
+    if not lists:
+        return []
+    
+    items = []
+    for list_tag in lists:
+        # Get all direct <li> children (not nested ones)
+        list_items = list_tag.find_all("li", recursive=False)
+        for li in list_items:
+            # Get text content, preserving structure but cleaning up
+            text = li.get_text(separator=" ", strip=True)
+            if text:
+                items.append(text)
+    
+    return items
+
+
+def extract_individual_penalties(soup: BeautifulSoup, selector: str) -> List[Optional[str]]:
+    """
+    Extract individual penalty amounts from the penalty field.
+    Returns a list of penalty amounts (one per offence, or None if not found).
+    Handles formats like:
+    - "Offence 1: $5,000\nOffence 2: $5,000"
+    - "<ol><li>$800</li><li>$800</li></ol>"
+    - "$4000 for each offence. Total of $44,000 for eleven (11) offences."
+    """
+    element = soup.select_one(selector)
+    if not element:
+        return []
+    
+    penalties = []
+    
+    # First, try to extract from HTML list items
+    lists = element.find_all(["ol", "ul"], recursive=True)
+    if lists:
+        for list_tag in lists:
+            list_items = list_tag.find_all("li", recursive=False)
+            for li in list_items:
+                text = li.get_text(strip=True)
+                # Look for dollar amount in the text
+                amount_match = re.search(r"\$?([0-9][0-9,]*(?:\.[0-9]{2})?)", text)
+                if amount_match:
+                    penalties.append(f"${amount_match.group(1)}")
+        if penalties:
+            return penalties
+    
+    # If no list items, try to parse from text content
+    penalty_text = element.get_text()
+    
+    # Try to find individual offence penalties in format "Offence N: $X"
+    offence_pattern = re.compile(r"Offence\s+(\d+)[:.]\s*\$?([0-9][0-9,]*(?:\.[0-9]{2})?)", re.IGNORECASE)
+    matches = offence_pattern.findall(penalty_text)
+    
+    if matches:
+        # Sort by offence number and extract amounts
+        sorted_matches = sorted(matches, key=lambda x: int(x[0]))
+        for _, amount_str in sorted_matches:
+            penalties.append(f"${amount_str}")
+        return penalties
+    
+    return []
+
+
+def parse_prosecution_notice(file_path: Path) -> Optional[List[Dict]]:
+    """
+    Parse a single prosecution HTML file.
+    Returns a list of entries, one for each offence (<li> item) in the prosecution.
+    """
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
@@ -321,32 +398,59 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
     if address_element:
         lines = [line.strip() for line in address_element.stripped_strings if line.strip()]
         if lines:
-            street = lines[0]
-            if len(lines) > 1:
+            # For prosecution addresses, combine all lines except the last as street
+            # The last line is typically city/postcode
+            if len(lines) == 1:
+                street = lines[0]
+                full_address = street
+            elif len(lines) == 2:
+                street = lines[0]
                 city = lines[1]
-            full_parts = [part for part in [street, city] if part]
-            full_address = ", ".join(full_parts) if full_parts else None
+                full_address = ", ".join(lines)
+            else:
+                # Multiple lines: combine all but last as street, last as city
+                street = ", ".join(lines[:-1])
+                city = lines[-1]
+                full_address = ", ".join(lines)
 
     date_of_offence_text = extract_html_text(
         soup, ".field--name-field-prosecution-notice-offence .field__item"
     )
     date_of_offence = parse_date_text(date_of_offence_text)
 
-    offence_nature = extract_html_text(
+    # Extract individual offence items from the list
+    offence_items = extract_list_items(
         soup, ".field--name-field-prosecution-notice-nature .field__item"
     )
+    
+    # If no list items found, fall back to the full text (single offence case)
+    if not offence_items:
+        offence_nature_full = extract_html_text(
+            soup, ".field--name-field-prosecution-notice-nature .field__item"
+        )
+        if offence_nature_full:
+            offence_items = [offence_nature_full]
+    # If we found list items, we should only use those (not the full text)
+    # This prevents creating duplicate entries
 
     decision_text = extract_html_text(
         soup, ".field--name-field-prosecution-notice-desc .field__item"
     )
-    offence_description = (
+    base_offence_description = (
         f"Prosecution: {decision_text}" if decision_text else "Prosecution"
     )
 
     penalty_text = extract_html_text(
         soup, ".field--name-field-prosecution-notice-penalty .field__item"
     )
-    penalty_amount = penalty_text or ""
+    
+    # Try to extract individual penalties from the raw HTML element
+    individual_penalties = extract_individual_penalties(
+        soup, ".field--name-field-prosecution-notice-penalty .field__item"
+    )
+    
+    # Fallback: extract total penalty
+    total_penalty_amount = ""
     if penalty_text:
         total_match = re.search(
             r"Total penalty:\s*\$?([0-9][0-9,]*(?:\.[0-9]{2})?)",
@@ -355,7 +459,15 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
         )
         if total_match:
             amount_str = total_match.group(1)
-            penalty_amount = f"${amount_str}"
+            total_penalty_amount = f"${amount_str}"
+        elif not individual_penalties:
+            # If no individual penalties found and no total, try to find any dollar amount
+            any_amount_match = re.search(
+                r"\$?([0-9][0-9,]*(?:\.[0-9]{2})?)",
+                penalty_text,
+            )
+            if any_amount_match:
+                total_penalty_amount = f"${any_amount_match.group(1)}"
 
     decision_details = extract_html_text(
         soup, ".field--name-field-prosecution-notice-details .field__item"
@@ -364,40 +476,63 @@ def parse_prosecution_notice(file_path: Path) -> Optional[Dict]:
         soup, ".field--name-field-prosecution-notice-place .field__item"
     )
 
-    result = {
-        "type": "prosecution",
-        "prosecution_notice_id": prosecution_id,
-        "prosecution_slug": prosecution_slug,
-        "penalty_notice_number": prosecution_id,
-        "name": trade_name or "(NO TRADING NAME)",
-        "party_served": name_of_convicted,
-        "address": {
-            "street": street,
-            "city": city,
-            "postal_code": None,
-            "full": full_address,
-            "lat": None,
-            "lon": None,
-        },
-        "council": council,
-        "date_of_offence": date_of_offence,
-        "date_issued": date_of_decision,
-        "offence_code": None,
-        "offence_description": offence_description,
-        "offence_nature": offence_nature,
-        "penalty_amount": penalty_amount,
-        "issued_by": brought_by,
-        "prosecution": {
-            "court": court,
-            "brought_by": brought_by,
-            "decision": decision_text,
-            "penalty_details_raw": penalty_text,
-            "decision_details": decision_details,
-            "usual_place_of_business": usual_place,
-        },
-    }
+    # Check for "for each offence" pattern
+    each_offence_amount = None
+    if penalty_text:
+        each_pattern = re.compile(r"\$?([0-9][0-9,]*(?:\.[0-9]{2})?)\s+for\s+each\s+offence", re.IGNORECASE)
+        each_match = each_pattern.search(penalty_text)
+        if each_match:
+            each_offence_amount = f"${each_match.group(1)}"
+    
+    # Create one entry for each offence
+    results = []
+    for idx, offence_nature in enumerate(offence_items, start=1):
+        # Use individual penalty if available, otherwise "for each" amount, otherwise total (or empty)
+        if idx <= len(individual_penalties) and individual_penalties[idx - 1]:
+            penalty_amount = individual_penalties[idx - 1]
+        elif each_offence_amount:
+            penalty_amount = each_offence_amount
+        else:
+            penalty_amount = total_penalty_amount
+        
+        # Create unique ID for each offence
+        offence_id = f"{prosecution_id}-{idx}"
+        
+        result = {
+            "type": "prosecution",
+            "prosecution_notice_id": prosecution_id,
+            "prosecution_slug": prosecution_slug,
+            "penalty_notice_number": offence_id,
+            "name": trade_name or "(NO TRADING NAME)",
+            "party_served": name_of_convicted,
+            "address": {
+                "street": street,
+                "city": city,
+                "postal_code": None,
+                "full": full_address,
+                "lat": None,
+                "lon": None,
+            },
+            "council": council,
+            "date_of_offence": date_of_offence,
+            "date_issued": date_of_decision,
+            "offence_code": None,
+            "offence_description": base_offence_description,
+            "offence_nature": offence_nature,
+            "penalty_amount": penalty_amount,
+            "issued_by": brought_by,
+            "prosecution": {
+                "court": court,
+                "brought_by": brought_by,
+                "decision": decision_text,
+                "penalty_details_raw": penalty_text,
+                "decision_details": decision_details,
+                "usual_place_of_business": usual_place,
+            },
+        }
+        results.append(result)
 
-    return result
+    return results if results else None
 
 
 def compare_entries(existing: Dict, new: Dict) -> bool:
@@ -421,6 +556,11 @@ def compare_entries(existing: Dict, new: Dict) -> bool:
 
 def main():
     """Main function to parse all penalty notice and prosecution files."""
+    parser = argparse.ArgumentParser(description='Parse penalty notices and prosecutions from HTML files')
+    parser.add_argument('--prosecution', type=str, help='Process only a specific prosecution file (by slug, e.g. "wudu")')
+    parser.add_argument('--penalty', type=str, help='Process only a specific penalty notice file (by ID)')
+    args = parser.parse_args()
+    
     base_dir = Path(__file__).parent
     output_file = base_dir / "penalty_notices.json"
     
@@ -434,11 +574,43 @@ def main():
             print(f"Warning: Could not load existing data: {e}")
             existing_data = {}
     
-    penalty_files = find_penalty_notice_files(str(base_dir))
-    print(f"Found {len(penalty_files)} penalty notice files to process")
+    if args.penalty:
+        penalty_files = [base_dir / "www.foodauthority.nsw.gov.au" / "offences" / "penalty-notices" / args.penalty]
+        penalty_files = [f for f in penalty_files if f.exists()]
+        prosecution_files = []
+        print(f"Processing single penalty notice: {args.penalty}")
+    else:
+        penalty_files = find_penalty_notice_files(str(base_dir))
+        print(f"Found {len(penalty_files)} penalty notice files to process")
 
-    prosecution_files = find_prosecution_files(str(base_dir))
-    print(f"Found {len(prosecution_files)} prosecution files to process")
+    if args.prosecution:
+        prosecution_file = base_dir / "www.foodauthority.nsw.gov.au" / "offences" / "prosecutions" / args.prosecution
+        if prosecution_file.exists():
+            prosecution_files = [prosecution_file]
+            print(f"Processing single prosecution: {args.prosecution}")
+        else:
+            print(f"Error: Prosecution file not found: {prosecution_file}")
+            return
+    else:
+        prosecution_files = find_prosecution_files(str(base_dir))
+        print(f"Found {len(prosecution_files)} prosecution files to process")
+    
+    # Remove old combined prosecution entries that have been split
+    print("\nChecking for old combined prosecution entries to remove...")
+    removed_count = 0
+    for key in list(existing_data.keys()):
+        entry = existing_data[key]
+        if entry.get("type") == "prosecution":
+            prosecution_id = entry.get("prosecution_notice_id")
+            if prosecution_id and prosecution_id == key:
+                # Check if there are split entries for this prosecution
+                split_keys = [k for k in existing_data.keys() if k.startswith(f"{prosecution_id}-") and k != key]
+                if split_keys:
+                    print(f"  Removing old combined entry: {key} (found {len(split_keys)} split entries)")
+                    del existing_data[key]
+                    removed_count += 1
+    if removed_count > 0:
+        print(f"Removed {removed_count} old combined prosecution entries")
     
     if not penalty_files and not prosecution_files:
         print("No files found to process")
@@ -478,27 +650,40 @@ def main():
             processed_penalties += 1
 
     for file_path in prosecution_files:
-        result = parse_prosecution_notice(file_path)
+        results = parse_prosecution_notice(file_path)
 
-        if not result:
+        if not results:
             error_prosecutions += 1
             continue
 
-        prosecution_key = result["penalty_notice_number"]
+        # If we have multiple results (split offences), remove the old combined entry
+        if len(results) > 1:
+            base_prosecution_id = results[0]["prosecution_notice_id"]
+            # Remove the old combined entry if it exists
+            if base_prosecution_id in existing_data:
+                old_entry = existing_data[base_prosecution_id]
+                # Only remove if it's not already a split entry (doesn't have -N suffix)
+                if not any(k.startswith(f"{base_prosecution_id}-") for k in existing_data.keys()):
+                    print(f"Removing old combined entry: {base_prosecution_id}")
+                    del existing_data[base_prosecution_id]
 
-        if prosecution_key in existing_data:
-            if compare_entries(existing_data[prosecution_key], result):
-                skipped_prosecutions += 1
-                continue
+        # Process each offence entry separately
+        for result in results:
+            prosecution_key = result["penalty_notice_number"]
+
+            if prosecution_key in existing_data:
+                if compare_entries(existing_data[prosecution_key], result):
+                    skipped_prosecutions += 1
+                    continue
+                else:
+                    print(f"WARNING: Prosecution {prosecution_key} already exists but data differs!")
+                    print(f"  Existing: {json.dumps(existing_data[prosecution_key], indent=2)}")
+                    print(f"  New: {json.dumps(result, indent=2)}")
+                    existing_data[prosecution_key] = result
+                    updated_prosecutions += 1
             else:
-                print(f"WARNING: Prosecution {prosecution_key} already exists but data differs!")
-                print(f"  Existing: {json.dumps(existing_data[prosecution_key], indent=2)}")
-                print(f"  New: {json.dumps(result, indent=2)}")
                 existing_data[prosecution_key] = result
-                updated_prosecutions += 1
-        else:
-            existing_data[prosecution_key] = result
-            processed_prosecutions += 1
+                processed_prosecutions += 1
     
     print(f"\nSaving results to {output_file}")
     with open(output_file, 'w', encoding='utf-8') as f:

@@ -13,6 +13,7 @@ This script:
 import json
 import re
 import time
+import argparse
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 
@@ -97,6 +98,11 @@ def geocode_address(geocoder: Nominatim, address: str, max_retries: int = 3) -> 
 
 def main():
     """Main geocoding function."""
+    parser = argparse.ArgumentParser(description='Geocode addresses in penalty notices')
+    parser.add_argument('--id', type=str, help='Geocode only a specific entry by ID (e.g. "prosecution-30052-1")')
+    parser.add_argument('--slug', type=str, help='Geocode all entries for a prosecution slug (e.g. "wudu")')
+    args = parser.parse_args()
+    
     data_file = Path("penalty_notices.json")
     failed_file = Path("failed_geocoding.json")
     
@@ -105,6 +111,23 @@ def main():
         penalty_notices = json.load(f)
     
     print(f"Loaded {len(penalty_notices)} penalty notices")
+    
+    # Filter to specific entries if requested
+    if args.id:
+        if args.id in penalty_notices:
+            penalty_notices = {args.id: penalty_notices[args.id]}
+            print(f"Processing only entry: {args.id}")
+        else:
+            print(f"Error: Entry {args.id} not found")
+            return
+    elif args.slug:
+        filtered = {k: v for k, v in penalty_notices.items() if v.get('prosecution_slug') == args.slug}
+        if filtered:
+            penalty_notices = filtered
+            print(f"Processing {len(filtered)} entries for prosecution slug: {args.slug}")
+        else:
+            print(f"Error: No entries found for prosecution slug: {args.slug}")
+            return
     
     geocoder = Nominatim(user_agent=USER_AGENT_EMAIL)
     
