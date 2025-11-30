@@ -410,19 +410,10 @@ function App() {
         )}
         <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
           <div className="sidebar-header">
-            <div>
-              <h2>Filters</h2>
-              <div className="count">
-                {locationsByCoordinates.length} location{locationsByCoordinates.length !== 1 ? 's' : ''} found
-              </div>
+            <h2>Filters</h2>
+            <div className="count">
+              {locationsByCoordinates.length} location{locationsByCoordinates.length !== 1 ? 's' : ''} found
             </div>
-            <button 
-              className="sidebar-close"
-              onClick={() => setSidebarOpen(false)}
-              aria-label="Close filters"
-            >
-              ×
-            </button>
           </div>
           <div className="sidebar-content">
             <Filters

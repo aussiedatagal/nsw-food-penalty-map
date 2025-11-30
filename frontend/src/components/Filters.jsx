@@ -52,6 +52,26 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
     setFilters({ ...filters, textFilter: value })
   }
 
+  const handleSelectAllOffences = () => {
+    const allCodes = new Set()
+    offenceOptions.forEach(opt => {
+      opt.codes.forEach(code => allCodes.add(code))
+    })
+    setFilters({ ...filters, offenceCodes: Array.from(allCodes) })
+  }
+
+  const handleSelectNoneOffences = () => {
+    setFilters({ ...filters, offenceCodes: [] })
+  }
+
+  const handleSelectAllCouncils = () => {
+    setFilters({ ...filters, councils: [...councils] })
+  }
+
+  const handleSelectNoneCouncils = () => {
+    setFilters({ ...filters, councils: [] })
+  }
+
   return (
     <div className="filters">
       <div className="filter-group">
@@ -153,7 +173,25 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
       </div>
 
       <div className="filter-group">
-        <label>Offence Type</label>
+        <div className="filter-group-header">
+          <label>Offence Type</label>
+          <div className="multiselect-actions">
+            <button 
+              type="button"
+              className="multiselect-action-btn"
+              onClick={handleSelectAllOffences}
+            >
+              All
+            </button>
+            <button 
+              type="button"
+              className="multiselect-action-btn"
+              onClick={handleSelectNoneOffences}
+            >
+              None
+            </button>
+          </div>
+        </div>
         <div className="multiselect-container">
           {offenceOptions.map(({ codes, description }) => {
             const allSelected = codes.every(code => (filters.offenceCodes || []).includes(code))
@@ -172,7 +210,25 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
       </div>
 
       <div className="filter-group">
-        <label>Council</label>
+        <div className="filter-group-header">
+          <label>Council</label>
+          <div className="multiselect-actions">
+            <button 
+              type="button"
+              className="multiselect-action-btn"
+              onClick={handleSelectAllCouncils}
+            >
+              All
+            </button>
+            <button 
+              type="button"
+              className="multiselect-action-btn"
+              onClick={handleSelectNoneCouncils}
+            >
+              None
+            </button>
+          </div>
+        </div>
         <div className="multiselect-container">
           {councils.map(council => (
             <label key={council} className="multiselect-option">
