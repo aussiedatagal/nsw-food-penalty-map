@@ -195,6 +195,7 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
         <div className="multiselect-container">
           {offenceOptions.map(({ codes, description }) => {
             const allSelected = codes.every(code => (filters.offenceCodes || []).includes(code))
+            const codesDisplay = codes.length > 1 ? codes.join(', ') : codes[0]
             return (
               <label key={description} className="multiselect-option">
                 <input
@@ -202,7 +203,12 @@ function Filters({ filters, setFilters, councils, offenceOptions, dateRange, pen
                   checked={allSelected}
                   onChange={() => handleOffenceChange(codes)}
                 />
-                <span>{description}</span>
+                <span>
+                  {description}
+                  <span style={{ fontSize: '0.875rem', color: '#6c757d', marginLeft: '0.5rem' }}>
+                    ({codesDisplay})
+                  </span>
+                </span>
               </label>
             )
           })}
