@@ -153,6 +153,11 @@ function PenaltyCard({ location, locationGroup, onClose }) {
                         {(OFFENCE_CODES[penalty.offence_code] || penalty.offence_description || '')
                           .replace(/\s*-\s*(Individual|Corporation)$/i, '')}
                       </strong>
+                      {penalty.offence_code && (
+                        <div style={{ fontSize: '0.75rem', color: '#6c757d', marginTop: '0.25rem', fontWeight: 'normal' }}>
+                          Offence Code: {penalty.offence_code}
+                        </div>
+                      )}
                     </div>
                     {penalty.offence_nature && (
                       <div className="card-section-content" style={{ marginTop: '0.5rem', fontSize: '0.8125rem', color: '#6c757d', lineHeight: '1.5', whiteSpace: 'pre-line' }}>
@@ -238,6 +243,11 @@ function PenaltyCard({ location, locationGroup, onClose }) {
                         {(OFFENCE_CODES[penalty.offence_code] || penalty.offence_description || '')
                           .replace(/\s*-\s*(Individual|Corporation)$/i, '')}
                       </strong>
+                      {penalty.offence_code && (
+                        <div style={{ fontSize: '0.75rem', color: '#6c757d', marginTop: '0.25rem', fontWeight: 'normal' }}>
+                          Offence Code: {penalty.offence_code}
+                        </div>
+                      )}
                     </div>
                     {penalty.offence_nature && (
                       <div className="card-section-content" style={{ marginTop: '0.5rem', fontSize: '0.8125rem', color: '#6c757d', lineHeight: '1.5', whiteSpace: 'pre-line' }}>
