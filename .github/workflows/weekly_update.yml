@@ -1,0 +1,154 @@
+name: Weekly Penalty Notices Update
+
+on:
+  schedule:
+    # Run every Monday at 9 AM UTC (adjust timezone as needed)
+    - cron: '0 9 * * 1'
+  workflow_dispatch:  # Allow manual triggering
+    inputs:
+      dry_run:
+        description: 'Dry run mode (preview changes without committing)'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write  # Needed to commit changes
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Step 0: Download weekly notices
+        run: python3 0_weekly_download.py
+
+      - name: Run Step 2: Geocode addresses
+        run: python3 2_geocode.py
+
+      - name: Run Step 3: Group locations
+        run: python3 3_group_locations.py
+
+      - name: Verify pipeline results
+        run: python3 verify_pipeline.py
+        continue-on-error: true  # Don't fail the workflow if verification finds issues
+
+      - name: Upload failed geocoding as artifact
+        uses: actions/upload-artifact@v4
+        if: always()  # Upload even if previous steps failed
+        with:
+          name: failed-geocoding
+          path: failed_geocoding.json
+          retention-days: 30
+          if-no-files-found: ignore
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Ensure failed_geocoding.json is not tracked
+        run: |
+          # Remove from git index if it was previously tracked
+          git rm --cached failed_geocoding.json 2>/dev/null || true
+          # Add to .gitignore if not already there
+          if ! grep -q "^failed_geocoding.json$" .gitignore 2>/dev/null; then
+            echo "failed_geocoding.json" >> .gitignore
+          fi
+
+      - name: Preview changes and check for duplicates
+        id: preview
+        run: |
+          echo "=== Running preview and duplicate check ==="
+          python3 preview_changes.py || true
+          echo ""
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          # Only stage the JSON files we want to commit
+          git add penalty_notices.json grouped_locations.json frontend/public/grouped_locations.json .gitignore
+          if git diff --staged --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes to commit"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Changes detected, will commit"
+            # Show what would be committed (helpful for dry run)
+            echo ""
+            echo "=== Files that would be committed ==="
+            git diff --staged --stat
+            echo ""
+            echo "=== Summary of changes ==="
+            git diff --staged --shortstat
+          fi
+
+      - name: Commit and push changes
+        if: |
+          steps.check-changes.outputs.changed == 'true' &&
+          (github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run != 'true')
+        run: |
+          git commit -m "Weekly update: Add new penalty notices"
+          git push
+
+      - name: Dry run notice
+        if: |
+          steps.check-changes.outputs.changed == 'true' &&
+          github.event_name == 'workflow_dispatch' &&
+          github.event.inputs.dry_run == 'true'
+        run: |
+          echo "🔍 DRY RUN MODE: Changes were detected but NOT committed."
+          echo "To commit these changes, run the workflow again with dry_run=false"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Weekly Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ] && [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
+            echo "🔍 **DRY RUN MODE** - Preview only, no changes committed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ "${{ steps.check-changes.outputs.changed }}" == "true" ]; then
+            if [ "${{ github.event_name }}" == "workflow_dispatch" ] && [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
+              echo "✅ **Changes detected** (preview only)" >> $GITHUB_STEP_SUMMARY
+              echo "Run again with dry_run=false to commit these changes." >> $GITHUB_STEP_SUMMARY
+            else
+              echo "✅ **Changes detected and committed**" >> $GITHUB_STEP_SUMMARY
+              echo "The deployment workflow will run automatically." >> $GITHUB_STEP_SUMMARY
+            fi
+          else
+            echo "ℹ️ **No new changes** - data is up to date." >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f penalty_notices.json ]; then
+            NOTICES_COUNT=$(python3 -c "import json; print(len(json.load(open('penalty_notices.json'))))")
+            echo "- **Total penalty notices:** $NOTICES_COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f grouped_locations.json ]; then
+            GROUPS_COUNT=$(python3 -c "import json; print(len(json.load(open('grouped_locations.json'))))")
+            echo "- **Total location groups:** $GROUPS_COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f failed_geocoding.json ]; then
+            FAILED_COUNT=$(python3 -c "import json; f=json.load(open('failed_geocoding.json')); print(len(f) if isinstance(f, list) else 0)")
+            if [ "$FAILED_COUNT" -gt 0 ]; then
+              echo "- ⚠️ **Failed geocodings:** $FAILED_COUNT (see artifact)" >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Next run:** Every Monday at 9:00 AM UTC" >> $GITHUB_STEP_SUMMARY
+

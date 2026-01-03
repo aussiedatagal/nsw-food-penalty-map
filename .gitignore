@@ -55,3 +55,6 @@ frontend/.vite/
 # Logs
 logs
 *.log
+
+# Data processing artifacts
+failed_geocoding.json
