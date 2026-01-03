@@ -93,6 +93,14 @@ def create_penalty_dict(notice: Dict) -> Dict:
     return json.loads(json.dumps(notice))
 
 
+def penalty_exists_in_group(group: Dict, penalty_notice_number: str) -> bool:
+    """Check if a penalty notice already exists in a group's penalties array."""
+    for penalty in group.get("penalties", []):
+        if penalty.get("penalty_notice_number") == penalty_notice_number:
+            return True
+    return False
+
+
 def main():
     """Main grouping function."""
     data_file = Path("penalty_notices.json")
@@ -105,6 +113,18 @@ def main():
     
     print(f"Loaded {len(penalty_notices)} penalty notices")
     
+    # Load existing grouped locations
+    existing_groups: List[Dict] = []
+    if output_file.exists():
+        try:
+            with open(output_file, 'r', encoding='utf-8') as f:
+                existing_groups = json.load(f)
+            print(f"Loaded {len(existing_groups)} existing location groups")
+        except Exception as e:
+            print(f"Warning: Could not load existing grouped locations: {e}")
+            existing_groups = []
+    
+    # Get all geocoded notices
     geocoded_notices = []
     skipped_count = 0
     
@@ -122,9 +142,27 @@ def main():
     print(f"Skipped {skipped_count} notices without geocoding")
     print(f"Processing {len(geocoded_notices)} geocoded notices")
     
-    groups: List[Dict] = []
+    # Create a set of penalty notice numbers that are already in groups
+    existing_penalty_numbers = set()
+    for group in existing_groups:
+        for penalty in group.get("penalties", []):
+            penalty_num = penalty.get("penalty_notice_number")
+            if penalty_num:
+                existing_penalty_numbers.add(penalty_num)
     
+    # Only process notices that aren't already in groups (or need updating)
+    notices_to_process = []
     for notice in geocoded_notices:
+        penalty_num = notice.get("penalty_notice_number")
+        if penalty_num not in existing_penalty_numbers:
+            notices_to_process.append(notice)
+    
+    print(f"Found {len(notices_to_process)} new notices to add to groups")
+    
+    # Start with existing groups
+    groups = existing_groups.copy()
+    
+    for notice in notices_to_process:
         address = notice.get("address", {})
         lat = address.get("lat")
         lon = address.get("lon")
@@ -170,9 +208,20 @@ def main():
                     break
         
         penalty = create_penalty_dict(notice)
+        penalty_notice_number = notice.get("penalty_notice_number", "")
         
         if matched_group:
-            matched_group["penalties"].append(penalty)
+            # Check if this penalty already exists in the group
+            if not penalty_exists_in_group(matched_group, penalty_notice_number):
+                matched_group["penalties"].append(penalty)
+                print(f"  Added penalty {penalty_notice_number} to existing location: {name}")
+            else:
+                # Update existing penalty
+                for idx, existing_penalty in enumerate(matched_group.get("penalties", [])):
+                    if existing_penalty.get("penalty_notice_number") == penalty_notice_number:
+                        matched_group["penalties"][idx] = penalty
+                        print(f"  Updated penalty {penalty_notice_number} in existing location: {name}")
+                        break
             if not matched_group.get("party_served") and party_served:
                 matched_group["party_served"] = party_served
         else:
@@ -191,6 +240,7 @@ def main():
                 "penalties": [penalty],
             }
             groups.append(new_group)
+            print(f"  Created new location: {name}")
     
     groups.sort(key=lambda g: normalize_name(g["name"]))
     
