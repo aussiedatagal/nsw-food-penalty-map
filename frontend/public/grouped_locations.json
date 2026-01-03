@@ -776,6 +776,65 @@
     }
   },
   {
+    "name": "ALI SUPERMARKET",
+    "address": {
+      "street": "160 HALDON STREET",
+      "city": "LAKEMBA",
+      "postal_code": "2195",
+      "full": "160 HALDON STREET, LAKEMBA, 2195",
+      "lat": -33.9183866,
+      "lon": 151.0761758
+    },
+    "council": "Canterbury-Bankstown",
+    "party_served": "ALI SUPERMARKET PTY LTD",
+    "penalties": [
+      {
+        "type": "penalty_notice",
+        "penalty_notice_number": "3289769423",
+        "name": "ALI SUPERMARKET",
+        "address": {
+          "street": "160 HALDON STREET",
+          "city": "LAKEMBA",
+          "postal_code": "2195",
+          "full": "160 HALDON STREET, LAKEMBA, 2195",
+          "lat": -33.9183866,
+          "lon": 151.0761758
+        },
+        "council": "Canterbury-Bankstown",
+        "date_of_offence": "2025-03-15T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Failed to effectively dispose of all sewage and waste water - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "ALI SUPERMARKET PTY LTD",
+        "date_issued": "2025-08-29T12:00:00Z",
+        "issued_by": "Canterbury Bankstown Council"
+      },
+      {
+        "type": "penalty_notice",
+        "penalty_notice_number": "3289769414",
+        "name": "ALI SUPERMARKET",
+        "address": {
+          "street": "160 HALDON STREET",
+          "city": "LAKEMBA",
+          "postal_code": "2195",
+          "full": "160 HALDON STREET, LAKEMBA, 2195",
+          "lat": -33.9183866,
+          "lon": 151.0761758
+        },
+        "council": "Canterbury-Bankstown",
+        "date_of_offence": "2025-03-14T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Failed to effectively dispose of all sewage and waste water - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "ALI SUPERMARKET PTY LTD",
+        "date_issued": "2025-08-29T12:00:00Z",
+        "issued_by": "Canterbury Bankstown Council"
+      }
+    ]
+  },
+  {
     "name": "AlphaEarth",
     "address": {
       "street": "396 Whian Whian Rd",
@@ -3502,6 +3561,43 @@
     }
   },
   {
+    "name": "BROASTER CHICKEN NEWTOWN",
+    "address": {
+      "street": "215 KING STREET",
+      "city": "NEWTOWN",
+      "postal_code": "2042",
+      "full": "215 KING STREET, NEWTOWN, 2042",
+      "lat": -33.8914115,
+      "lon": 151.1882583
+    },
+    "council": "City of Sydney",
+    "party_served": "INSPIRE AHAYA GROUP PTY LTD",
+    "penalties": [
+      {
+        "type": "penalty_notice",
+        "penalty_notice_number": "3295049093",
+        "name": "BROASTER CHICKEN NEWTOWN",
+        "address": {
+          "street": "215 KING STREET",
+          "city": "NEWTOWN",
+          "postal_code": "2042",
+          "full": "215 KING STREET, NEWTOWN, 2042",
+          "lat": -33.8914115,
+          "lon": 151.1882583
+        },
+        "council": "City of Sydney",
+        "date_of_offence": "2025-09-10T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises to the required standard of cleanliness - Previous warning given",
+        "penalty_amount": "$1980.00",
+        "party_served": "INSPIRE AHAYA GROUP PTY LTD",
+        "date_issued": "2025-09-11T12:00:00Z",
+        "issued_by": "The Council of the City of Sydney"
+      }
+    ]
+  },
+  {
     "name": "BROASTER CHICKEN RIVERSTONE",
     "address": {
       "street": "33 GARFIELD ROAD EAST",
@@ -3910,6 +4006,43 @@
     }
   },
   {
+    "name": "BUTTER BOY",
+    "address": {
+      "street": "1 BAY STREET",
+      "city": "GLEBE",
+      "postal_code": "GLEBE",
+      "full": "1 BAY STREET, GLEBE, GLEBE",
+      "lat": -33.8836883,
+      "lon": 151.1938767
+    },
+    "council": "City of Sydney",
+    "party_served": "RETAIL COOKIES PTY LTD",
+    "penalties": [
+      {
+        "type": "penalty_notice",
+        "penalty_notice_number": "3295044693",
+        "name": "BUTTER BOY",
+        "address": {
+          "street": "1 BAY STREET",
+          "city": "GLEBE",
+          "postal_code": "GLEBE",
+          "full": "1 BAY STREET, GLEBE, GLEBE",
+          "lat": -33.8836883,
+          "lon": 151.1938767
+        },
+        "council": "City of Sydney",
+        "date_of_offence": "2025-07-27T12:00:00Z",
+        "offence_code": "11331",
+        "offence_description": "Supply food not of nature required by purchaser - Corporation",
+        "offence_nature": "Supplied food that is not of the nature or substance demanded by the purchaser",
+        "penalty_amount": "$1540.00",
+        "party_served": "RETAIL COOKIES PTY LTD",
+        "date_issued": "2025-08-29T12:00:00Z",
+        "issued_by": "The Council of the City of Sydney"
+      }
+    ]
+  },
+  {
     "name": "CAFE LA LUCE",
     "address": {
       "street": "SHOP 3, 60 MILLER STREET",
@@ -4068,6 +4201,43 @@
       "lat": -33.7728999,
       "lon": 150.971111
     }
+  },
+  {
+    "name": "CALTEX KARUAH",
+    "address": {
+      "street": "403 TAREAN ROAD",
+      "city": "KARUAH",
+      "postal_code": "2324",
+      "full": "403 TAREAN ROAD, KARUAH, 2324",
+      "lat": -32.6528547,
+      "lon": 151.9490547
+    },
+    "council": "Port Stephens",
+    "party_served": "EASTERN FUELS PTY LTD",
+    "penalties": [
+      {
+        "type": "penalty_notice",
+        "penalty_notice_number": "3269749854",
+        "name": "CALTEX KARUAH",
+        "address": {
+          "street": "403 TAREAN ROAD",
+          "city": "KARUAH",
+          "postal_code": "2324",
+          "full": "403 TAREAN ROAD, KARUAH, 2324",
+          "lat": -32.6528547,
+          "lon": 151.9490547
+        },
+        "council": "Port Stephens",
+        "date_of_offence": "2025-08-13T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to ensure eating and drinking utensils is in a clean and sanitary condition - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "EASTERN FUELS PTY LTD",
+        "date_issued": "2025-08-20T12:00:00Z",
+        "issued_by": "Port Stephens Council"
+      }
+    ]
   },
   {
     "name": "CALVIN CREPES BELMORE",
@@ -10523,6 +10693,43 @@
     }
   },
   {
+    "name": "HOMERS WINMALEE",
+    "address": {
+      "street": "14 WHITE CROSS ROAD",
+      "city": "WINMALEE",
+      "postal_code": "2777",
+      "full": "14 WHITE CROSS ROAD, WINMALEE, 2777",
+      "lat": -33.6698794,
+      "lon": 150.6085651
+    },
+    "council": "Blue Mountains",
+    "party_served": "SHINDE AND FAMILY PTY LTD",
+    "penalties": [
+      {
+        "type": "penalty_notice",
+        "penalty_notice_number": "3286552583",
+        "name": "HOMERS WINMALEE",
+        "address": {
+          "street": "14 WHITE CROSS ROAD",
+          "city": "WINMALEE",
+          "postal_code": "2777",
+          "full": "14 WHITE CROSS ROAD, WINMALEE, 2777",
+          "lat": -33.6698794,
+          "lon": 150.6085651
+        },
+        "council": "Blue Mountains",
+        "date_of_offence": "2025-09-03T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain the food premises to the required standard of cleanliness",
+        "penalty_amount": "$1980.00",
+        "party_served": "SHINDE AND FAMILY PTY LTD",
+        "date_issued": "2025-09-15T12:00:00Z",
+        "issued_by": "Blue Mountains City Council"
+      }
+    ]
+  },
+  {
     "name": "HONG KONG KITCHEN",
     "address": {
       "street": "445 VICTORIA AVENUE",
@@ -16393,6 +16600,65 @@
     }
   },
   {
+    "name": "ORANGE SUPERMARKET",
+    "address": {
+      "street": "SHOP 6/6 DISCOVERY POINT PLACE",
+      "city": "WOLLI CREEK",
+      "postal_code": "2205",
+      "full": "SHOP 6/6 DISCOVERY POINT PLACE, WOLLI CREEK, 2205",
+      "lat": -33.9289673,
+      "lon": 151.154176
+    },
+    "council": "Bayside",
+    "party_served": "DISCOVERY POINT TRADING PTY LTD",
+    "penalties": [
+      {
+        "type": "penalty_notice",
+        "penalty_notice_number": "3284919579",
+        "name": "ORANGE SUPERMARKET",
+        "address": {
+          "street": "SHOP 6/6 DISCOVERY POINT PLACE",
+          "city": "WOLLI CREEK",
+          "postal_code": "2205",
+          "full": "SHOP 6/6 DISCOVERY POINT PLACE, WOLLI CREEK, 2205",
+          "lat": -33.9289673,
+          "lon": 151.154176
+        },
+        "council": "Bayside",
+        "date_of_offence": "2025-07-25T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain at or near each hand washing facility a supply of - soap",
+        "penalty_amount": "$880.00",
+        "party_served": "DISCOVERY POINT TRADING PTY LTD",
+        "date_issued": "2025-07-28T12:00:00Z",
+        "issued_by": "Bayside Council"
+      },
+      {
+        "type": "penalty_notice",
+        "penalty_notice_number": "3284919588",
+        "name": "ORANGE SUPERMARKET",
+        "address": {
+          "street": "SHOP 6/6 DISCOVERY POINT PLACE",
+          "city": "WOLLI CREEK",
+          "postal_code": "2205",
+          "full": "SHOP 6/6 DISCOVERY POINT PLACE, WOLLI CREEK, 2205",
+          "lat": -33.9289673,
+          "lon": 151.154176
+        },
+        "council": "Bayside",
+        "date_of_offence": "2025-07-25T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain at or near each hand washing facility a supply of - single use towels or other means of effectively drying hands",
+        "penalty_amount": "$880.00",
+        "party_served": "DISCOVERY POINT TRADING PTY LTD",
+        "date_issued": "2025-07-28T12:00:00Z",
+        "issued_by": "Bayside Council"
+      }
+    ]
+  },
+  {
     "name": "OSAKA JAPANESE TEPPANYAKI RESTAURANT",
     "address": {
       "street": "SHOP 4, 38-46 ALBANY STREET",
@@ -18303,6 +18569,43 @@
       "lat": -32.7604938,
       "lon": 151.5915236
     }
+  },
+  {
+    "name": "RED CHILLI SICHUAN RESTAURANT",
+    "address": {
+      "street": "LEVEL 1, 272 VICTORIA AVENUE",
+      "city": "CHATSWOOD",
+      "postal_code": "2067",
+      "full": "LEVEL 1, 272 VICTORIA AVENUE, CHATSWOOD, 2067",
+      "lat": -33.7953227,
+      "lon": 151.1872213
+    },
+    "council": "Willoughby",
+    "party_served": "DECHO ENTERPRISE PTY LTD",
+    "penalties": [
+      {
+        "type": "penalty_notice",
+        "penalty_notice_number": "3272427649",
+        "name": "RED CHILLI SICHUAN RESTAURANT",
+        "address": {
+          "street": "LEVEL 1, 272 VICTORIA AVENUE",
+          "city": "CHATSWOOD",
+          "postal_code": "2067",
+          "full": "LEVEL 1, 272 VICTORIA AVENUE, CHATSWOOD, 2067",
+          "lat": -33.7953227,
+          "lon": 151.1872213
+        },
+        "council": "Willoughby",
+        "date_of_offence": "2025-07-29T12:00:00Z",
+        "offence_code": "11339",
+        "offence_description": "Fail to comply with Food Standards Code - Corporation",
+        "offence_nature": "Fail to maintain all fixtures, fittings and equipment to the required standard of cleanliness - Previous warnings given",
+        "penalty_amount": "$880.00",
+        "party_served": "DECHO ENTERPRISE PTY LTD",
+        "date_issued": "2025-08-08T12:00:00Z",
+        "issued_by": "Willoughby City Council"
+      }
+    ]
   },
   {
     "name": "RED LEA MOUNT DRUITT",
